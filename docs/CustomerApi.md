@@ -22,14 +22,14 @@ require 'dear-inventory-ruby'
 # setup authorization
 DearInventoryRuby.configure do |config|
   # Configure API key authorization: accountID
-  config.api_key['api_auth_accountid'] = 'YOUR API KEY'
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['api_auth_accountid'] = 'Bearer'
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
 
   # Configure API key authorization: appKey
-  config.api_key['api_auth_applicationkey'] = 'YOUR API KEY'
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['api_auth_applicationkey'] = 'Bearer'
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
 end
 
 api_instance = DearInventoryRuby::CustomerApi.new

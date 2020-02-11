@@ -192,15 +192,15 @@ module DearInventoryRuby
           {
             type: 'api_key',
             in: 'header',
-            key: 'api_auth_accountid',
-            value: api_key_with_prefix('api_auth_accountid')
+            key: 'api-auth-accountid',
+            value: api_key_with_prefix('api-auth-accountid')
           },
         'appKey' =>
           {
             type: 'api_key',
             in: 'header',
-            key: 'api_auth_applicationkey',
-            value: api_key_with_prefix('api_auth_applicationkey')
+            key: 'api-auth-applicationkey',
+            value: api_key_with_prefix('api-auth-applicationkey')
           },
       }
     end
