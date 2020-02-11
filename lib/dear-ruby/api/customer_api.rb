@@ -21,7 +21,12 @@ module DearRuby
     end
     # Allows you to retrieve the customers
     # @param [Hash] opts the optional parameters
-    # @option opts [] :UNKNOWN_PARAMETER_NAME 
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :id Default is null
+    # @option opts [String] :name Default is null
+    # @option opts [String] :modified_since Default is null
+    # @option opts [String] :include_deprecated Default is false (default to 'false')
     # @return [Customers]
     def get_customers(opts = {})
       data, _status_code, _headers = get_customers_with_http_info(opts)
@@ -30,7 +35,12 @@ module DearRuby
 
     # Allows you to retrieve the customers
     # @param [Hash] opts the optional parameters
-    # @option opts [] :UNKNOWN_PARAMETER_NAME 
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :id Default is null
+    # @option opts [String] :name Default is null
+    # @option opts [String] :modified_since Default is null
+    # @option opts [String] :include_deprecated Default is false
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def get_customers_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -41,6 +51,12 @@ module DearRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'ModifiedSince'] = opts[:'modified_since'] if !opts[:'modified_since'].nil?
+      query_params[:'IncludeDeprecated'] = opts[:'include_deprecated'] if !opts[:'include_deprecated'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -57,7 +73,7 @@ module DearRuby
       return_type = opts[:return_type] || 'Customers' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
 
       new_options = opts.merge(
         :header_params => header_params,

@@ -79,23 +79,32 @@ module DearRuby
     # Additional attribute 4 value
     attr_accessor :additional_attribute4
 
-    # Additional attribute 5 value.
+    # Additional attribute 5 value
     attr_accessor :additional_attribute5
 
-    # Additional attribute 6 value.
+    # Additional attribute 6 value
     attr_accessor :additional_attribute6
 
-    # Additional attribute 7 value.
+    # Additional attribute 7 value
     attr_accessor :additional_attribute7
 
-    # Additional attribute 8 value.
+    # Additional attribute 8 value
     attr_accessor :additional_attribute8
 
-    # Additional attribute 9 value.
+    # Additional attribute 9 value
     attr_accessor :additional_attribute9
 
-    # Additional attribute 10 value.
+    # Additional attribute 10 value
     attr_accessor :additional_attribute10
+
+    # Date of last modification
+    attr_accessor :last_modified_on
+
+    # List of addresses
+    attr_accessor :addresses
+
+    # List of contacts
+    attr_accessor :contacts
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -149,7 +158,10 @@ module DearRuby
         :'additional_attribute7' => :'AdditionalAttribute7',
         :'additional_attribute8' => :'AdditionalAttribute8',
         :'additional_attribute9' => :'AdditionalAttribute9',
-        :'additional_attribute10' => :'AdditionalAttribute10'
+        :'additional_attribute10' => :'AdditionalAttribute10',
+        :'last_modified_on' => :'LastModifiedOn',
+        :'addresses' => :'Addresses',
+        :'contacts' => :'Contacts'
       }
     end
 
@@ -183,7 +195,10 @@ module DearRuby
         :'additional_attribute7' => :'String',
         :'additional_attribute8' => :'String',
         :'additional_attribute9' => :'String',
-        :'additional_attribute10' => :'String'
+        :'additional_attribute10' => :'String',
+        :'last_modified_on' => :'String',
+        :'addresses' => :'Array<Address>',
+        :'contacts' => :'Array<Contact>'
       }
     end
 
@@ -319,18 +334,34 @@ module DearRuby
       if attributes.key?(:'additional_attribute10')
         self.additional_attribute10 = attributes[:'additional_attribute10']
       end
+
+      if attributes.key?(:'last_modified_on')
+        self.last_modified_on = attributes[:'last_modified_on']
+      end
+
+      if attributes.key?(:'addresses')
+        if (value = attributes[:'addresses']).is_a?(Array)
+          self.addresses = value
+        end
+      end
+
+      if attributes.key?(:'contacts')
+        if (value = attributes[:'contacts']).is_a?(Array)
+          self.contacts = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length > 255
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 255.')
+      if !@name.nil? && @name.to_s.length > 256
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
       end
 
-      if !@comments.nil? && @comments.to_s.length > 255
-        invalid_properties.push('invalid value for "comments", the character length must be smaller than or equal to 255.')
+      if !@comments.nil? && @comments.to_s.length > 256
+        invalid_properties.push('invalid value for "comments", the character length must be smaller than or equal to 256.')
       end
 
       invalid_properties
@@ -339,18 +370,18 @@ module DearRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@name.nil? && @name.to_s.length > 255
+      return false if !@name.nil? && @name.to_s.length > 256
       status_validator = EnumAttributeValidator.new('String', ["Active", "Deprecated"])
       return false unless status_validator.valid?(@status)
-      return false if !@comments.nil? && @comments.to_s.length > 255
+      return false if !@comments.nil? && @comments.to_s.length > 256
       true
     end
 
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      if !name.nil? && name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 255.'
+      if !name.nil? && name.to_s.length > 256
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
       end
 
       @name = name
@@ -369,8 +400,8 @@ module DearRuby
     # Custom attribute writer method with validation
     # @param [Object] comments Value to be assigned
     def comments=(comments)
-      if !comments.nil? && comments.to_s.length > 255
-        fail ArgumentError, 'invalid value for "comments", the character length must be smaller than or equal to 255.'
+      if !comments.nil? && comments.to_s.length > 256
+        fail ArgumentError, 'invalid value for "comments", the character length must be smaller than or equal to 256.'
       end
 
       @comments = comments
@@ -408,7 +439,10 @@ module DearRuby
           additional_attribute7 == o.additional_attribute7 &&
           additional_attribute8 == o.additional_attribute8 &&
           additional_attribute9 == o.additional_attribute9 &&
-          additional_attribute10 == o.additional_attribute10
+          additional_attribute10 == o.additional_attribute10 &&
+          last_modified_on == o.last_modified_on &&
+          addresses == o.addresses &&
+          contacts == o.contacts
     end
 
     # @see the `==` method
@@ -420,7 +454,7 @@ module DearRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, status, currency, payment_term, account_receivable, revenue_account, tax_rule, price_tier, carrier, sales_representative, location, discount, comments, tax_number, credit_limit, tags, attribute_set, additional_attribute1, additional_attribute2, additional_attribute3, additional_attribute4, additional_attribute5, additional_attribute6, additional_attribute7, additional_attribute8, additional_attribute9, additional_attribute10].hash
+      [id, name, status, currency, payment_term, account_receivable, revenue_account, tax_rule, price_tier, carrier, sales_representative, location, discount, comments, tax_number, credit_limit, tags, attribute_set, additional_attribute1, additional_attribute2, additional_attribute3, additional_attribute4, additional_attribute5, additional_attribute6, additional_attribute7, additional_attribute8, additional_attribute9, additional_attribute10, last_modified_on, addresses, contacts].hash
     end
 
     # Builds the object from hash

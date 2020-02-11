@@ -57,9 +57,27 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'dear-ruby'
 
+# Setup authorization
+DearRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api_auth_accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api_auth_accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api_auth_applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api_auth_applicationkey'] = 'Bearer'
+end
+
 api_instance = DearRuby::CustomerApi.new
 opts = {
-  UNKNOWN_PARAMETER_NAME: DearRuby::null.new #  | 
+  page: '1', # String | Default is 1
+  limit: '100', # String | Default is 100
+  id: 'id_example', # String | Default is null
+  name: 'name_example', # String | Default is null
+  modified_since: 'modified_since_example', # String | Default is null
+  include_deprecated: 'false' # String | Default is false
 }
 
 begin
@@ -83,9 +101,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [DearRuby::Address](docs/Address.md)
+ - [DearRuby::Contact](docs/Contact.md)
  - [DearRuby::CurrencyCode](docs/CurrencyCode.md)
  - [DearRuby::Customer](docs/Customer.md)
  - [DearRuby::Customers](docs/Customers.md)
+ - [DearRuby::Error](docs/Error.md)
 
 
 ## Documentation for Authorization

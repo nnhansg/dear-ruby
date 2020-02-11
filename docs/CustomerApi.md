@@ -19,10 +19,27 @@ Allows you to retrieve the customers
 ```ruby
 # load the gem
 require 'dear-ruby'
+# setup authorization
+DearRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api_auth_accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api_auth_accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api_auth_applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api_auth_applicationkey'] = 'Bearer'
+end
 
 api_instance = DearRuby::CustomerApi.new
 opts = {
-  UNKNOWN_PARAMETER_NAME: DearRuby::null.new #  | 
+  page: '1', # String | Default is 1
+  limit: '100', # String | Default is 100
+  id: 'id_example', # String | Default is null
+  name: 'name_example', # String | Default is null
+  modified_since: 'modified_since_example', # String | Default is null
+  include_deprecated: 'false' # String | Default is false
 }
 
 begin
@@ -39,7 +56,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](.md)|  | [optional] 
+ **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
+ **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
+ **id** | **String**| Default is null | [optional] 
+ **name** | **String**| Default is null | [optional] 
+ **modified_since** | **String**| Default is null | [optional] 
+ **include_deprecated** | **String**| Default is false | [optional] [default to &#39;false&#39;]
 
 ### Return type
 
@@ -47,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
 
 ### HTTP request headers
 

@@ -35,7 +35,12 @@ describe 'CustomerApi' do
   # unit tests for get_customers
   # Allows you to retrieve the customers
   # @param [Hash] opts the optional parameters
-  # @option opts [] :UNKNOWN_PARAMETER_NAME 
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :id Default is null
+  # @option opts [String] :name Default is null
+  # @option opts [String] :modified_since Default is null
+  # @option opts [String] :include_deprecated Default is false
   # @return [Customers]
   describe 'get_customers test' do
     it 'should work' do

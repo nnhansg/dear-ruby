@@ -17,9 +17,12 @@ require 'dear-ruby/version'
 require 'dear-ruby/configuration'
 
 # Models
+require 'dear-ruby/models/address'
+require 'dear-ruby/models/contact'
 require 'dear-ruby/models/currency_code'
 require 'dear-ruby/models/customer'
 require 'dear-ruby/models/customers'
+require 'dear-ruby/models/error'
 
 # APIs
 require 'dear-ruby/api/customer_api'
