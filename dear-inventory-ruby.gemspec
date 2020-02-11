@@ -25,6 +25,12 @@ Gem::Specification.new do |s|
   s.summary     = "DEAR Inventory Ruby SDK generated from DEAR-OpenAPI Spec 3.0 for https://inventory.dearsystems.com"
   s.description = "DEAR Inventory Ruby SDK generated from DEAR-OpenAPI Spec 3.0 for https://inventory.dearsystems.com"
   s.license     = 'MIT'
+
+  s.metadata['homepage_uri'] = s.homepage
+  s.metadata['source_code_uri'] = "https://github.com/nnhansg/dear-ruby"
+  s.metadata['changelog_uri'] = "https://github.com/nnhansg/dear-ruby/blob/master/CHANGELOG.md"
+  s.metadata['bug_tracker_uri'] = "https://github.com/nnhansg/dear-ruby/issues"
+
   s.required_ruby_version = ">= 1.9"
 
   s.add_runtime_dependency 'faraday', '>= 0.14.0'
