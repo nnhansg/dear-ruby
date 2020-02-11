@@ -12,27 +12,32 @@ OpenAPI Generator version: 4.2.3
 
 require 'date'
 
-module DearRuby
-  class Error
-    # Exception number
-    attr_accessor :error_code
+module DearInventoryRuby
+  class Customers
+    # Total
+    attr_accessor :total
 
-    # Exception message
-    attr_accessor :exception
+    # Page
+    attr_accessor :page
+
+    # Array of Customers
+    attr_accessor :customer_list
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'error_code' => :'ErrorCode',
-        :'exception' => :'Exception'
+        :'total' => :'Total',
+        :'page' => :'Page',
+        :'customer_list' => :'CustomerList'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'error_code' => :'Integer',
-        :'exception' => :'String'
+        :'total' => :'String',
+        :'page' => :'String',
+        :'customer_list' => :'Array<Customer>'
       }
     end
 
@@ -46,23 +51,29 @@ module DearRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearRuby::Error` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Customers` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearRuby::Error`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Customers`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'error_code')
-        self.error_code = attributes[:'error_code']
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
       end
 
-      if attributes.key?(:'exception')
-        self.exception = attributes[:'exception']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
+      end
+
+      if attributes.key?(:'customer_list')
+        if (value = attributes[:'customer_list']).is_a?(Array)
+          self.customer_list = value
+        end
       end
     end
 
@@ -84,8 +95,9 @@ module DearRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error_code == o.error_code &&
-          exception == o.exception
+          total == o.total &&
+          page == o.page &&
+          customer_list == o.customer_list
     end
 
     # @see the `==` method
@@ -97,7 +109,7 @@ module DearRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [error_code, exception].hash
+      [total, page, customer_list].hash
     end
 
     # Builds the object from hash
@@ -164,7 +176,7 @@ module DearRuby
           end
         end
       else # model
-        DearRuby.const_get(type).build_from_hash(value)
+        DearInventoryRuby.const_get(type).build_from_hash(value)
       end
     end
 

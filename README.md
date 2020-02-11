@@ -1,6 +1,6 @@
-# dear-ruby
+# dear-inventory-ruby
 
-DearRuby - the Ruby gem for the DEAR Inventory API
+DearInventoryRuby - the Ruby gem for the DEAR Inventory API
 
 This specifing endpoints for DEAR Inventory API
 
@@ -18,28 +18,28 @@ For more information, please visit [https://www.nnhan.me](https://www.nnhan.me)
 To build the Ruby code into a gem:
 
 ```shell
-gem build dear-ruby.gemspec
+gem build dear-inventory-ruby.gemspec
 ```
 
 Then either install the gem locally:
 
 ```shell
-gem install ./dear-ruby-0.1.0.gem
+gem install ./dear-inventory-ruby-0.1.0.gem
 ```
 
-(for development, run `gem install --dev ./dear-ruby-0.1.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./dear-inventory-ruby-0.1.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'dear-ruby', '~> 0.1.0'
+    gem 'dear-inventory-ruby', '~> 0.1.0'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
 
-    gem 'dear-ruby', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'dear-inventory-ruby', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 
 ### Include the Ruby code directly
 
@@ -55,10 +55,10 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```ruby
 # Load the gem
-require 'dear-ruby'
+require 'dear-inventory-ruby'
 
 # Setup authorization
-DearRuby.configure do |config|
+DearInventoryRuby.configure do |config|
   # Configure API key authorization: accountID
   config.api_key['api_auth_accountid'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
@@ -70,7 +70,7 @@ DearRuby.configure do |config|
   #config.api_key_prefix['api_auth_applicationkey'] = 'Bearer'
 end
 
-api_instance = DearRuby::CustomerApi.new
+api_instance = DearInventoryRuby::CustomerApi.new
 opts = {
   page: '1', # String | Default is 1
   limit: '100', # String | Default is 100
@@ -84,7 +84,7 @@ begin
   #Allows you to retrieve the customers
   result = api_instance.get_customers(opts)
   p result
-rescue DearRuby::ApiError => e
+rescue DearInventoryRuby::ApiError => e
   puts "Exception when calling CustomerApi->get_customers: #{e}"
 end
 
@@ -96,17 +96,17 @@ All URIs are relative to *https://inventory.dearsystems.com/ExternalApi/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DearRuby::CustomerApi* | [**get_customers**](docs/CustomerApi.md#get_customers) | **GET** /customer | Allows you to retrieve the customers
+*DearInventoryRuby::CustomerApi* | [**get_customers**](docs/CustomerApi.md#get_customers) | **GET** /customer | Allows you to retrieve the customers
 
 
 ## Documentation for Models
 
- - [DearRuby::Address](docs/Address.md)
- - [DearRuby::Contact](docs/Contact.md)
- - [DearRuby::CurrencyCode](docs/CurrencyCode.md)
- - [DearRuby::Customer](docs/Customer.md)
- - [DearRuby::Customers](docs/Customers.md)
- - [DearRuby::Error](docs/Error.md)
+ - [DearInventoryRuby::Address](docs/Address.md)
+ - [DearInventoryRuby::Contact](docs/Contact.md)
+ - [DearInventoryRuby::CurrencyCode](docs/CurrencyCode.md)
+ - [DearInventoryRuby::Customer](docs/Customer.md)
+ - [DearInventoryRuby::Customers](docs/Customers.md)
+ - [DearInventoryRuby::Error](docs/Error.md)
 
 
 ## Documentation for Authorization

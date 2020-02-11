@@ -12,7 +12,7 @@ OpenAPI Generator version: 4.2.3
 
 require 'cgi'
 
-module DearRuby
+module DearInventoryRuby
   class CustomerApi
     attr_accessor :api_client
 

@@ -10,7 +10,7 @@ OpenAPI Generator version: 4.2.3
 
 =end
 
-module DearRuby
+module DearInventoryRuby
   class ApiError < StandardError
     attr_reader :code, :response_headers, :response_body
 

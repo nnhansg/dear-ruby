@@ -1,4 +1,4 @@
-# DearRuby::Customer
+# DearInventoryRuby::Customer
 
 ## Properties
 
@@ -39,9 +39,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'DearRuby'
+require 'DearInventoryRuby'
 
-instance = DearRuby::Customer.new(id: null,
+instance = DearInventoryRuby::Customer.new(id: null,
                                  name: null,
                                  status: null,
                                  currency: null,

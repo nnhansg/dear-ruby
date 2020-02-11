@@ -12,14 +12,14 @@ OpenAPI Generator version: 4.2.3
 
 require 'spec_helper'
 
-describe DearRuby::Configuration do
-  let(:config) { DearRuby::Configuration.default }
+describe DearInventoryRuby::Configuration do
+  let(:config) { DearInventoryRuby::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     # require 'URI'
     # uri = URI.parse("https://inventory.dearsystems.com/ExternalApi/v2")
-    # DearRuby.configure do |c|
+    # DearInventoryRuby.configure do |c|
     #   c.host = uri.host
     #   c.base_path = uri.path
     # end

@@ -12,7 +12,7 @@ OpenAPI Generator version: 4.2.3
 
 require 'date'
 
-module DearRuby
+module DearInventoryRuby
   class CurrencyCode
     AED = "AED".freeze
     AFN = "AFN".freeze

@@ -16,7 +16,7 @@ require 'logger'
 require 'tempfile'
 require 'faraday'
 
-module DearRuby
+module DearInventoryRuby
   class ApiClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -30,7 +30,7 @@ module DearRuby
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "dear-ruby-#{VERSION}"
+      @user_agent = "dear-inventory-ruby-#{VERSION}"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
@@ -253,7 +253,7 @@ module DearRuby
         end
       else
         # models, e.g. Pet
-        DearRuby.const_get(return_type).build_from_hash(data)
+        DearInventoryRuby.const_get(return_type).build_from_hash(data)
       end
     end
 

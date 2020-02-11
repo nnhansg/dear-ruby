@@ -1,4 +1,4 @@
-# DearRuby::CustomerApi
+# DearInventoryRuby::CustomerApi
 
 All URIs are relative to *https://inventory.dearsystems.com/ExternalApi/v2*
 
@@ -18,9 +18,9 @@ Allows you to retrieve the customers
 
 ```ruby
 # load the gem
-require 'dear-ruby'
+require 'dear-inventory-ruby'
 # setup authorization
-DearRuby.configure do |config|
+DearInventoryRuby.configure do |config|
   # Configure API key authorization: accountID
   config.api_key['api_auth_accountid'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
@@ -32,7 +32,7 @@ DearRuby.configure do |config|
   #config.api_key_prefix['api_auth_applicationkey'] = 'Bearer'
 end
 
-api_instance = DearRuby::CustomerApi.new
+api_instance = DearInventoryRuby::CustomerApi.new
 opts = {
   page: '1', # String | Default is 1
   limit: '100', # String | Default is 100
@@ -46,7 +46,7 @@ begin
   #Allows you to retrieve the customers
   result = api_instance.get_customers(opts)
   p result
-rescue DearRuby::ApiError => e
+rescue DearInventoryRuby::ApiError => e
   puts "Exception when calling CustomerApi->get_customers: #{e}"
 end
 ```

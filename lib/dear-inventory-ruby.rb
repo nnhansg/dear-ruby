@@ -11,26 +11,26 @@ OpenAPI Generator version: 4.2.3
 =end
 
 # Common files
-require 'dear-ruby/api_client'
-require 'dear-ruby/api_error'
-require 'dear-ruby/version'
-require 'dear-ruby/configuration'
+require 'dear-inventory-ruby/api_client'
+require 'dear-inventory-ruby/api_error'
+require 'dear-inventory-ruby/version'
+require 'dear-inventory-ruby/configuration'
 
 # Models
-require 'dear-ruby/models/address'
-require 'dear-ruby/models/contact'
-require 'dear-ruby/models/currency_code'
-require 'dear-ruby/models/customer'
-require 'dear-ruby/models/customers'
-require 'dear-ruby/models/error'
+require 'dear-inventory-ruby/models/address'
+require 'dear-inventory-ruby/models/contact'
+require 'dear-inventory-ruby/models/currency_code'
+require 'dear-inventory-ruby/models/customer'
+require 'dear-inventory-ruby/models/customers'
+require 'dear-inventory-ruby/models/error'
 
 # APIs
-require 'dear-ruby/api/customer_api'
+require 'dear-inventory-ruby/api/customer_api'
 
-module DearRuby
+module DearInventoryRuby
   class << self
     # Customize default settings for the SDK using block.
-    #   DearRuby.configure do |config|
+    #   DearInventoryRuby.configure do |config|
     #     config.username = "xxx"
     #     config.password = "xxx"
     #   end

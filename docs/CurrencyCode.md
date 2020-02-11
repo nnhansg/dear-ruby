@@ -1,4 +1,4 @@
-# DearRuby::CurrencyCode
+# DearInventoryRuby::CurrencyCode
 
 ## Properties
 
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'DearRuby'
+require 'DearInventoryRuby'
 
-instance = DearRuby::CurrencyCode.new()
+instance = DearInventoryRuby::CurrencyCode.new()
 ```
 
 

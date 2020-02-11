@@ -12,69 +12,47 @@ OpenAPI Generator version: 4.2.3
 
 require 'date'
 
-module DearRuby
-  class Address
+module DearInventoryRuby
+  class Contact
     # If passed in PUT method, entry will be searched by id, found entry will be updated, otherwise created
     attr_accessor :id
 
-    # Address Line 1
-    attr_accessor :line1
+    # Name of Contact
+    attr_accessor :name
 
-    # Address Line 2
-    attr_accessor :line2
+    # Phone
+    attr_accessor :phone
 
-    # City / Suburb
-    attr_accessor :city
+    # Fax
+    attr_accessor :fax
 
-    # State / Province
-    attr_accessor :state
+    # Email
+    attr_accessor :email
 
-    # Zip / PostCode
-    attr_accessor :post_code
+    # Website
+    attr_accessor :website
 
-    # Country name
-    attr_accessor :country
+    # Comment
+    attr_accessor :comment
 
-    # Address Type. Should be one of the following values: `Billing`, `Business` or `Shipping`.
-    attr_accessor :type
+    # Points that Contact is used as default. `false` as default.
+    attr_accessor :default
 
-    # Points that Address is used as default for chosen Type. `false` as default.
-    attr_accessor :default_for_type
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Points that Contact is included in Email. `false` as default.
+    attr_accessor :include_in_email
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'ID',
-        :'line1' => :'Line1',
-        :'line2' => :'Line2',
-        :'city' => :'City',
-        :'state' => :'State',
-        :'post_code' => :'PostCode',
-        :'country' => :'Country',
-        :'type' => :'Type',
-        :'default_for_type' => :'DefaultForType'
+        :'name' => :'Name',
+        :'phone' => :'Phone',
+        :'fax' => :'Fax',
+        :'email' => :'Email',
+        :'website' => :'Website',
+        :'comment' => :'Comment',
+        :'default' => :'Default',
+        :'include_in_email' => :'IncludeInEmail'
       }
     end
 
@@ -82,14 +60,14 @@ module DearRuby
     def self.openapi_types
       {
         :'id' => :'String',
-        :'line1' => :'String',
-        :'line2' => :'String',
-        :'city' => :'String',
-        :'state' => :'String',
-        :'post_code' => :'String',
-        :'country' => :'String',
-        :'type' => :'String',
-        :'default_for_type' => :'Boolean'
+        :'name' => :'String',
+        :'phone' => :'String',
+        :'fax' => :'String',
+        :'email' => :'String',
+        :'website' => :'String',
+        :'comment' => :'String',
+        :'default' => :'Boolean',
+        :'include_in_email' => :'Boolean'
       }
     end
 
@@ -103,13 +81,13 @@ module DearRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearRuby::Address` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Contact` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearRuby::Address`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Contact`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -118,38 +96,40 @@ module DearRuby
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'line1')
-        self.line1 = attributes[:'line1']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'line2')
-        self.line2 = attributes[:'line2']
+      if attributes.key?(:'phone')
+        self.phone = attributes[:'phone']
       end
 
-      if attributes.key?(:'city')
-        self.city = attributes[:'city']
+      if attributes.key?(:'fax')
+        self.fax = attributes[:'fax']
       end
 
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
       end
 
-      if attributes.key?(:'post_code')
-        self.post_code = attributes[:'post_code']
+      if attributes.key?(:'website')
+        self.website = attributes[:'website']
       end
 
-      if attributes.key?(:'country')
-        self.country = attributes[:'country']
+      if attributes.key?(:'comment')
+        self.comment = attributes[:'comment']
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'default_for_type')
-        self.default_for_type = attributes[:'default_for_type']
+      if attributes.key?(:'default')
+        self.default = attributes[:'default']
       else
-        self.default_for_type = false
+        self.default = false
+      end
+
+      if attributes.key?(:'include_in_email')
+        self.include_in_email = attributes[:'include_in_email']
+      else
+        self.include_in_email = false
       end
     end
 
@@ -157,24 +137,28 @@ module DearRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@line1.nil? && @line1.to_s.length > 256
-        invalid_properties.push('invalid value for "line1", the character length must be smaller than or equal to 256.')
+      if !@name.nil? && @name.to_s.length > 256
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
       end
 
-      if !@line2.nil? && @line2.to_s.length > 256
-        invalid_properties.push('invalid value for "line2", the character length must be smaller than or equal to 256.')
+      if !@phone.nil? && @phone.to_s.length > 50
+        invalid_properties.push('invalid value for "phone", the character length must be smaller than or equal to 50.')
       end
 
-      if !@city.nil? && @city.to_s.length > 256
-        invalid_properties.push('invalid value for "city", the character length must be smaller than or equal to 256.')
+      if !@fax.nil? && @fax.to_s.length > 50
+        invalid_properties.push('invalid value for "fax", the character length must be smaller than or equal to 50.')
       end
 
-      if !@state.nil? && @state.to_s.length > 256
-        invalid_properties.push('invalid value for "state", the character length must be smaller than or equal to 256.')
+      if !@email.nil? && @email.to_s.length > 256
+        invalid_properties.push('invalid value for "email", the character length must be smaller than or equal to 256.')
       end
 
-      if !@post_code.nil? && @post_code.to_s.length > 20
-        invalid_properties.push('invalid value for "post_code", the character length must be smaller than or equal to 20.')
+      if !@website.nil? && @website.to_s.length > 256
+        invalid_properties.push('invalid value for "website", the character length must be smaller than or equal to 256.')
+      end
+
+      if !@comment.nil? && @comment.to_s.length > 256
+        invalid_properties.push('invalid value for "comment", the character length must be smaller than or equal to 256.')
       end
 
       invalid_properties
@@ -183,74 +167,73 @@ module DearRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@line1.nil? && @line1.to_s.length > 256
-      return false if !@line2.nil? && @line2.to_s.length > 256
-      return false if !@city.nil? && @city.to_s.length > 256
-      return false if !@state.nil? && @state.to_s.length > 256
-      return false if !@post_code.nil? && @post_code.to_s.length > 20
-      type_validator = EnumAttributeValidator.new('String', ["Billing", "Business", "Shipping"])
-      return false unless type_validator.valid?(@type)
+      return false if !@name.nil? && @name.to_s.length > 256
+      return false if !@phone.nil? && @phone.to_s.length > 50
+      return false if !@fax.nil? && @fax.to_s.length > 50
+      return false if !@email.nil? && @email.to_s.length > 256
+      return false if !@website.nil? && @website.to_s.length > 256
+      return false if !@comment.nil? && @comment.to_s.length > 256
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] line1 Value to be assigned
-    def line1=(line1)
-      if !line1.nil? && line1.to_s.length > 256
-        fail ArgumentError, 'invalid value for "line1", the character length must be smaller than or equal to 256.'
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if !name.nil? && name.to_s.length > 256
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
       end
 
-      @line1 = line1
+      @name = name
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] line2 Value to be assigned
-    def line2=(line2)
-      if !line2.nil? && line2.to_s.length > 256
-        fail ArgumentError, 'invalid value for "line2", the character length must be smaller than or equal to 256.'
+    # @param [Object] phone Value to be assigned
+    def phone=(phone)
+      if !phone.nil? && phone.to_s.length > 50
+        fail ArgumentError, 'invalid value for "phone", the character length must be smaller than or equal to 50.'
       end
 
-      @line2 = line2
+      @phone = phone
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] city Value to be assigned
-    def city=(city)
-      if !city.nil? && city.to_s.length > 256
-        fail ArgumentError, 'invalid value for "city", the character length must be smaller than or equal to 256.'
+    # @param [Object] fax Value to be assigned
+    def fax=(fax)
+      if !fax.nil? && fax.to_s.length > 50
+        fail ArgumentError, 'invalid value for "fax", the character length must be smaller than or equal to 50.'
       end
 
-      @city = city
+      @fax = fax
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] state Value to be assigned
-    def state=(state)
-      if !state.nil? && state.to_s.length > 256
-        fail ArgumentError, 'invalid value for "state", the character length must be smaller than or equal to 256.'
+    # @param [Object] email Value to be assigned
+    def email=(email)
+      if !email.nil? && email.to_s.length > 256
+        fail ArgumentError, 'invalid value for "email", the character length must be smaller than or equal to 256.'
       end
 
-      @state = state
+      @email = email
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] post_code Value to be assigned
-    def post_code=(post_code)
-      if !post_code.nil? && post_code.to_s.length > 20
-        fail ArgumentError, 'invalid value for "post_code", the character length must be smaller than or equal to 20.'
+    # @param [Object] website Value to be assigned
+    def website=(website)
+      if !website.nil? && website.to_s.length > 256
+        fail ArgumentError, 'invalid value for "website", the character length must be smaller than or equal to 256.'
       end
 
-      @post_code = post_code
+      @website = website
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ["Billing", "Business", "Shipping"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+    # Custom attribute writer method with validation
+    # @param [Object] comment Value to be assigned
+    def comment=(comment)
+      if !comment.nil? && comment.to_s.length > 256
+        fail ArgumentError, 'invalid value for "comment", the character length must be smaller than or equal to 256.'
       end
-      @type = type
+
+      @comment = comment
     end
 
     # Checks equality by comparing each attribute.
@@ -259,14 +242,14 @@ module DearRuby
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          line1 == o.line1 &&
-          line2 == o.line2 &&
-          city == o.city &&
-          state == o.state &&
-          post_code == o.post_code &&
-          country == o.country &&
-          type == o.type &&
-          default_for_type == o.default_for_type
+          name == o.name &&
+          phone == o.phone &&
+          fax == o.fax &&
+          email == o.email &&
+          website == o.website &&
+          comment == o.comment &&
+          default == o.default &&
+          include_in_email == o.include_in_email
     end
 
     # @see the `==` method
@@ -278,7 +261,7 @@ module DearRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, line1, line2, city, state, post_code, country, type, default_for_type].hash
+      [id, name, phone, fax, email, website, comment, default, include_in_email].hash
     end
 
     # Builds the object from hash
@@ -345,7 +328,7 @@ module DearRuby
           end
         end
       else # model
-        DearRuby.const_get(type).build_from_hash(value)
+        DearInventoryRuby.const_get(type).build_from_hash(value)
       end
     end
 

@@ -10,7 +10,7 @@ OpenAPI Generator version: 4.2.3
 
 =end
 
-module DearRuby
+module DearInventoryRuby
   class Configuration
     # Defines url scheme
     attr_accessor :scheme

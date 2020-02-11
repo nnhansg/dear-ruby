@@ -1,4 +1,4 @@
-# DearRuby::Error
+# DearInventoryRuby::Error
 
 ## Properties
 
@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ## Code Sample
 
 ```ruby
-require 'DearRuby'
+require 'DearInventoryRuby'
 
-instance = DearRuby::Error.new(error_code: null,
+instance = DearInventoryRuby::Error.new(error_code: null,
                                  exception: null)
 ```
 

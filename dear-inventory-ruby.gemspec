@@ -13,17 +13,17 @@ OpenAPI Generator version: 4.2.3
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "dear-ruby/version"
+require "dear-inventory-ruby/version"
 
 Gem::Specification.new do |s|
-  s.name        = "dear-ruby"
-  s.version     = DearRuby::VERSION
+  s.name        = "dear-inventory-ruby"
+  s.version     = DearInventoryRuby::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Nhan Nguyen"]
   s.email       = ["nnhansg@gmail.com"]
   s.homepage    = "https://inventory.dearsystems.com"
-  s.summary     = "DEAR Ruby SDK generated from DEAR-OpenAPI Spec 3.0 for https://inventory.dearsystems.com"
-  s.description = "DEAR Ruby SDK generated from DEAR-OpenAPI Spec 3.0 for https://inventory.dearsystems.com"
+  s.summary     = "DEAR Inventory Ruby SDK generated from DEAR-OpenAPI Spec 3.0 for https://inventory.dearsystems.com"
+  s.description = "DEAR Inventory Ruby SDK generated from DEAR-OpenAPI Spec 3.0 for https://inventory.dearsystems.com"
   s.license     = 'MIT'
   s.required_ruby_version = ">= 1.9"
 
