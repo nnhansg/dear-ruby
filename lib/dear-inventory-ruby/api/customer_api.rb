@@ -19,13 +19,78 @@ module DearInventoryRuby
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Allows you to create a customer
+    # @param customer [Customer] a Contact object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (default to false)
+    # @return [Customers]
+    def create_customer(customer, opts = {})
+      data, _status_code, _headers = create_customer_with_http_info(customer, opts)
+      data
+    end
+
+    # Allows you to create a customer
+    # @param customer [Customer] a Contact object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+    # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
+    def create_customer_with_http_info(customer, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomerApi.create_customer ...'
+      end
+      # verify the required parameter 'customer' is set
+      if @api_client.config.client_side_validation && customer.nil?
+        fail ArgumentError, "Missing the required parameter 'customer' when calling CustomerApi.create_customer"
+      end
+      # resource path
+      local_var_path = '/customer'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(customer) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Customers' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomerApi#create_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to retrieve the customers
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1 (default to '1')
     # @option opts [String] :limit Default is 100 (default to '100')
-    # @option opts [String] :id Default is null
-    # @option opts [String] :name Default is null
-    # @option opts [String] :modified_since Default is null
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [String] :modified_since Default is nil
     # @option opts [String] :include_deprecated Default is false (default to 'false')
     # @return [Customers]
     def get_customers(opts = {})
@@ -37,9 +102,9 @@ module DearInventoryRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1
     # @option opts [String] :limit Default is 100
-    # @option opts [String] :id Default is null
-    # @option opts [String] :name Default is null
-    # @option opts [String] :modified_since Default is null
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [String] :modified_since Default is nil
     # @option opts [String] :include_deprecated Default is false
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def get_customers_with_http_info(opts = {})
@@ -87,6 +152,71 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CustomerApi#get_customers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update a customer
+    # @param customer [Customer] a Contact object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (default to false)
+    # @return [Customers]
+    def update_customer(customer, opts = {})
+      data, _status_code, _headers = update_customer_with_http_info(customer, opts)
+      data
+    end
+
+    # Allows you to update a customer
+    # @param customer [Customer] a Contact object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+    # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
+    def update_customer_with_http_info(customer, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomerApi.update_customer ...'
+      end
+      # verify the required parameter 'customer' is set
+      if @api_client.config.client_side_validation && customer.nil?
+        fail ArgumentError, "Missing the required parameter 'customer' when calling CustomerApi.update_customer"
+      end
+      # resource path
+      local_var_path = '/customer'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(customer) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Customers' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomerApi#update_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

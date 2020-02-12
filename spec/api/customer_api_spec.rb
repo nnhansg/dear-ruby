@@ -32,17 +32,41 @@ describe 'CustomerApi' do
     end
   end
 
+  # unit tests for create_customer
+  # Allows you to create a customer
+  # @param customer a Contact object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  # @return [Customers]
+  describe 'create_customer test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_customers
   # Allows you to retrieve the customers
   # @param [Hash] opts the optional parameters
   # @option opts [String] :page Default is 1
   # @option opts [String] :limit Default is 100
-  # @option opts [String] :id Default is null
-  # @option opts [String] :name Default is null
-  # @option opts [String] :modified_since Default is null
+  # @option opts [String] :id Default is nil
+  # @option opts [String] :name Default is nil
+  # @option opts [String] :modified_since Default is nil
   # @option opts [String] :include_deprecated Default is false
   # @return [Customers]
   describe 'get_customers test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_customer
+  # Allows you to update a customer
+  # @param customer a Contact object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  # @return [Customers]
+  describe 'update_customer test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
