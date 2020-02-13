@@ -131,11 +131,13 @@ module DearInventoryRuby
           @config.logger.debug "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n"
         end
       end
+
       request.headers = header_params
       request.body = req_body
       request.url url
       request.params = query_params
       download_file(request) if opts[:return_type] == 'File'
+      @config.logger.debug "Call API => #{http_method.upcase}: #{url}"
       request
     end
 
