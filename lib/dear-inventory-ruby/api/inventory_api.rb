@@ -13,7 +13,7 @@ OpenAPI Generator version: 4.2.3
 require 'cgi'
 
 module DearInventoryRuby
-  class CustomerApi
+  class InventoryApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -36,11 +36,11 @@ module DearInventoryRuby
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def create_customer_with_http_info(customer, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomerApi.create_customer ...'
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_customer ...'
       end
       # verify the required parameter 'customer' is set
       if @api_client.config.client_side_validation && customer.nil?
-        fail ArgumentError, "Missing the required parameter 'customer' when calling CustomerApi.create_customer"
+        fail ArgumentError, "Missing the required parameter 'customer' when calling InventoryApi.create_customer"
       end
       # resource path
       local_var_path = '/customer'
@@ -79,7 +79,7 @@ module DearInventoryRuby
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomerApi#create_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InventoryApi#create_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -109,7 +109,7 @@ module DearInventoryRuby
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def get_customers_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomerApi.get_customers ...'
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_customers ...'
       end
       # resource path
       local_var_path = '/customer'
@@ -151,7 +151,7 @@ module DearInventoryRuby
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomerApi#get_customers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InventoryApi#get_customers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -173,11 +173,11 @@ module DearInventoryRuby
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def update_customer_with_http_info(customer, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomerApi.update_customer ...'
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_customer ...'
       end
       # verify the required parameter 'customer' is set
       if @api_client.config.client_side_validation && customer.nil?
-        fail ArgumentError, "Missing the required parameter 'customer' when calling CustomerApi.update_customer"
+        fail ArgumentError, "Missing the required parameter 'customer' when calling InventoryApi.update_customer"
       end
       # resource path
       local_var_path = '/customer'
@@ -216,7 +216,7 @@ module DearInventoryRuby
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomerApi#update_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InventoryApi#update_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

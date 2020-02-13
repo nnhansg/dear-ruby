@@ -25,7 +25,7 @@ require 'dear-inventory-ruby/models/customers'
 require 'dear-inventory-ruby/models/error'
 
 # APIs
-require 'dear-inventory-ruby/api/customer_api'
+require 'dear-inventory-ruby/api/inventory_api'
 
 module DearInventoryRuby
   class << self
