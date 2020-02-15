@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2020-02-15
+
+- Add new endpoints and models: Account, PaymentTerm, Success, Tax, TaxComponent
+- Update some models: Address, Contact, Customer
+
+## [0.1.5] - 2020-02-13
+
+- Show basic log when calling API
+
+## [0.1.4] - 2020-02-13
+
+- Rename CustomerApi to InventoryApi
+
 ## [0.1.3] - 2020-02-12
 
 - Add POST, PUT for customer endpoint.
