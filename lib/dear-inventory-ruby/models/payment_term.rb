@@ -13,33 +13,24 @@ OpenAPI Generator version: 4.2.3
 require 'date'
 
 module DearInventoryRuby
-  class Address
-    # If passed in PUT method, entry will be searched by id, found entry will be updated, otherwise created
+  class PaymentTerm
+    # Unique Payment Term ID
     attr_accessor :id
 
-    # Address Line 1
-    attr_accessor :line1
+    # Name of Payment Term
+    attr_accessor :name
 
-    # Address Line 2
-    attr_accessor :line2
+    # Minimum Payment Term duration in days
+    attr_accessor :duration
 
-    # City / Suburb
-    attr_accessor :city
+    # Method of Payment Term. Should be one of the following values: `number of days`, `day of next month`, `last day of next month`, `days since the end of the month`
+    attr_accessor :method
 
-    # State / Province
-    attr_accessor :state
+    # Points that Payment Term is Active. `True` as default for POST.
+    attr_accessor :is_active
 
-    # Zip / PostCode
-    attr_accessor :post_code
-
-    # Country name
-    attr_accessor :country
-
-    # Address Type. Should be one of the following values: `Billing`, `Business` or `Shipping`.
-    attr_accessor :type
-
-    # Points that Address is used as default for chosen Type. `false` as default.
-    attr_accessor :default_for_type
+    # Points that Payment Term is Default. `False` as default for POST.
+    attr_accessor :is_default
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -67,14 +58,11 @@ module DearInventoryRuby
     def self.attribute_map
       {
         :'id' => :'ID',
-        :'line1' => :'Line1',
-        :'line2' => :'Line2',
-        :'city' => :'City',
-        :'state' => :'State',
-        :'post_code' => :'PostCode',
-        :'country' => :'Country',
-        :'type' => :'Type',
-        :'default_for_type' => :'DefaultForType'
+        :'name' => :'Name',
+        :'duration' => :'Duration',
+        :'method' => :'Method',
+        :'is_active' => :'IsActive',
+        :'is_default' => :'IsDefault'
       }
     end
 
@@ -82,14 +70,11 @@ module DearInventoryRuby
     def self.openapi_types
       {
         :'id' => :'String',
-        :'line1' => :'String',
-        :'line2' => :'String',
-        :'city' => :'String',
-        :'state' => :'String',
-        :'post_code' => :'String',
-        :'country' => :'String',
-        :'type' => :'String',
-        :'default_for_type' => :'Boolean'
+        :'name' => :'String',
+        :'duration' => :'String',
+        :'method' => :'String',
+        :'is_active' => :'Boolean',
+        :'is_default' => :'Boolean'
       }
     end
 
@@ -103,13 +88,13 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Address` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::PaymentTerm` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Address`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::PaymentTerm`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -118,38 +103,28 @@ module DearInventoryRuby
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'line1')
-        self.line1 = attributes[:'line1']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'line2')
-        self.line2 = attributes[:'line2']
+      if attributes.key?(:'duration')
+        self.duration = attributes[:'duration']
       end
 
-      if attributes.key?(:'city')
-        self.city = attributes[:'city']
+      if attributes.key?(:'method')
+        self.method = attributes[:'method']
       end
 
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.key?(:'post_code')
-        self.post_code = attributes[:'post_code']
-      end
-
-      if attributes.key?(:'country')
-        self.country = attributes[:'country']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'default_for_type')
-        self.default_for_type = attributes[:'default_for_type']
+      if attributes.key?(:'is_active')
+        self.is_active = attributes[:'is_active']
       else
-        self.default_for_type = false
+        self.is_active = true
+      end
+
+      if attributes.key?(:'is_default')
+        self.is_default = attributes[:'is_default']
+      else
+        self.is_default = false
       end
     end
 
@@ -157,32 +132,12 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@line1.nil? && @line1.to_s.length > 256
-        invalid_properties.push('invalid value for "line1", the character length must be smaller than or equal to 256.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if !@line2.nil? && @line2.to_s.length > 256
-        invalid_properties.push('invalid value for "line2", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@city.nil? && @city.to_s.length > 256
-        invalid_properties.push('invalid value for "city", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@state.nil? && @state.to_s.length > 256
-        invalid_properties.push('invalid value for "state", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@post_code.nil? && @post_code.to_s.length > 20
-        invalid_properties.push('invalid value for "post_code", the character length must be smaller than or equal to 20.')
-      end
-
-      if @country.nil?
-        invalid_properties.push('invalid value for "country", country cannot be nil.')
-      end
-
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      if @name.to_s.length > 256
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
       end
 
       invalid_properties
@@ -191,76 +146,35 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@line1.nil? && @line1.to_s.length > 256
-      return false if !@line2.nil? && @line2.to_s.length > 256
-      return false if !@city.nil? && @city.to_s.length > 256
-      return false if !@state.nil? && @state.to_s.length > 256
-      return false if !@post_code.nil? && @post_code.to_s.length > 20
-      return false if @country.nil?
-      return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["Billing", "Business", "Shipping"])
-      return false unless type_validator.valid?(@type)
+      return false if @name.nil?
+      return false if @name.to_s.length > 256
+      method_validator = EnumAttributeValidator.new('String', ["number of days", "day of next month", "last day of next month", "days since the end of the month"])
+      return false unless method_validator.valid?(@method)
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] line1 Value to be assigned
-    def line1=(line1)
-      if !line1.nil? && line1.to_s.length > 256
-        fail ArgumentError, 'invalid value for "line1", the character length must be smaller than or equal to 256.'
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
       end
 
-      @line1 = line1
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] line2 Value to be assigned
-    def line2=(line2)
-      if !line2.nil? && line2.to_s.length > 256
-        fail ArgumentError, 'invalid value for "line2", the character length must be smaller than or equal to 256.'
+      if name.to_s.length > 256
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
       end
 
-      @line2 = line2
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] city Value to be assigned
-    def city=(city)
-      if !city.nil? && city.to_s.length > 256
-        fail ArgumentError, 'invalid value for "city", the character length must be smaller than or equal to 256.'
-      end
-
-      @city = city
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] state Value to be assigned
-    def state=(state)
-      if !state.nil? && state.to_s.length > 256
-        fail ArgumentError, 'invalid value for "state", the character length must be smaller than or equal to 256.'
-      end
-
-      @state = state
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] post_code Value to be assigned
-    def post_code=(post_code)
-      if !post_code.nil? && post_code.to_s.length > 20
-        fail ArgumentError, 'invalid value for "post_code", the character length must be smaller than or equal to 20.'
-      end
-
-      @post_code = post_code
+      @name = name
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ["Billing", "Business", "Shipping"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+    # @param [Object] method Object to be assigned
+    def method=(method)
+      validator = EnumAttributeValidator.new('String', ["number of days", "day of next month", "last day of next month", "days since the end of the month"])
+      unless validator.valid?(method)
+        fail ArgumentError, "invalid value for \"method\", must be one of #{validator.allowable_values}."
       end
-      @type = type
+      @method = method
     end
 
     # Checks equality by comparing each attribute.
@@ -269,14 +183,11 @@ module DearInventoryRuby
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          line1 == o.line1 &&
-          line2 == o.line2 &&
-          city == o.city &&
-          state == o.state &&
-          post_code == o.post_code &&
-          country == o.country &&
-          type == o.type &&
-          default_for_type == o.default_for_type
+          name == o.name &&
+          duration == o.duration &&
+          method == o.method &&
+          is_active == o.is_active &&
+          is_default == o.is_default
     end
 
     # @see the `==` method
@@ -288,7 +199,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, line1, line2, city, state, post_code, country, type, default_for_type].hash
+      [id, name, duration, method, is_active, is_default].hash
     end
 
     # Builds the object from hash

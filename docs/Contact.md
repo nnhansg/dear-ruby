@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | If passed in PUT method, entry will be searched by id, found entry will be updated, otherwise created | [optional] 
-**name** | **String** | Name of Contact | [optional] 
+**name** | **String** | Name of Contact | 
 **phone** | **String** | Phone | [optional] 
 **fax** | **String** | Fax | [optional] 
 **email** | **String** | Email | [optional] 

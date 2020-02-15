@@ -13,46 +13,46 @@ OpenAPI Generator version: 4.2.3
 require 'date'
 
 module DearInventoryRuby
-  class Contact
-    # If passed in PUT method, entry will be searched by id, found entry will be updated, otherwise created
+  class Tax
+    # Unique ID
     attr_accessor :id
 
-    # Name of Contact
+    # Tax Name
     attr_accessor :name
 
-    # Phone
-    attr_accessor :phone
+    # ChartOfAccount Code with Class == `LIABILITY` && Status == `ACTIVE`
+    attr_accessor :account
 
-    # Fax
-    attr_accessor :fax
+    # Points that tax is Active
+    attr_accessor :is_active
 
-    # Email
-    attr_accessor :email
+    # Points that tax is Inclusive
+    attr_accessor :tax_inclusive
 
-    # Website
-    attr_accessor :website
+    # Tax percentage, should be between 0 and 100. Read-only
+    attr_accessor :tax_percent
 
-    # Comment
-    attr_accessor :comment
+    # Points that tax is used for Sale
+    attr_accessor :is_tax_for_sale
 
-    # Points that Contact is used as default. `false` as default.
-    attr_accessor :default
+    # Points that tax is used for Purchase
+    attr_accessor :is_tax_for_purchase
 
-    # Points that Contact is included in Email. `false` as default.
-    attr_accessor :include_in_email
+    # List of Tax Components
+    attr_accessor :components
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'ID',
         :'name' => :'Name',
-        :'phone' => :'Phone',
-        :'fax' => :'Fax',
-        :'email' => :'Email',
-        :'website' => :'Website',
-        :'comment' => :'Comment',
-        :'default' => :'Default',
-        :'include_in_email' => :'IncludeInEmail'
+        :'account' => :'Account',
+        :'is_active' => :'IsActive',
+        :'tax_inclusive' => :'TaxInclusive',
+        :'tax_percent' => :'TaxPercent',
+        :'is_tax_for_sale' => :'IsTaxForSale',
+        :'is_tax_for_purchase' => :'IsTaxForPurchase',
+        :'components' => :'Components'
       }
     end
 
@@ -61,13 +61,13 @@ module DearInventoryRuby
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'phone' => :'String',
-        :'fax' => :'String',
-        :'email' => :'String',
-        :'website' => :'String',
-        :'comment' => :'String',
-        :'default' => :'Boolean',
-        :'include_in_email' => :'Boolean'
+        :'account' => :'String',
+        :'is_active' => :'Boolean',
+        :'tax_inclusive' => :'Boolean',
+        :'tax_percent' => :'Float',
+        :'is_tax_for_sale' => :'Boolean',
+        :'is_tax_for_purchase' => :'Boolean',
+        :'components' => :'Array<TaxComponent>'
       }
     end
 
@@ -81,13 +81,13 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Contact` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Tax` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Contact`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Tax`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -100,36 +100,42 @@ module DearInventoryRuby
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'phone')
-        self.phone = attributes[:'phone']
+      if attributes.key?(:'account')
+        self.account = attributes[:'account']
       end
 
-      if attributes.key?(:'fax')
-        self.fax = attributes[:'fax']
-      end
-
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.key?(:'website')
-        self.website = attributes[:'website']
-      end
-
-      if attributes.key?(:'comment')
-        self.comment = attributes[:'comment']
-      end
-
-      if attributes.key?(:'default')
-        self.default = attributes[:'default']
+      if attributes.key?(:'is_active')
+        self.is_active = attributes[:'is_active']
       else
-        self.default = false
+        self.is_active = true
       end
 
-      if attributes.key?(:'include_in_email')
-        self.include_in_email = attributes[:'include_in_email']
+      if attributes.key?(:'tax_inclusive')
+        self.tax_inclusive = attributes[:'tax_inclusive']
       else
-        self.include_in_email = false
+        self.tax_inclusive = true
+      end
+
+      if attributes.key?(:'tax_percent')
+        self.tax_percent = attributes[:'tax_percent']
+      end
+
+      if attributes.key?(:'is_tax_for_sale')
+        self.is_tax_for_sale = attributes[:'is_tax_for_sale']
+      else
+        self.is_tax_for_sale = true
+      end
+
+      if attributes.key?(:'is_tax_for_purchase')
+        self.is_tax_for_purchase = attributes[:'is_tax_for_purchase']
+      else
+        self.is_tax_for_purchase = true
+      end
+
+      if attributes.key?(:'components')
+        if (value = attributes[:'components']).is_a?(Array)
+          self.components = value
+        end
       end
     end
 
@@ -141,28 +147,28 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @name.to_s.length > 256
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
+      if @name.to_s.length > 50
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 50.')
       end
 
-      if !@phone.nil? && @phone.to_s.length > 50
-        invalid_properties.push('invalid value for "phone", the character length must be smaller than or equal to 50.')
+      if @account.nil?
+        invalid_properties.push('invalid value for "account", account cannot be nil.')
       end
 
-      if !@fax.nil? && @fax.to_s.length > 50
-        invalid_properties.push('invalid value for "fax", the character length must be smaller than or equal to 50.')
+      if @is_active.nil?
+        invalid_properties.push('invalid value for "is_active", is_active cannot be nil.')
       end
 
-      if !@email.nil? && @email.to_s.length > 256
-        invalid_properties.push('invalid value for "email", the character length must be smaller than or equal to 256.')
+      if @tax_inclusive.nil?
+        invalid_properties.push('invalid value for "tax_inclusive", tax_inclusive cannot be nil.')
       end
 
-      if !@website.nil? && @website.to_s.length > 256
-        invalid_properties.push('invalid value for "website", the character length must be smaller than or equal to 256.')
+      if !@tax_percent.nil? && @tax_percent > 100
+        invalid_properties.push('invalid value for "tax_percent", must be smaller than or equal to 100.')
       end
 
-      if !@comment.nil? && @comment.to_s.length > 256
-        invalid_properties.push('invalid value for "comment", the character length must be smaller than or equal to 256.')
+      if !@tax_percent.nil? && @tax_percent < 0
+        invalid_properties.push('invalid value for "tax_percent", must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -172,12 +178,12 @@ module DearInventoryRuby
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @name.to_s.length > 256
-      return false if !@phone.nil? && @phone.to_s.length > 50
-      return false if !@fax.nil? && @fax.to_s.length > 50
-      return false if !@email.nil? && @email.to_s.length > 256
-      return false if !@website.nil? && @website.to_s.length > 256
-      return false if !@comment.nil? && @comment.to_s.length > 256
+      return false if @name.to_s.length > 50
+      return false if @account.nil?
+      return false if @is_active.nil?
+      return false if @tax_inclusive.nil?
+      return false if !@tax_percent.nil? && @tax_percent > 100
+      return false if !@tax_percent.nil? && @tax_percent < 0
       true
     end
 
@@ -188,61 +194,25 @@ module DearInventoryRuby
         fail ArgumentError, 'name cannot be nil'
       end
 
-      if name.to_s.length > 256
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
+      if name.to_s.length > 50
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 50.'
       end
 
       @name = name
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] phone Value to be assigned
-    def phone=(phone)
-      if !phone.nil? && phone.to_s.length > 50
-        fail ArgumentError, 'invalid value for "phone", the character length must be smaller than or equal to 50.'
+    # @param [Object] tax_percent Value to be assigned
+    def tax_percent=(tax_percent)
+      if !tax_percent.nil? && tax_percent > 100
+        fail ArgumentError, 'invalid value for "tax_percent", must be smaller than or equal to 100.'
       end
 
-      @phone = phone
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] fax Value to be assigned
-    def fax=(fax)
-      if !fax.nil? && fax.to_s.length > 50
-        fail ArgumentError, 'invalid value for "fax", the character length must be smaller than or equal to 50.'
+      if !tax_percent.nil? && tax_percent < 0
+        fail ArgumentError, 'invalid value for "tax_percent", must be greater than or equal to 0.'
       end
 
-      @fax = fax
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] email Value to be assigned
-    def email=(email)
-      if !email.nil? && email.to_s.length > 256
-        fail ArgumentError, 'invalid value for "email", the character length must be smaller than or equal to 256.'
-      end
-
-      @email = email
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] website Value to be assigned
-    def website=(website)
-      if !website.nil? && website.to_s.length > 256
-        fail ArgumentError, 'invalid value for "website", the character length must be smaller than or equal to 256.'
-      end
-
-      @website = website
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] comment Value to be assigned
-    def comment=(comment)
-      if !comment.nil? && comment.to_s.length > 256
-        fail ArgumentError, 'invalid value for "comment", the character length must be smaller than or equal to 256.'
-      end
-
-      @comment = comment
+      @tax_percent = tax_percent
     end
 
     # Checks equality by comparing each attribute.
@@ -252,13 +222,13 @@ module DearInventoryRuby
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          phone == o.phone &&
-          fax == o.fax &&
-          email == o.email &&
-          website == o.website &&
-          comment == o.comment &&
-          default == o.default &&
-          include_in_email == o.include_in_email
+          account == o.account &&
+          is_active == o.is_active &&
+          tax_inclusive == o.tax_inclusive &&
+          tax_percent == o.tax_percent &&
+          is_tax_for_sale == o.is_tax_for_sale &&
+          is_tax_for_purchase == o.is_tax_for_purchase &&
+          components == o.components
     end
 
     # @see the `==` method
@@ -270,7 +240,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, phone, fax, email, website, comment, default, include_in_email].hash
+      [id, name, account, is_active, tax_inclusive, tax_percent, is_tax_for_sale, is_tax_for_purchase, components].hash
     end
 
     # Builds the object from hash

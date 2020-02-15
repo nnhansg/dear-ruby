@@ -17,12 +17,20 @@ require 'dear-inventory-ruby/version'
 require 'dear-inventory-ruby/configuration'
 
 # Models
+require 'dear-inventory-ruby/models/account'
+require 'dear-inventory-ruby/models/accounts'
 require 'dear-inventory-ruby/models/address'
 require 'dear-inventory-ruby/models/contact'
 require 'dear-inventory-ruby/models/currency_code'
 require 'dear-inventory-ruby/models/customer'
 require 'dear-inventory-ruby/models/customers'
 require 'dear-inventory-ruby/models/error'
+require 'dear-inventory-ruby/models/payment_term'
+require 'dear-inventory-ruby/models/payment_terms'
+require 'dear-inventory-ruby/models/success'
+require 'dear-inventory-ruby/models/tax'
+require 'dear-inventory-ruby/models/tax_component'
+require 'dear-inventory-ruby/models/taxes'
 
 # APIs
 require 'dear-inventory-ruby/api/inventory_api'

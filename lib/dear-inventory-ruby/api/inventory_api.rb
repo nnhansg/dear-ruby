@@ -19,10 +19,75 @@ module DearInventoryRuby
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Allows you to create a customer
-    # @param customer [Customer] a Contact object with properties to create
+    # Allows you to create an Account
+    # @param account [Account] an Account object with properties to create
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (default to false)
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [Accounts]
+    def create_account(account, opts = {})
+      data, _status_code, _headers = create_account_with_http_info(account, opts)
+      data
+    end
+
+    # Allows you to create an Account
+    # @param account [Account] an Account object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
+    def create_account_with_http_info(account, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_account ...'
+      end
+      # verify the required parameter 'account' is set
+      if @api_client.config.client_side_validation && account.nil?
+        fail ArgumentError, "Missing the required parameter 'account' when calling InventoryApi.create_account"
+      end
+      # resource path
+      local_var_path = '/ref/account'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(account) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Accounts' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a customer
+    # @param customer [Customer] a customer object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @return [Customers]
     def create_customer(customer, opts = {})
       data, _status_code, _headers = create_customer_with_http_info(customer, opts)
@@ -30,9 +95,9 @@ module DearInventoryRuby
     end
 
     # Allows you to create a customer
-    # @param customer [Customer] a Contact object with properties to create
+    # @param customer [Customer] a customer object with properties to create
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def create_customer_with_http_info(customer, opts = {})
       if @api_client.config.debugging
@@ -80,6 +145,319 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#create_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a payment term
+    # @param payment_term [PaymentTerm] a payment term object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [PaymentTerms]
+    def create_payment_term(payment_term, opts = {})
+      data, _status_code, _headers = create_payment_term_with_http_info(payment_term, opts)
+      data
+    end
+
+    # Allows you to create a payment term
+    # @param payment_term [PaymentTerm] a payment term object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(PaymentTerms, Integer, Hash)>] PaymentTerms data, response status code and response headers
+    def create_payment_term_with_http_info(payment_term, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_payment_term ...'
+      end
+      # verify the required parameter 'payment_term' is set
+      if @api_client.config.client_side_validation && payment_term.nil?
+        fail ArgumentError, "Missing the required parameter 'payment_term' when calling InventoryApi.create_payment_term"
+      end
+      # resource path
+      local_var_path = '/ref/paymentterm'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(payment_term) 
+
+      # return_type
+      return_type = opts[:return_type] || 'PaymentTerms' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_payment_term\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a tax
+    # @param tax [Tax] a tax object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [Taxes]
+    def create_tax(tax, opts = {})
+      data, _status_code, _headers = create_tax_with_http_info(tax, opts)
+      data
+    end
+
+    # Allows you to create a tax
+    # @param tax [Tax] a tax object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(Taxes, Integer, Hash)>] Taxes data, response status code and response headers
+    def create_tax_with_http_info(tax, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_tax ...'
+      end
+      # verify the required parameter 'tax' is set
+      if @api_client.config.client_side_validation && tax.nil?
+        fail ArgumentError, "Missing the required parameter 'tax' when calling InventoryApi.create_tax"
+      end
+      # resource path
+      local_var_path = '/ref/tax'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(tax) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Taxes' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_tax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to delete an Account
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :code Code
+    # @return [Success]
+    def delete_account(opts = {})
+      data, _status_code, _headers = delete_account_with_http_info(opts)
+      data
+    end
+
+    # Allows you to delete an Account
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :code Code
+    # @return [Array<(Success, Integer, Hash)>] Success data, response status code and response headers
+    def delete_account_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.delete_account ...'
+      end
+      # resource path
+      local_var_path = '/ref/account'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Code'] = opts[:'code'] if !opts[:'code'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Success' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#delete_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to delete a payment term
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Success]
+    def delete_payment_term(opts = {})
+      data, _status_code, _headers = delete_payment_term_with_http_info(opts)
+      data
+    end
+
+    # Allows you to delete a payment term
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Array<(Success, Integer, Hash)>] Success data, response status code and response headers
+    def delete_payment_term_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.delete_payment_term ...'
+      end
+      # resource path
+      local_var_path = '/ref/paymentterm'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Success' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#delete_payment_term\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the Chart of Accounts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [String] :bank Default is nil
+    # @return [Accounts]
+    def get_accounts(opts = {})
+      data, _status_code, _headers = get_accounts_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Chart of Accounts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [String] :bank Default is nil
+    # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
+    def get_accounts_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_accounts ...'
+      end
+      # resource path
+      local_var_path = '/ref/account'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'Bank'] = opts[:'bank'] if !opts[:'bank'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Accounts' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -156,10 +534,228 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
-    # Allows you to update a customer
-    # @param customer [Customer] a Contact object with properties to create
+    # Allows you to retrieve the payment terms
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (default to false)
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [String] :method Default is nil
+    # @option opts [Boolean] :is_active Default is nil
+    # @option opts [Boolean] :is_default Default is nil
+    # @return [PaymentTerms]
+    def get_payment_terms(opts = {})
+      data, _status_code, _headers = get_payment_terms_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the payment terms
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [String] :method Default is nil
+    # @option opts [Boolean] :is_active Default is nil
+    # @option opts [Boolean] :is_default Default is nil
+    # @return [Array<(PaymentTerms, Integer, Hash)>] PaymentTerms data, response status code and response headers
+    def get_payment_terms_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_payment_terms ...'
+      end
+      # resource path
+      local_var_path = '/ref/paymentterm'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'Method'] = opts[:'method'] if !opts[:'method'].nil?
+      query_params[:'IsActive'] = opts[:'is_active'] if !opts[:'is_active'].nil?
+      query_params[:'IsDefault'] = opts[:'is_default'] if !opts[:'is_default'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'PaymentTerms' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_payment_terms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the taxes
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [Boolean] :is_active Default is nil
+    # @option opts [Boolean] :is_tax_for_sale Default is nil
+    # @option opts [Boolean] :is_tax_for_purchase Default is nil
+    # @option opts [String] :account Default is nil
+    # @return [Taxes]
+    def get_taxes(opts = {})
+      data, _status_code, _headers = get_taxes_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the taxes
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @option opts [Boolean] :is_active Default is nil
+    # @option opts [Boolean] :is_tax_for_sale Default is nil
+    # @option opts [Boolean] :is_tax_for_purchase Default is nil
+    # @option opts [String] :account Default is nil
+    # @return [Array<(Taxes, Integer, Hash)>] Taxes data, response status code and response headers
+    def get_taxes_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_taxes ...'
+      end
+      # resource path
+      local_var_path = '/ref/tax'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'IsActive'] = opts[:'is_active'] if !opts[:'is_active'].nil?
+      query_params[:'IsTaxForSale'] = opts[:'is_tax_for_sale'] if !opts[:'is_tax_for_sale'].nil?
+      query_params[:'IsTaxForPurchase'] = opts[:'is_tax_for_purchase'] if !opts[:'is_tax_for_purchase'].nil?
+      query_params[:'Account'] = opts[:'account'] if !opts[:'account'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Taxes' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_taxes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update an Account
+    # @param account [Account] an Account object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [Accounts]
+    def update_account(account, opts = {})
+      data, _status_code, _headers = update_account_with_http_info(account, opts)
+      data
+    end
+
+    # Allows you to update an Account
+    # @param account [Account] an Account object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
+    def update_account_with_http_info(account, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_account ...'
+      end
+      # verify the required parameter 'account' is set
+      if @api_client.config.client_side_validation && account.nil?
+        fail ArgumentError, "Missing the required parameter 'account' when calling InventoryApi.update_account"
+      end
+      # resource path
+      local_var_path = '/ref/account'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(account) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Accounts' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#update_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update a customer
+    # @param customer [Customer] a customer object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @return [Customers]
     def update_customer(customer, opts = {})
       data, _status_code, _headers = update_customer_with_http_info(customer, opts)
@@ -167,9 +763,9 @@ module DearInventoryRuby
     end
 
     # Allows you to update a customer
-    # @param customer [Customer] a Contact object with properties to create
+    # @param customer [Customer] a customer object with properties to update
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def update_customer_with_http_info(customer, opts = {})
       if @api_client.config.debugging
@@ -217,6 +813,136 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#update_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update a payment term
+    # @param payment_term [PaymentTerm] a payment term object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [PaymentTerms]
+    def update_payment_term(payment_term, opts = {})
+      data, _status_code, _headers = update_payment_term_with_http_info(payment_term, opts)
+      data
+    end
+
+    # Allows you to update a payment term
+    # @param payment_term [PaymentTerm] a payment term object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(PaymentTerms, Integer, Hash)>] PaymentTerms data, response status code and response headers
+    def update_payment_term_with_http_info(payment_term, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_payment_term ...'
+      end
+      # verify the required parameter 'payment_term' is set
+      if @api_client.config.client_side_validation && payment_term.nil?
+        fail ArgumentError, "Missing the required parameter 'payment_term' when calling InventoryApi.update_payment_term"
+      end
+      # resource path
+      local_var_path = '/ref/paymentterm'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(payment_term) 
+
+      # return_type
+      return_type = opts[:return_type] || 'PaymentTerms' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#update_payment_term\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update a tax
+    # @param tax [Tax] a tax object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [Taxes]
+    def update_tax(tax, opts = {})
+      data, _status_code, _headers = update_tax_with_http_info(tax, opts)
+      data
+    end
+
+    # Allows you to update a tax
+    # @param tax [Tax] a tax object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(Taxes, Integer, Hash)>] Taxes data, response status code and response headers
+    def update_tax_with_http_info(tax, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_tax ...'
+      end
+      # verify the required parameter 'tax' is set
+      if @api_client.config.client_side_validation && tax.nil?
+        fail ArgumentError, "Missing the required parameter 'tax' when calling InventoryApi.update_tax"
+      end
+      # resource path
+      local_var_path = '/ref/tax'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(tax) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Taxes' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#update_tax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -356,8 +356,36 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length > 256
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @name.to_s.length > 256
         invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
+      end
+
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @currency.nil?
+        invalid_properties.push('invalid value for "currency", currency cannot be nil.')
+      end
+
+      if @payment_term.nil?
+        invalid_properties.push('invalid value for "payment_term", payment_term cannot be nil.')
+      end
+
+      if @account_receivable.nil?
+        invalid_properties.push('invalid value for "account_receivable", account_receivable cannot be nil.')
+      end
+
+      if @revenue_account.nil?
+        invalid_properties.push('invalid value for "revenue_account", revenue_account cannot be nil.')
+      end
+
+      if @tax_rule.nil?
+        invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
       end
 
       if !@comments.nil? && @comments.to_s.length > 256
@@ -370,9 +398,16 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@name.nil? && @name.to_s.length > 256
+      return false if @name.nil?
+      return false if @name.to_s.length > 256
+      return false if @status.nil?
       status_validator = EnumAttributeValidator.new('String', ["Active", "Deprecated"])
       return false unless status_validator.valid?(@status)
+      return false if @currency.nil?
+      return false if @payment_term.nil?
+      return false if @account_receivable.nil?
+      return false if @revenue_account.nil?
+      return false if @tax_rule.nil?
       return false if !@comments.nil? && @comments.to_s.length > 256
       true
     end
@@ -380,7 +415,11 @@ module DearInventoryRuby
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      if !name.nil? && name.to_s.length > 256
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
+      end
+
+      if name.to_s.length > 256
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
       end
 

@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **city** | **String** | City / Suburb | [optional] 
 **state** | **String** | State / Province | [optional] 
 **post_code** | **String** | Zip / PostCode | [optional] 
-**country** | **String** | Country name | [optional] 
-**type** | **String** | Address Type. Should be one of the following values: &#x60;Billing&#x60;, &#x60;Business&#x60; or &#x60;Shipping&#x60;. | [optional] 
+**country** | **String** | Country name | 
+**type** | **String** | Address Type. Should be one of the following values: &#x60;Billing&#x60;, &#x60;Business&#x60; or &#x60;Shipping&#x60;. | 
 **default_for_type** | **Boolean** | Points that Address is used as default for chosen Type. &#x60;false&#x60; as default. | [optional] [default to false]
 
 ## Code Sample

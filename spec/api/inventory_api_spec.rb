@@ -32,13 +32,86 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for create_account
+  # Allows you to create an Account
+  # @param account an Account object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [Accounts]
+  describe 'create_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_customer
   # Allows you to create a customer
-  # @param customer a Contact object with properties to create
+  # @param customer a customer object with properties to create
   # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
   # @return [Customers]
   describe 'create_customer test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_payment_term
+  # Allows you to create a payment term
+  # @param payment_term a payment term object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [PaymentTerms]
+  describe 'create_payment_term test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_tax
+  # Allows you to create a tax
+  # @param tax a tax object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [Taxes]
+  describe 'create_tax test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_account
+  # Allows you to delete an Account
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :code Code
+  # @return [Success]
+  describe 'delete_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_payment_term
+  # Allows you to delete a payment term
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Default is nil
+  # @return [Success]
+  describe 'delete_payment_term test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_accounts
+  # Allows you to retrieve the Chart of Accounts
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :id Default is nil
+  # @option opts [String] :name Default is nil
+  # @option opts [String] :bank Default is nil
+  # @return [Accounts]
+  describe 'get_accounts test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -60,13 +133,84 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_payment_terms
+  # Allows you to retrieve the payment terms
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :id Default is nil
+  # @option opts [String] :name Default is nil
+  # @option opts [String] :method Default is nil
+  # @option opts [Boolean] :is_active Default is nil
+  # @option opts [Boolean] :is_default Default is nil
+  # @return [PaymentTerms]
+  describe 'get_payment_terms test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_taxes
+  # Allows you to retrieve the taxes
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :id Default is nil
+  # @option opts [String] :name Default is nil
+  # @option opts [Boolean] :is_active Default is nil
+  # @option opts [Boolean] :is_tax_for_sale Default is nil
+  # @option opts [Boolean] :is_tax_for_purchase Default is nil
+  # @option opts [String] :account Default is nil
+  # @return [Taxes]
+  describe 'get_taxes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_account
+  # Allows you to update an Account
+  # @param account an Account object with properties to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [Accounts]
+  describe 'update_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for update_customer
   # Allows you to update a customer
-  # @param customer a Contact object with properties to create
+  # @param customer a customer object with properties to update
   # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
   # @return [Customers]
   describe 'update_customer test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_payment_term
+  # Allows you to update a payment term
+  # @param payment_term a payment term object with properties to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [PaymentTerms]
+  describe 'update_payment_term test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_tax
+  # Allows you to update a tax
+  # @param tax a tax object with properties to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [Taxes]
+  describe 'update_tax test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
