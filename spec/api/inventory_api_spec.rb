@@ -83,7 +83,7 @@ describe 'InventoryApi' do
   # unit tests for delete_account
   # Allows you to delete an Account
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :code Code
+  # @option opts [String] :code Default is nil
   # @return [Success]
   describe 'delete_account test' do
     it 'should work' do
@@ -107,9 +107,10 @@ describe 'InventoryApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :page Default is 1
   # @option opts [String] :limit Default is 100
-  # @option opts [String] :id Default is nil
+  # @option opts [String] :code Default is nil
   # @option opts [String] :name Default is nil
-  # @option opts [String] :bank Default is nil
+  # @option opts [String] :type Default is nil
+  # @option opts [String] :status Default is nil
   # @return [Accounts]
   describe 'get_accounts test' do
     it 'should work' do

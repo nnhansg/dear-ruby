@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.7] - 2020-02-16
+
+- Fix params of /account GET
+
 ## [0.1.6] - 2020-02-15
 
 - Add new endpoints and models: Account, PaymentTerm, Success, Tax, TaxComponent

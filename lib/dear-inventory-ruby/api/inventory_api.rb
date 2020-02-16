@@ -281,7 +281,7 @@ module DearInventoryRuby
 
     # Allows you to delete an Account
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :code Code
+    # @option opts [String] :code Default is nil
     # @return [Success]
     def delete_account(opts = {})
       data, _status_code, _headers = delete_account_with_http_info(opts)
@@ -290,7 +290,7 @@ module DearInventoryRuby
 
     # Allows you to delete an Account
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :code Code
+    # @option opts [String] :code Default is nil
     # @return [Array<(Success, Integer, Hash)>] Success data, response status code and response headers
     def delete_account_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -397,9 +397,10 @@ module DearInventoryRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1 (default to '1')
     # @option opts [String] :limit Default is 100 (default to '100')
-    # @option opts [String] :id Default is nil
+    # @option opts [String] :code Default is nil
     # @option opts [String] :name Default is nil
-    # @option opts [String] :bank Default is nil
+    # @option opts [String] :type Default is nil
+    # @option opts [String] :status Default is nil
     # @return [Accounts]
     def get_accounts(opts = {})
       data, _status_code, _headers = get_accounts_with_http_info(opts)
@@ -410,9 +411,10 @@ module DearInventoryRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1
     # @option opts [String] :limit Default is 100
-    # @option opts [String] :id Default is nil
+    # @option opts [String] :code Default is nil
     # @option opts [String] :name Default is nil
-    # @option opts [String] :bank Default is nil
+    # @option opts [String] :type Default is nil
+    # @option opts [String] :status Default is nil
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
     def get_accounts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -425,9 +427,10 @@ module DearInventoryRuby
       query_params = opts[:query_params] || {}
       query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Code'] = opts[:'code'] if !opts[:'code'].nil?
       query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
-      query_params[:'Bank'] = opts[:'bank'] if !opts[:'bank'].nil?
+      query_params[:'Type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'Status'] = opts[:'status'] if !opts[:'status'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -291,7 +291,7 @@ end
 
 api_instance = DearInventoryRuby::InventoryApi.new
 opts = {
-  code: 'code_example' # String | Code
+  code: 'code_example' # String | Default is nil
 }
 
 begin
@@ -308,7 +308,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| Code | [optional] 
+ **code** | **String**| Default is nil | [optional] 
 
 ### Return type
 
@@ -411,9 +411,10 @@ api_instance = DearInventoryRuby::InventoryApi.new
 opts = {
   page: '1', # String | Default is 1
   limit: '100', # String | Default is 100
-  id: 'id_example', # String | Default is nil
+  code: 'code_example', # String | Default is nil
   name: 'name_example', # String | Default is nil
-  bank: 'bank_example' # String | Default is nil
+  type: 'type_example', # String | Default is nil
+  status: 'status_example' # String | Default is nil
 }
 
 begin
@@ -432,9 +433,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional] 
+ **code** | **String**| Default is nil | [optional] 
  **name** | **String**| Default is nil | [optional] 
- **bank** | **String**| Default is nil | [optional] 
+ **type** | **String**| Default is nil | [optional] 
+ **status** | **String**| Default is nil | [optional] 
 
 ### Return type
 
