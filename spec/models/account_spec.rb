@@ -47,10 +47,6 @@ describe 'Account' do
   describe 'test attribute "type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["BANK", "CURRLIAB", "LIABILITY", "TERMLIA", "PAYGLIABILITY", "SUPERANNUATIONLIABILITY", "WAGESPAYABLELIABILITY"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.type = value }.not_to raise_error
-      # end
     end
   end
 
@@ -79,10 +75,12 @@ describe 'Account' do
   describe 'test attribute "system_account"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["BANKCURRENCYGAIN", "CREDITORS", "DEBTORS", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.system_account = value }.not_to raise_error
-      # end
+    end
+  end
+
+  describe 'test attribute "system_account_code"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 

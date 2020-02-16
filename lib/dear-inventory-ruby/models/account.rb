@@ -20,7 +20,7 @@ module DearInventoryRuby
     # Account Name
     attr_accessor :name
 
-    # Should be one of the following values: `BANK`, `CURRLIAB`, `LIABILITY`, `TERMLIA`, `PAYGLIABILITY`, `SUPERANNUATIONLIABILITY`, `WAGESPAYABLELIABILITY`
+    # Type
     attr_accessor :type
 
     # Account status
@@ -32,8 +32,11 @@ module DearInventoryRuby
     # Should be one of the following values: `ASSET`, `LIABILITY`, `EXPENSE`, `EQUITY`, `REVENUE`
     attr_accessor :_class
 
-    # Read-only for PUT. Should be one of the following values: BANKCURRENCYGAIN, CREDITORS, DEBTORS, GST, GSTONIMPORTS, HISTORICAL, REALISEDCURRENCYGAIN, RETAINEDEARNINGS, ROUNDING, TRACKINGTRANSFERS, UNPAIDEXPCLM, UNREALISEDCURRENCYGAIN, WAGEPAYABLES
+    # SystemAccount
     attr_accessor :system_account
+
+    # SystemAccountCode
+    attr_accessor :system_account_code
 
     # Account status
     attr_accessor :for_payments
@@ -88,6 +91,7 @@ module DearInventoryRuby
         :'description' => :'Description',
         :'_class' => :'Class',
         :'system_account' => :'SystemAccount',
+        :'system_account_code' => :'SystemAccountCode',
         :'for_payments' => :'ForPayments',
         :'display_name' => :'DisplayName',
         :'old_code' => :'OldCode',
@@ -108,6 +112,7 @@ module DearInventoryRuby
         :'description' => :'String',
         :'_class' => :'String',
         :'system_account' => :'String',
+        :'system_account_code' => :'String',
         :'for_payments' => :'String',
         :'display_name' => :'String',
         :'old_code' => :'String',
@@ -165,6 +170,10 @@ module DearInventoryRuby
 
       if attributes.key?(:'system_account')
         self.system_account = attributes[:'system_account']
+      end
+
+      if attributes.key?(:'system_account_code')
+        self.system_account_code = attributes[:'system_account_code']
       end
 
       if attributes.key?(:'for_payments')
@@ -243,15 +252,11 @@ module DearInventoryRuby
       return false if @name.nil?
       return false if @name.to_s.length > 256
       return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["BANK", "CURRLIAB", "LIABILITY", "TERMLIA", "PAYGLIABILITY", "SUPERANNUATIONLIABILITY", "WAGESPAYABLELIABILITY"])
-      return false unless type_validator.valid?(@type)
       return false if @type.to_s.length > 50
       return false if @status.nil?
       return false if @status.to_s.length > 50
       _class_validator = EnumAttributeValidator.new('String', ["ASSET", "LIABILITY", "EXPENSE", "EQUITY", "REVENUE"])
       return false unless _class_validator.valid?(@_class)
-      system_account_validator = EnumAttributeValidator.new('String', ["BANKCURRENCYGAIN", "CREDITORS", "DEBTORS", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES"])
-      return false unless system_account_validator.valid?(@system_account)
       true
     end
 
@@ -283,13 +288,17 @@ module DearInventoryRuby
       @name = name
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
+    # Custom attribute writer method with validation
+    # @param [Object] type Value to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["BANK", "CURRLIAB", "LIABILITY", "TERMLIA", "PAYGLIABILITY", "SUPERANNUATIONLIABILITY", "WAGESPAYABLELIABILITY"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      if type.nil?
+        fail ArgumentError, 'type cannot be nil'
       end
+
+      if type.to_s.length > 50
+        fail ArgumentError, 'invalid value for "type", the character length must be smaller than or equal to 50.'
+      end
+
       @type = type
     end
 
@@ -317,16 +326,6 @@ module DearInventoryRuby
       @_class = _class
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] system_account Object to be assigned
-    def system_account=(system_account)
-      validator = EnumAttributeValidator.new('String', ["BANKCURRENCYGAIN", "CREDITORS", "DEBTORS", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES"])
-      unless validator.valid?(system_account)
-        fail ArgumentError, "invalid value for \"system_account\", must be one of #{validator.allowable_values}."
-      end
-      @system_account = system_account
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -339,6 +338,7 @@ module DearInventoryRuby
           description == o.description &&
           _class == o._class &&
           system_account == o.system_account &&
+          system_account_code == o.system_account_code &&
           for_payments == o.for_payments &&
           display_name == o.display_name &&
           old_code == o.old_code &&
@@ -357,7 +357,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, name, type, status, description, _class, system_account, for_payments, display_name, old_code, bank, bank_account_number, bank_account_id, currency].hash
+      [code, name, type, status, description, _class, system_account, system_account_code, for_payments, display_name, old_code, bank, bank_account_number, bank_account_id, currency].hash
     end
 
     # Builds the object from hash
