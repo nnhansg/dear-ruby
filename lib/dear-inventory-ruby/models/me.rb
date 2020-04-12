@@ -13,21 +13,48 @@ OpenAPI Generator version: 4.3.0
 require 'date'
 
 module DearInventoryRuby
-  class Success
-    # Success
-    attr_accessor :success
+  class Me
+    # Your company name
+    attr_accessor :company
+
+    attr_accessor :currency
+
+    # Time Zone where your company located
+    attr_accessor :time_zone
+
+    attr_accessor :default_weight_units
+
+    attr_accessor :default_dimensions_units
+
+    # Financial settings option. Indicates date period start from what you can change transactional data. Formatted in Tenant date format
+    attr_accessor :lock_date
+
+    # Date of opening balances in the system. Formatted in Tenant date format
+    attr_accessor :opening_balance_date
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'success' => :'Success'
+        :'company' => :'Company',
+        :'currency' => :'Currency',
+        :'time_zone' => :'TimeZone',
+        :'default_weight_units' => :'DefaultWeightUnits',
+        :'default_dimensions_units' => :'DefaultDimensionsUnits',
+        :'lock_date' => :'LockDate',
+        :'opening_balance_date' => :'OpeningBalanceDate'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'success' => :'Boolean'
+        :'company' => :'String',
+        :'currency' => :'CurrencyCode',
+        :'time_zone' => :'String',
+        :'default_weight_units' => :'WeightUnit',
+        :'default_dimensions_units' => :'DimensionsUnit',
+        :'lock_date' => :'Date',
+        :'opening_balance_date' => :'Date'
       }
     end
 
@@ -41,19 +68,43 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Success` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Me` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Success`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Me`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'success')
-        self.success = attributes[:'success']
+      if attributes.key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.key?(:'currency')
+        self.currency = attributes[:'currency']
+      end
+
+      if attributes.key?(:'time_zone')
+        self.time_zone = attributes[:'time_zone']
+      end
+
+      if attributes.key?(:'default_weight_units')
+        self.default_weight_units = attributes[:'default_weight_units']
+      end
+
+      if attributes.key?(:'default_dimensions_units')
+        self.default_dimensions_units = attributes[:'default_dimensions_units']
+      end
+
+      if attributes.key?(:'lock_date')
+        self.lock_date = attributes[:'lock_date']
+      end
+
+      if attributes.key?(:'opening_balance_date')
+        self.opening_balance_date = attributes[:'opening_balance_date']
       end
     end
 
@@ -75,7 +126,13 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          success == o.success
+          company == o.company &&
+          currency == o.currency &&
+          time_zone == o.time_zone &&
+          default_weight_units == o.default_weight_units &&
+          default_dimensions_units == o.default_dimensions_units &&
+          lock_date == o.lock_date &&
+          opening_balance_date == o.opening_balance_date
     end
 
     # @see the `==` method
@@ -87,7 +144,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [success].hash
+      [company, currency, time_zone, default_weight_units, default_dimensions_units, lock_date, opening_balance_date].hash
     end
 
     # Builds the object from hash

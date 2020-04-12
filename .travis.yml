@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build dear-inventory-ruby.gemspec
-  - gem install ./dear-inventory-ruby-0.1.8.gem
+  - gem install ./dear-inventory-ruby-0.1.9.gem
