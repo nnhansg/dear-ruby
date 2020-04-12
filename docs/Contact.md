@@ -19,15 +19,15 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Contact.new(id: null,
-                                 name: null,
-                                 phone: null,
-                                 fax: null,
-                                 email: null,
-                                 website: null,
-                                 comment: null,
-                                 default: null,
-                                 include_in_email: null)
+instance = DearInventoryRuby::Contact.new(id: nil,
+                                 name: nil,
+                                 phone: nil,
+                                 fax: nil,
+                                 email: nil,
+                                 website: nil,
+                                 comment: nil,
+                                 default: nil,
+                                 include_in_email: nil)
 ```
 
 

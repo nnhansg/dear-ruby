@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Success.new(success: null)
+instance = DearInventoryRuby::Success.new(success: nil)
 ```
 
 

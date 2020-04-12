@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Taxes.new(total: null,
-                                 page: null,
-                                 tax_rule_list: null)
+instance = DearInventoryRuby::Taxes.new(total: nil,
+                                 page: nil,
+                                 tax_rule_list: nil)
 ```
 
 

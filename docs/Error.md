@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Error.new(error_code: null,
-                                 exception: null)
+instance = DearInventoryRuby::Error.new(error_code: nil,
+                                 exception: nil)
 ```
 
 

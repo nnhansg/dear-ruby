@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::PaymentTerms.new(total: null,
-                                 page: null,
-                                 payment_term_list: null)
+instance = DearInventoryRuby::PaymentTerms.new(total: nil,
+                                 page: nil,
+                                 payment_term_list: nil)
 ```
 
 

@@ -19,15 +19,15 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Tax.new(id: null,
-                                 name: null,
-                                 account: null,
-                                 is_active: null,
-                                 tax_inclusive: null,
-                                 tax_percent: null,
-                                 is_tax_for_sale: null,
-                                 is_tax_for_purchase: null,
-                                 components: null)
+instance = DearInventoryRuby::Tax.new(id: nil,
+                                 name: nil,
+                                 account: nil,
+                                 is_active: nil,
+                                 tax_inclusive: nil,
+                                 tax_percent: nil,
+                                 is_tax_for_sale: nil,
+                                 is_tax_for_purchase: nil,
+                                 components: nil)
 ```
 
 

@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::TaxComponent.new(name: null,
-                                 percent: null,
-                                 account_code: null,
-                                 component_order: null)
+instance = DearInventoryRuby::TaxComponent.new(name: nil,
+                                 percent: nil,
+                                 account_code: nil,
+                                 component_order: nil)
 ```
 
 

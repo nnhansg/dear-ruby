@@ -25,21 +25,21 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Account.new(code: null,
-                                 name: null,
-                                 type: null,
-                                 status: null,
-                                 description: null,
-                                 _class: null,
-                                 system_account: null,
-                                 system_account_code: null,
-                                 for_payments: null,
-                                 display_name: null,
-                                 old_code: null,
-                                 bank: null,
-                                 bank_account_number: null,
-                                 bank_account_id: null,
-                                 currency: null)
+instance = DearInventoryRuby::Account.new(code: nil,
+                                 name: nil,
+                                 type: nil,
+                                 status: nil,
+                                 description: nil,
+                                 _class: nil,
+                                 system_account: nil,
+                                 system_account_code: nil,
+                                 for_payments: nil,
+                                 display_name: nil,
+                                 old_code: nil,
+                                 bank: nil,
+                                 bank_account_number: nil,
+                                 bank_account_id: nil,
+                                 currency: nil)
 ```
 
 

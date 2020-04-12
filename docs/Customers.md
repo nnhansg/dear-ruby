@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Customers.new(total: null,
-                                 page: null,
-                                 customer_list: null)
+instance = DearInventoryRuby::Customers.new(total: nil,
+                                 page: nil,
+                                 customer_list: nil)
 ```
 
 

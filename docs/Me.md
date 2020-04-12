@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Me.new(company: null,
-                                 currency: null,
-                                 time_zone: null,
-                                 default_weight_units: null,
-                                 default_dimensions_units: null,
-                                 lock_date: null,
-                                 opening_balance_date: null)
+instance = DearInventoryRuby::Me.new(company: nil,
+                                 currency: nil,
+                                 time_zone: nil,
+                                 default_weight_units: nil,
+                                 default_dimensions_units: nil,
+                                 lock_date: nil,
+                                 opening_balance_date: nil)
 ```
 
 

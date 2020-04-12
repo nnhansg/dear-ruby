@@ -16,12 +16,12 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::PaymentTerm.new(id: null,
-                                 name: null,
-                                 duration: null,
-                                 method: null,
-                                 is_active: null,
-                                 is_default: null)
+instance = DearInventoryRuby::PaymentTerm.new(id: nil,
+                                 name: nil,
+                                 duration: nil,
+                                 method: nil,
+                                 is_active: nil,
+                                 is_default: nil)
 ```
 
 
