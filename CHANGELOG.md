@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.9] - 2020-04-12
+
+- Add new endpoint and model: Me
+- Update OpenAPI Generator version 4.3.0
+
 ## [0.1.8] - 2020-02-16
 
 - Remove the validations of attributes: Type, SystemAccount because Dear API docs is not mapping for the result of API returned
