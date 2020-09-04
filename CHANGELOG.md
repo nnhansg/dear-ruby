@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.10] - 2020-09-04
+
+- Add some fields to Contact and Customer models.
+- Update OpenAPI Generator version 4.3.1
+
 ## [0.1.9] - 2020-04-12
 
 - Add new endpoint and model: Me

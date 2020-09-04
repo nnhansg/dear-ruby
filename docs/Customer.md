@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **comments** | **String** | Comments | [optional] 
 **tax_number** | **String** | Tax number | [optional] 
 **credit_limit** | **Float** | Credit limit | [optional] 
+**is_on_credit_hold** | **Boolean** | boolean to indicate if a customer is on credit hold | [optional] [default to false]
 **tags** | **String** | Tags string | [optional] 
 **attribute_set** | **String** | AttributeSet name | [optional] 
 **additional_attribute1** | **String** | Additional attribute 1 value | [optional] 
@@ -57,6 +58,7 @@ instance = DearInventoryRuby::Customer.new(id: nil,
                                  comments: nil,
                                  tax_number: nil,
                                  credit_limit: nil,
+                                 is_on_credit_hold: nil,
                                  tags: nil,
                                  attribute_set: nil,
                                  additional_attribute1: nil,
