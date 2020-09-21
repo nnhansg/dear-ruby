@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.11] - 2020-09-21
+
+- Update limit of Comments in Customer model.
+- Remove required conditions of Address Type in Customer Address model.
+
 ## [0.1.10] - 2020-09-04
 
 - Add some fields to Contact and Customer models.

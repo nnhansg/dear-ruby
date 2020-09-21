@@ -399,8 +399,8 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
       end
 
-      if !@comments.nil? && @comments.to_s.length > 256
-        invalid_properties.push('invalid value for "comments", the character length must be smaller than or equal to 256.')
+      if !@comments.nil? && @comments.to_s.length > 2000
+        invalid_properties.push('invalid value for "comments", the character length must be smaller than or equal to 2000.')
       end
 
       invalid_properties
@@ -419,7 +419,7 @@ module DearInventoryRuby
       return false if @account_receivable.nil?
       return false if @revenue_account.nil?
       return false if @tax_rule.nil?
-      return false if !@comments.nil? && @comments.to_s.length > 256
+      return false if !@comments.nil? && @comments.to_s.length > 2000
       true
     end
 
@@ -450,8 +450,8 @@ module DearInventoryRuby
     # Custom attribute writer method with validation
     # @param [Object] comments Value to be assigned
     def comments=(comments)
-      if !comments.nil? && comments.to_s.length > 256
-        fail ArgumentError, 'invalid value for "comments", the character length must be smaller than or equal to 256.'
+      if !comments.nil? && comments.to_s.length > 2000
+        fail ArgumentError, 'invalid value for "comments", the character length must be smaller than or equal to 2000.'
       end
 
       @comments = comments
