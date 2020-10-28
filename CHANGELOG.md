@@ -2,10 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.13] - 2020-10-28
+
+- Update `PriceTiersList` to `PriceTiers`
+
 ## [0.1.12] - 2020-10-28
 
-- Add new endpoint and model: PriceTier
-- Endpoint GET PriceTiers
+- Add new endpoint and model: `PriceTier`
+- Endpoint GET `PriceTiers`
 
 ## [0.1.11] - 2020-09-21
 
