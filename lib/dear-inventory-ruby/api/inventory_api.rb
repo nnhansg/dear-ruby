@@ -666,6 +666,60 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to retrieve the Price Tiers
+    # @param [Hash] opts the optional parameters
+    # @return [PriceTiers]
+    def get_price_tiers(opts = {})
+      data, _status_code, _headers = get_price_tiers_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Price Tiers
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PriceTiers, Integer, Hash)>] PriceTiers data, response status code and response headers
+    def get_price_tiers_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_price_tiers ...'
+      end
+      # resource path
+      local_var_path = '/ref/priceTier'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'PriceTiers' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_price_tiers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to retrieve the taxes
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1 (default to '1')

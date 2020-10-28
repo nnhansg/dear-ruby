@@ -161,6 +161,16 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_price_tiers
+  # Allows you to retrieve the Price Tiers
+  # @param [Hash] opts the optional parameters
+  # @return [PriceTiers]
+  describe 'get_price_tiers test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_taxes
   # Allows you to retrieve the taxes
   # @param [Hash] opts the optional parameters

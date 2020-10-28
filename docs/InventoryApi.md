@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_customers**](InventoryApi.md#get_customers) | **GET** /customer | Allows you to retrieve the customers
 [**get_me**](InventoryApi.md#get_me) | **GET** /me | Allows you to retrieve your information
 [**get_payment_terms**](InventoryApi.md#get_payment_terms) | **GET** /ref/paymentterm | Allows you to retrieve the payment terms
+[**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
 [**get_taxes**](InventoryApi.md#get_taxes) | **GET** /ref/tax | Allows you to retrieve the taxes
 [**update_account**](InventoryApi.md#update_account) | **PUT** /ref/account | Allows you to update an Account
 [**update_customer**](InventoryApi.md#update_customer) | **PUT** /customer | Allows you to update a customer
@@ -635,6 +636,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaymentTerms**](PaymentTerms.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_price_tiers
+
+> PriceTiers get_price_tiers
+
+Allows you to retrieve the Price Tiers
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+
+begin
+  #Allows you to retrieve the Price Tiers
+  result = api_instance.get_price_tiers
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_price_tiers: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PriceTiers**](PriceTiers.md)
 
 ### Authorization
 
