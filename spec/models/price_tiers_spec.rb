@@ -32,7 +32,7 @@ describe 'PriceTiers' do
       expect(@instance).to be_instance_of(DearInventoryRuby::PriceTiers)
     end
   end
-  describe 'test attribute "price_tiers_list"' do
+  describe 'test attribute "price_tiers"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

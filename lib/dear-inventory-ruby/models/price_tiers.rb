@@ -15,19 +15,19 @@ require 'date'
 module DearInventoryRuby
   class PriceTiers
     # Array of PriceTiers
-    attr_accessor :price_tiers_list
+    attr_accessor :price_tiers
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'price_tiers_list' => :'PriceTiersList'
+        :'price_tiers' => :'PriceTiers'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'price_tiers_list' => :'Array<PriceTier>'
+        :'price_tiers' => :'Array<PriceTier>'
       }
     end
 
@@ -52,9 +52,9 @@ module DearInventoryRuby
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'price_tiers_list')
-        if (value = attributes[:'price_tiers_list']).is_a?(Array)
-          self.price_tiers_list = value
+      if attributes.key?(:'price_tiers')
+        if (value = attributes[:'price_tiers']).is_a?(Array)
+          self.price_tiers = value
         end
       end
     end
@@ -77,7 +77,7 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          price_tiers_list == o.price_tiers_list
+          price_tiers == o.price_tiers
     end
 
     # @see the `==` method
@@ -89,7 +89,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [price_tiers_list].hash
+      [price_tiers].hash
     end
 
     # Builds the object from hash
