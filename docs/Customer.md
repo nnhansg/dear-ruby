@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **String** | Unique Customer ID | [optional] 
 **name** | **String** | Name of Customer | 
 **status** | **String** | Points that Customer is Active. Available values are Active and Deprecated. Required for POST | 
-**currency** | [**CurrencyCode**](CurrencyCode.md) |  | 
+**currency** | **String** | Currency code of Customer | 
 **payment_term** | **String** | Payment term | 
 **account_receivable** | **String** | Account receivable code of Customer | 
 **revenue_account** | **String** | Sale account code of Customer | 

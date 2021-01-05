@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.14] - 2021-05-01
+
+- Remove validation `Currency` for `Customer` and `Me` models.
+
 ## [0.1.13] - 2020-10-28
 
-- Update `PriceTiersList` to `PriceTiers`
+- Update `PriceTiersList` to `PriceTiers`.
 
 ## [0.1.12] - 2020-10-28
 

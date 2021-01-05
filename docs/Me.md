@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **company** | **String** | Your company name | [optional] 
-**currency** | [**CurrencyCode**](CurrencyCode.md) |  | [optional] 
+**currency** | **String** | Your company base currency | [optional] 
 **time_zone** | **String** | Time Zone where your company located | [optional] 
 **default_weight_units** | [**WeightUnit**](WeightUnit.md) |  | [optional] 
 **default_dimensions_units** | [**DimensionsUnit**](DimensionsUnit.md) |  | [optional] 

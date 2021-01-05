@@ -17,6 +17,7 @@ module DearInventoryRuby
     # Your company name
     attr_accessor :company
 
+    # Your company base currency
     attr_accessor :currency
 
     # Time Zone where your company located
@@ -49,7 +50,7 @@ module DearInventoryRuby
     def self.openapi_types
       {
         :'company' => :'String',
-        :'currency' => :'CurrencyCode',
+        :'currency' => :'String',
         :'time_zone' => :'String',
         :'default_weight_units' => :'WeightUnit',
         :'default_dimensions_units' => :'DimensionsUnit',

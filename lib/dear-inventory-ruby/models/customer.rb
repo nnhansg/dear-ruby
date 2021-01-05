@@ -23,6 +23,7 @@ module DearInventoryRuby
     # Points that Customer is Active. Available values are Active and Deprecated. Required for POST
     attr_accessor :status
 
+    # Currency code of Customer
     attr_accessor :currency
 
     # Payment term
@@ -175,7 +176,7 @@ module DearInventoryRuby
         :'id' => :'String',
         :'name' => :'String',
         :'status' => :'String',
-        :'currency' => :'CurrencyCode',
+        :'currency' => :'String',
         :'payment_term' => :'String',
         :'account_receivable' => :'String',
         :'revenue_account' => :'String',
