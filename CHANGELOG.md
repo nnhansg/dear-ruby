@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.15] - 2021-02-22
+
+- Add new endpoint GET `/sale/invoice` and some related models.
+
 ## [0.1.14] - 2021-05-01
 
 - Remove validation `Currency` for `Customer` and `Me` models.
