@@ -171,6 +171,19 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_sale_invoices
+  # Allows you to retrieve the sale invoices
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :sale_id Unique DEAR Sale ID
+  # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+  # @option opts [Boolean] :include_product_info Show all used products in additional array
+  # @return [SaleInvoices]
+  describe 'get_sale_invoices test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_taxes
   # Allows you to retrieve the taxes
   # @param [Hash] opts the optional parameters

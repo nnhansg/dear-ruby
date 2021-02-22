@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**get_me**](InventoryApi.md#get_me) | **GET** /me | Allows you to retrieve your information
 [**get_payment_terms**](InventoryApi.md#get_payment_terms) | **GET** /ref/paymentterm | Allows you to retrieve the payment terms
 [**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
+[**get_sale_invoices**](InventoryApi.md#get_sale_invoices) | **GET** /sale/invoice | Allows you to retrieve the sale invoices
 [**get_taxes**](InventoryApi.md#get_taxes) | **GET** /ref/tax | Allows you to retrieve the taxes
 [**update_account**](InventoryApi.md#update_account) | **PUT** /ref/account | Allows you to update an Account
 [**update_customer**](InventoryApi.md#update_customer) | **PUT** /customer | Allows you to update a customer
@@ -689,6 +690,69 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**PriceTiers**](PriceTiers.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sale_invoices
+
+> SaleInvoices get_sale_invoices(opts)
+
+Allows you to retrieve the sale invoices
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  sale_id: 'sale_id_example', # String | Unique DEAR Sale ID
+  combine_additional_charges: false, # Boolean | Show additional charges in 'Lines' array
+  include_product_info: false # Boolean | Show all used products in additional array
+}
+
+begin
+  #Allows you to retrieve the sale invoices
+  result = api_instance.get_sale_invoices(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_sale_invoices: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
+ **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
+
+### Return type
+
+[**SaleInvoices**](SaleInvoices.md)
 
 ### Authorization
 
