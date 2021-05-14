@@ -39,7 +39,6 @@ require 'dear-inventory-ruby/models/success'
 require 'dear-inventory-ruby/models/tax'
 require 'dear-inventory-ruby/models/tax_component'
 require 'dear-inventory-ruby/models/taxes'
-require 'dear-inventory-ruby/models/weight_unit'
 
 # APIs
 require 'dear-inventory-ruby/api/inventory_api'

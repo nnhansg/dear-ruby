@@ -23,6 +23,7 @@ module DearInventoryRuby
     # Time Zone where your company located
     attr_accessor :time_zone
 
+    # Unit of measure for unit weight
     attr_accessor :default_weight_units
 
     attr_accessor :default_dimensions_units
@@ -52,7 +53,7 @@ module DearInventoryRuby
         :'company' => :'String',
         :'currency' => :'String',
         :'time_zone' => :'String',
-        :'default_weight_units' => :'WeightUnit',
+        :'default_weight_units' => :'String',
         :'default_dimensions_units' => :'DimensionsUnit',
         :'lock_date' => :'Date',
         :'opening_balance_date' => :'Date'

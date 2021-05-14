@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.16] - 2021-05-14
+
+- Remove require `ENUM` for `WeightUnit`.
+
 ## [0.1.15] - 2021-02-22
 
 - Add new endpoint GET `/sale/invoice` and some related models.
