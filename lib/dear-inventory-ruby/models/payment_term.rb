@@ -32,28 +32,6 @@ module DearInventoryRuby
     # Points that Payment Term is Default. `False` as default for POST.
     attr_accessor :is_default
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -148,8 +126,6 @@ module DearInventoryRuby
     def valid?
       return false if @name.nil?
       return false if @name.to_s.length > 256
-      method_validator = EnumAttributeValidator.new('String', ["number of days", "day of next month", "last day of next month", "days since the end of the month"])
-      return false unless method_validator.valid?(@method)
       true
     end
 
@@ -165,16 +141,6 @@ module DearInventoryRuby
       end
 
       @name = name
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] method Object to be assigned
-    def method=(method)
-      validator = EnumAttributeValidator.new('String', ["number of days", "day of next month", "last day of next month", "days since the end of the month"])
-      unless validator.valid?(method)
-        fail ArgumentError, "invalid value for \"method\", must be one of #{validator.allowable_values}."
-      end
-      @method = method
     end
 
     # Checks equality by comparing each attribute.

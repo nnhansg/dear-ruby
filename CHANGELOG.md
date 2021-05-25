@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.17] - 2021-05-25
+
+- Remove all `ENUM`.
+
 ## [0.1.16] - 2021-05-14
 
 - Remove require `ENUM` for `WeightUnit`.

@@ -65,10 +65,6 @@ describe 'Account' do
   describe 'test attribute "_class"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["ASSET", "LIABILITY", "EXPENSE", "EQUITY", "REVENUE"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance._class = value }.not_to raise_error
-      # end
     end
   end
 

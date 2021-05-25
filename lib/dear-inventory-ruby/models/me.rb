@@ -26,6 +26,7 @@ module DearInventoryRuby
     # Unit of measure for unit weight
     attr_accessor :default_weight_units
 
+    # Unit of measure for unit length/width/height
     attr_accessor :default_dimensions_units
 
     # Financial settings option. Indicates date period start from what you can change transactional data. Formatted in Tenant date format
@@ -54,7 +55,7 @@ module DearInventoryRuby
         :'currency' => :'String',
         :'time_zone' => :'String',
         :'default_weight_units' => :'String',
-        :'default_dimensions_units' => :'DimensionsUnit',
+        :'default_dimensions_units' => :'String',
         :'lock_date' => :'Date',
         :'opening_balance_date' => :'Date'
       }

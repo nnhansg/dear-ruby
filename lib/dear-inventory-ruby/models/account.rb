@@ -59,28 +59,6 @@ module DearInventoryRuby
     # Currency. Read-only.
     attr_accessor :currency
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -255,8 +233,6 @@ module DearInventoryRuby
       return false if @type.to_s.length > 50
       return false if @status.nil?
       return false if @status.to_s.length > 50
-      _class_validator = EnumAttributeValidator.new('String', ["ASSET", "LIABILITY", "EXPENSE", "EQUITY", "REVENUE"])
-      return false unless _class_validator.valid?(@_class)
       true
     end
 
@@ -314,16 +290,6 @@ module DearInventoryRuby
       end
 
       @status = status
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] _class Object to be assigned
-    def _class=(_class)
-      validator = EnumAttributeValidator.new('String', ["ASSET", "LIABILITY", "EXPENSE", "EQUITY", "REVENUE"])
-      unless validator.valid?(_class)
-        fail ArgumentError, "invalid value for \"_class\", must be one of #{validator.allowable_values}."
-      end
-      @_class = _class
     end
 
     # Checks equality by comparing each attribute.

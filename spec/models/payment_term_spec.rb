@@ -53,10 +53,6 @@ describe 'PaymentTerm' do
   describe 'test attribute "method"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["number of days", "day of next month", "last day of next month", "days since the end of the month"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.method = value }.not_to raise_error
-      # end
     end
   end
 
