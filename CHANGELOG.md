@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.18] - 2021-06-07
+
+- Update `faraday` version.
+
 ## [0.1.17] - 2021-05-25
 
 - Remove all `ENUM`.
