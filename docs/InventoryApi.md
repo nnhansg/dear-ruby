@@ -416,6 +416,7 @@ opts = {
   limit: '100', # String | Default is 100
   code: 'code_example', # String | Default is nil
   name: 'name_example', # String | Default is nil
+  _class: '_class_example', # String | Default is nil
   type: 'type_example', # String | Default is nil
   status: 'status_example' # String | Default is nil
 }
@@ -438,6 +439,7 @@ Name | Type | Description  | Notes
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
  **code** | **String**| Default is nil | [optional] 
  **name** | **String**| Default is nil | [optional] 
+ **_class** | **String**| Default is nil | [optional] 
  **type** | **String**| Default is nil | [optional] 
  **status** | **String**| Default is nil | [optional] 
 

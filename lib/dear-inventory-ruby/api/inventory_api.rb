@@ -399,6 +399,7 @@ module DearInventoryRuby
     # @option opts [String] :limit Default is 100 (default to '100')
     # @option opts [String] :code Default is nil
     # @option opts [String] :name Default is nil
+    # @option opts [String] :_class Default is nil
     # @option opts [String] :type Default is nil
     # @option opts [String] :status Default is nil
     # @return [Accounts]
@@ -413,6 +414,7 @@ module DearInventoryRuby
     # @option opts [String] :limit Default is 100
     # @option opts [String] :code Default is nil
     # @option opts [String] :name Default is nil
+    # @option opts [String] :_class Default is nil
     # @option opts [String] :type Default is nil
     # @option opts [String] :status Default is nil
     # @return [Array<(Accounts, Integer, Hash)>] Accounts data, response status code and response headers
@@ -429,6 +431,7 @@ module DearInventoryRuby
       query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'Code'] = opts[:'code'] if !opts[:'code'].nil?
       query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'Class'] = opts[:'_class'] if !opts[:'_class'].nil?
       query_params[:'Type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'Status'] = opts[:'status'] if !opts[:'status'].nil?
 

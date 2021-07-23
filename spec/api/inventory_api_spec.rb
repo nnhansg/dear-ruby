@@ -109,6 +109,7 @@ describe 'InventoryApi' do
   # @option opts [String] :limit Default is 100
   # @option opts [String] :code Default is nil
   # @option opts [String] :name Default is nil
+  # @option opts [String] :_class Default is nil
   # @option opts [String] :type Default is nil
   # @option opts [String] :status Default is nil
   # @return [Accounts]
