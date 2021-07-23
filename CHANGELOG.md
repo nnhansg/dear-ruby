@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.19.1] - 2021-07-23
+
+- Update gem version.
+
 ## [0.1.19] - 2021-07-23
 
 - Support `Class` filter for getting `accounts`.
