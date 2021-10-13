@@ -13,61 +13,71 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoiceAdditionalCharge
-    # Name of Service Product referenced by this Line
-    attr_accessor :description
+  class ShippingAddress
+    # Address Line 1 as displayed on Sale form. = Line1 + Line2
+    attr_accessor :display_address_line1
 
-    # Product or service quantity. Minimal value is 1.
-    attr_accessor :quantity
+    # Address Line 2 as displayed on Sale form. = City + State/Region + Zip/Postcode + Country
+    attr_accessor :display_address_line2
 
-    # Price per unit in Customer currency
-    attr_accessor :price
+    # Address Line 1
+    attr_accessor :line1
 
-    # Discount. Value between 0 and 100. For free items discount is 100. Default value is 0
-    attr_accessor :discount
+    # Address Line 2
+    attr_accessor :line2
 
-    # Tax
-    attr_accessor :tax
+    # City
+    attr_accessor :city
 
-    # Line Total.For validation
-    attr_accessor :total
+    # State
+    attr_accessor :state
 
-    # Line Tax Rule name.
-    attr_accessor :tax_rule
+    # Post code
+    attr_accessor :post_code
 
-    # Revenue account
-    attr_accessor :account
+    # Country
+    attr_accessor :country
 
-    # Comment
-    attr_accessor :comment
+    # Company Name
+    attr_accessor :company
+
+    # Contact
+    attr_accessor :contact
+
+    # If false and Customer's address matching Line 1 not found, than new customer shipping address will be created.
+    attr_accessor :ship_to_other
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'Description',
-        :'quantity' => :'Quantity',
-        :'price' => :'Price',
-        :'discount' => :'Discount',
-        :'tax' => :'Tax',
-        :'total' => :'Total',
-        :'tax_rule' => :'TaxRule',
-        :'account' => :'Account',
-        :'comment' => :'Comment'
+        :'display_address_line1' => :'DisplayAddressLine1',
+        :'display_address_line2' => :'DisplayAddressLine2',
+        :'line1' => :'Line1',
+        :'line2' => :'Line2',
+        :'city' => :'City',
+        :'state' => :'State',
+        :'post_code' => :'PostCode',
+        :'country' => :'Country',
+        :'company' => :'Company',
+        :'contact' => :'Contact',
+        :'ship_to_other' => :'ShipToOther'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'quantity' => :'Float',
-        :'price' => :'Float',
-        :'discount' => :'Float',
-        :'tax' => :'Float',
-        :'total' => :'Float',
-        :'tax_rule' => :'String',
-        :'account' => :'String',
-        :'comment' => :'String'
+        :'display_address_line1' => :'String',
+        :'display_address_line2' => :'String',
+        :'line1' => :'String',
+        :'line2' => :'String',
+        :'city' => :'String',
+        :'state' => :'String',
+        :'post_code' => :'String',
+        :'country' => :'String',
+        :'company' => :'String',
+        :'contact' => :'String',
+        :'ship_to_other' => :'Boolean'
       }
     end
 
@@ -81,51 +91,59 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoiceAdditionalCharge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::ShippingAddress` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoiceAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::ShippingAddress`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'display_address_line1')
+        self.display_address_line1 = attributes[:'display_address_line1']
       end
 
-      if attributes.key?(:'quantity')
-        self.quantity = attributes[:'quantity']
+      if attributes.key?(:'display_address_line2')
+        self.display_address_line2 = attributes[:'display_address_line2']
       end
 
-      if attributes.key?(:'price')
-        self.price = attributes[:'price']
+      if attributes.key?(:'line1')
+        self.line1 = attributes[:'line1']
       end
 
-      if attributes.key?(:'discount')
-        self.discount = attributes[:'discount']
+      if attributes.key?(:'line2')
+        self.line2 = attributes[:'line2']
       end
 
-      if attributes.key?(:'tax')
-        self.tax = attributes[:'tax']
+      if attributes.key?(:'city')
+        self.city = attributes[:'city']
       end
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
-      if attributes.key?(:'tax_rule')
-        self.tax_rule = attributes[:'tax_rule']
+      if attributes.key?(:'post_code')
+        self.post_code = attributes[:'post_code']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
+      if attributes.key?(:'country')
+        self.country = attributes[:'country']
       end
 
-      if attributes.key?(:'comment')
-        self.comment = attributes[:'comment']
+      if attributes.key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.key?(:'contact')
+        self.contact = attributes[:'contact']
+      end
+
+      if attributes.key?(:'ship_to_other')
+        self.ship_to_other = attributes[:'ship_to_other']
       end
     end
 
@@ -133,28 +151,12 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      if @line1.nil?
+        invalid_properties.push('invalid value for "line1", line1 cannot be nil.')
       end
 
-      if @quantity.nil?
-        invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
-      end
-
-      if @price.nil?
-        invalid_properties.push('invalid value for "price", price cannot be nil.')
-      end
-
-      if @tax.nil?
-        invalid_properties.push('invalid value for "tax", tax cannot be nil.')
-      end
-
-      if @tax_rule.nil?
-        invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
-      end
-
-      if @account.nil?
-        invalid_properties.push('invalid value for "account", account cannot be nil.')
+      if @country.nil?
+        invalid_properties.push('invalid value for "country", country cannot be nil.')
       end
 
       invalid_properties
@@ -163,12 +165,8 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
-      return false if @quantity.nil?
-      return false if @price.nil?
-      return false if @tax.nil?
-      return false if @tax_rule.nil?
-      return false if @account.nil?
+      return false if @line1.nil?
+      return false if @country.nil?
       true
     end
 
@@ -177,15 +175,17 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          quantity == o.quantity &&
-          price == o.price &&
-          discount == o.discount &&
-          tax == o.tax &&
-          total == o.total &&
-          tax_rule == o.tax_rule &&
-          account == o.account &&
-          comment == o.comment
+          display_address_line1 == o.display_address_line1 &&
+          display_address_line2 == o.display_address_line2 &&
+          line1 == o.line1 &&
+          line2 == o.line2 &&
+          city == o.city &&
+          state == o.state &&
+          post_code == o.post_code &&
+          country == o.country &&
+          company == o.company &&
+          contact == o.contact &&
+          ship_to_other == o.ship_to_other
     end
 
     # @see the `==` method
@@ -197,7 +197,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, quantity, price, discount, tax, total, tax_rule, account, comment].hash
+      [display_address_line1, display_address_line2, line1, line2, city, state, post_code, country, company, contact, ship_to_other].hash
     end
 
     # Builds the object from hash

@@ -160,14 +160,6 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @product_id.nil?
-        invalid_properties.push('invalid value for "product_id", product_id cannot be nil.')
-      end
-
-      if @sku.nil?
-        invalid_properties.push('invalid value for "sku", sku cannot be nil.')
-      end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -186,8 +178,6 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @product_id.nil?
-      return false if @sku.nil?
       return false if @name.nil?
       return false if @quantity.nil?
       return false if @price.nil?

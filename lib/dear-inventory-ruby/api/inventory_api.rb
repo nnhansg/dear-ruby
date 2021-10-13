@@ -214,6 +214,266 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to create a sale invoice
+    # @param sale_invoice_post [SaleInvoicePost] a Sale Invoice object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [SaleInvoices]
+    def create_sale_invoice(sale_invoice_post, opts = {})
+      data, _status_code, _headers = create_sale_invoice_with_http_info(sale_invoice_post, opts)
+      data
+    end
+
+    # Allows you to create a sale invoice
+    # @param sale_invoice_post [SaleInvoicePost] a Sale Invoice object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(SaleInvoices, Integer, Hash)>] SaleInvoices data, response status code and response headers
+    def create_sale_invoice_with_http_info(sale_invoice_post, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_sale_invoice ...'
+      end
+      # verify the required parameter 'sale_invoice_post' is set
+      if @api_client.config.client_side_validation && sale_invoice_post.nil?
+        fail ArgumentError, "Missing the required parameter 'sale_invoice_post' when calling InventoryApi.create_sale_invoice"
+      end
+      # resource path
+      local_var_path = '/sale/invoice'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(sale_invoice_post) 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleInvoices' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_sale_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a Sale Order
+    # @param sale_order [SaleOrder] a Sale Order object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [SaleOrder]
+    def create_sale_order(sale_order, opts = {})
+      data, _status_code, _headers = create_sale_order_with_http_info(sale_order, opts)
+      data
+    end
+
+    # Allows you to create a Sale Order
+    # @param sale_order [SaleOrder] a Sale Order object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(SaleOrder, Integer, Hash)>] SaleOrder data, response status code and response headers
+    def create_sale_order_with_http_info(sale_order, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_sale_order ...'
+      end
+      # verify the required parameter 'sale_order' is set
+      if @api_client.config.client_side_validation && sale_order.nil?
+        fail ArgumentError, "Missing the required parameter 'sale_order' when calling InventoryApi.create_sale_order"
+      end
+      # resource path
+      local_var_path = '/sale/order'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(sale_order) 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleOrder' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_sale_order\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a Sale Payment
+    # @param sale_payment [SalePayment] a Sale Payment object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [SalePayment]
+    def create_sale_payment(sale_payment, opts = {})
+      data, _status_code, _headers = create_sale_payment_with_http_info(sale_payment, opts)
+      data
+    end
+
+    # Allows you to create a Sale Payment
+    # @param sale_payment [SalePayment] a Sale Payment object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(SalePayment, Integer, Hash)>] SalePayment data, response status code and response headers
+    def create_sale_payment_with_http_info(sale_payment, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_sale_payment ...'
+      end
+      # verify the required parameter 'sale_payment' is set
+      if @api_client.config.client_side_validation && sale_payment.nil?
+        fail ArgumentError, "Missing the required parameter 'sale_payment' when calling InventoryApi.create_sale_payment"
+      end
+      # resource path
+      local_var_path = '/sale/payment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(sale_payment) 
+
+      # return_type
+      return_type = opts[:return_type] || 'SalePayment' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_sale_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a Sale Quote
+    # @param sale_quote [SaleQuote] a Sale Quote object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [SaleQuote]
+    def create_sale_quote(sale_quote, opts = {})
+      data, _status_code, _headers = create_sale_quote_with_http_info(sale_quote, opts)
+      data
+    end
+
+    # Allows you to create a Sale Quote
+    # @param sale_quote [SaleQuote] a Sale Quote object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(SaleQuote, Integer, Hash)>] SaleQuote data, response status code and response headers
+    def create_sale_quote_with_http_info(sale_quote, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_sale_quote ...'
+      end
+      # verify the required parameter 'sale_quote' is set
+      if @api_client.config.client_side_validation && sale_quote.nil?
+        fail ArgumentError, "Missing the required parameter 'sale_quote' when calling InventoryApi.create_sale_quote"
+      end
+      # resource path
+      local_var_path = '/sale/quote'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(sale_quote) 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleQuote' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_sale_quote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to create a tax
     # @param tax [Tax] a tax object with properties to create
     # @param [Hash] opts the optional parameters
@@ -275,6 +535,71 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#create_tax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to create a Webhook
+    # @param webhook [Webhook] a webhook object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [Webhooks]
+    def create_webhooks(webhook, opts = {})
+      data, _status_code, _headers = create_webhooks_with_http_info(webhook, opts)
+      data
+    end
+
+    # Allows you to create a Webhook
+    # @param webhook [Webhook] a webhook object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
+    def create_webhooks_with_http_info(webhook, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_webhooks ...'
+      end
+      # verify the required parameter 'webhook' is set
+      if @api_client.config.client_side_validation && webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'webhook' when calling InventoryApi.create_webhooks"
+      end
+      # resource path
+      local_var_path = '/webhooks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(webhook) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Webhooks' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_webhooks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -389,6 +714,180 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#delete_payment_term\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to delete a sale invoice
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @option opts [Boolean] :void Default is false (default to false)
+    # @return [SaleInvoices]
+    def delete_sale_invoice(opts = {})
+      data, _status_code, _headers = delete_sale_invoice_with_http_info(opts)
+      data
+    end
+
+    # Allows you to delete a sale invoice
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @option opts [Boolean] :void Default is false
+    # @return [Array<(SaleInvoices, Integer, Hash)>] SaleInvoices data, response status code and response headers
+    def delete_sale_invoice_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.delete_sale_invoice ...'
+      end
+      # resource path
+      local_var_path = '/sale/invoice'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Void'] = opts[:'void'] if !opts[:'void'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleInvoices' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#delete_sale_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to delete a sale payment
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Success]
+    def delete_sale_payment(opts = {})
+      data, _status_code, _headers = delete_sale_payment_with_http_info(opts)
+      data
+    end
+
+    # Allows you to delete a sale payment
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Array<(Success, Integer, Hash)>] Success data, response status code and response headers
+    def delete_sale_payment_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.delete_sale_payment ...'
+      end
+      # resource path
+      local_var_path = '/sale/payment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Success' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#delete_sale_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to delete a webhook
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Webhooks]
+    def delete_webhook(opts = {})
+      data, _status_code, _headers = delete_webhook_with_http_info(opts)
+      data
+    end
+
+    # Allows you to delete a webhook
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
+    def delete_webhook_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.delete_webhook ...'
+      end
+      # resource path
+      local_var_path = '/webhooks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Webhooks' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#delete_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -786,6 +1285,189 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to retrieve the Sale Order
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sale_id Unique DEAR Sale ID
+    # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array (default to false)
+    # @option opts [Boolean] :include_product_info Show all used products in additional array (default to false)
+    # @return [SaleOrder]
+    def get_sale_order(opts = {})
+      data, _status_code, _headers = get_sale_order_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Sale Order
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sale_id Unique DEAR Sale ID
+    # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+    # @option opts [Boolean] :include_product_info Show all used products in additional array
+    # @return [Array<(SaleOrder, Integer, Hash)>] SaleOrder data, response status code and response headers
+    def get_sale_order_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_sale_order ...'
+      end
+      # resource path
+      local_var_path = '/sale/order'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'SaleID'] = opts[:'sale_id'] if !opts[:'sale_id'].nil?
+      query_params[:'CombineAdditionalCharges'] = opts[:'combine_additional_charges'] if !opts[:'combine_additional_charges'].nil?
+      query_params[:'IncludeProductInfo'] = opts[:'include_product_info'] if !opts[:'include_product_info'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleOrder' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_sale_order\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the Sale Payments
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sale_id Unique DEAR Sale ID
+    # @return [Array<SalePayment>]
+    def get_sale_payment(opts = {})
+      data, _status_code, _headers = get_sale_payment_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Sale Payments
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sale_id Unique DEAR Sale ID
+    # @return [Array<(Array<SalePayment>, Integer, Hash)>] Array<SalePayment> data, response status code and response headers
+    def get_sale_payment_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_sale_payment ...'
+      end
+      # resource path
+      local_var_path = '/sale/payment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'SaleID'] = opts[:'sale_id'] if !opts[:'sale_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Array<SalePayment>' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_sale_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the Sale Quote
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sale_id Unique DEAR Sale ID
+    # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array (default to false)
+    # @option opts [Boolean] :include_product_info Show all used products in additional array (default to false)
+    # @return [SaleQuote]
+    def get_sale_quote(opts = {})
+      data, _status_code, _headers = get_sale_quote_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Sale Quote
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sale_id Unique DEAR Sale ID
+    # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+    # @option opts [Boolean] :include_product_info Show all used products in additional array
+    # @return [Array<(SaleQuote, Integer, Hash)>] SaleQuote data, response status code and response headers
+    def get_sale_quote_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_sale_quote ...'
+      end
+      # resource path
+      local_var_path = '/sale/quote'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'SaleID'] = opts[:'sale_id'] if !opts[:'sale_id'].nil?
+      query_params[:'CombineAdditionalCharges'] = opts[:'combine_additional_charges'] if !opts[:'combine_additional_charges'].nil?
+      query_params[:'IncludeProductInfo'] = opts[:'include_product_info'] if !opts[:'include_product_info'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleQuote' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_sale_quote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to retrieve the taxes
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1 (default to '1')
@@ -860,6 +1542,60 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#get_taxes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the Webhooks
+    # @param [Hash] opts the optional parameters
+    # @return [Webhooks]
+    def get_webhooks(opts = {})
+      data, _status_code, _headers = get_webhooks_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Webhooks
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
+    def get_webhooks_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_webhooks ...'
+      end
+      # resource path
+      local_var_path = '/webhooks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Webhooks' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_webhooks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1059,6 +1795,71 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to update a sale payment
+    # @param sale_payment [SalePayment] a sale payment object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [SalePayment]
+    def update_sale_payment(sale_payment, opts = {})
+      data, _status_code, _headers = update_sale_payment_with_http_info(sale_payment, opts)
+      data
+    end
+
+    # Allows you to update a sale payment
+    # @param sale_payment [SalePayment] a sale payment object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(SalePayment, Integer, Hash)>] SalePayment data, response status code and response headers
+    def update_sale_payment_with_http_info(sale_payment, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_sale_payment ...'
+      end
+      # verify the required parameter 'sale_payment' is set
+      if @api_client.config.client_side_validation && sale_payment.nil?
+        fail ArgumentError, "Missing the required parameter 'sale_payment' when calling InventoryApi.update_sale_payment"
+      end
+      # resource path
+      local_var_path = '/sale/payment'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(sale_payment) 
+
+      # return_type
+      return_type = opts[:return_type] || 'SalePayment' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#update_sale_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to update a tax
     # @param tax [Tax] a tax object with properties to update
     # @param [Hash] opts the optional parameters
@@ -1120,6 +1921,71 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#update_tax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update a webhook
+    # @param webhook [Webhook] a webhook object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [Webhooks]
+    def update_webhook(webhook, opts = {})
+      data, _status_code, _headers = update_webhook_with_http_info(webhook, opts)
+      data
+    end
+
+    # Allows you to update a webhook
+    # @param webhook [Webhook] a webhook object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
+    def update_webhook_with_http_info(webhook, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_webhook ...'
+      end
+      # verify the required parameter 'webhook' is set
+      if @api_client.config.client_side_validation && webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'webhook' when calling InventoryApi.update_webhook"
+      end
+      # resource path
+      local_var_path = '/webhooks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(webhook) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Webhooks' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#update_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

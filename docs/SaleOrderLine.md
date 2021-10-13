@@ -1,4 +1,4 @@
-# DearInventoryRuby::SaleInvoiceLine
+# DearInventoryRuby::SaleOrderLine
 
 ## Properties
 
@@ -11,29 +11,31 @@ Name | Type | Description | Notes
 **price** | **Float** | Price per unit in Customer currency | 
 **discount** | **Float** | Discount. Value between 0 and 100. For free items discount is 100. Default value is 0 | [optional] 
 **tax** | **Float** | Tax | [optional] 
-**total** | **Float** | Line Total. For validation | [optional] 
 **average_cost** | **Float** | Average product cost | [optional] 
 **tax_rule** | **String** | Line Tax Rule name. | [optional] 
-**account** | **String** | Revenue account | [optional] 
 **comment** | **String** | Comment for this line | [optional] 
+**drop_ship** | **Boolean** | Required if product is not a service with “Optional Drop Ship” mode. Otherwise it ignored. | [optional] 
+**backorder_quantity** | **Float** | Quantity of the ordered product on backorder. Read Only for POST | [optional] 
+**total** | **Float** | Line Total. For validation | [optional] 
 
 ## Code Sample
 
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::SaleInvoiceLine.new(product_id: nil,
+instance = DearInventoryRuby::SaleOrderLine.new(product_id: nil,
                                  sku: nil,
                                  name: nil,
                                  quantity: nil,
                                  price: nil,
                                  discount: nil,
                                  tax: nil,
-                                 total: nil,
                                  average_cost: nil,
                                  tax_rule: nil,
-                                 account: nil,
-                                 comment: nil)
+                                 comment: nil,
+                                 drop_ship: nil,
+                                 backorder_quantity: nil,
+                                 total: nil)
 ```
 
 

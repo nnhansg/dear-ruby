@@ -13,30 +13,27 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoiceAdditionalCharge
+  class SaleAdditionalCharge
     # Name of Service Product referenced by this Line
     attr_accessor :description
 
-    # Product or service quantity. Minimal value is 1.
-    attr_accessor :quantity
-
-    # Price per unit in Customer currency
+    # Decimal with up to 4 decimal places. Price per unit in Customer currency
     attr_accessor :price
 
-    # Discount. Value between 0 and 100. For free items discount is 100. Default value is 0
+    # Decimal with up to 4 decimal places. Product or service quantity. Minimal value is 1.
+    attr_accessor :quantity
+
+    # Decimal with up to 2 decimal places. Discount. Value between 0 and 100. For free items discount is 100. Default value is 0
     attr_accessor :discount
 
-    # Tax
+    # Decimal with up to 4 decimal places. Tax.
     attr_accessor :tax
 
-    # Line Total.For validation
+    # Decimal with up to 4 decimal places. Line Total. For validation
     attr_accessor :total
 
     # Line Tax Rule name.
     attr_accessor :tax_rule
-
-    # Revenue account
-    attr_accessor :account
 
     # Comment
     attr_accessor :comment
@@ -45,13 +42,12 @@ module DearInventoryRuby
     def self.attribute_map
       {
         :'description' => :'Description',
-        :'quantity' => :'Quantity',
         :'price' => :'Price',
+        :'quantity' => :'Quantity',
         :'discount' => :'Discount',
         :'tax' => :'Tax',
         :'total' => :'Total',
         :'tax_rule' => :'TaxRule',
-        :'account' => :'Account',
         :'comment' => :'Comment'
       }
     end
@@ -60,14 +56,13 @@ module DearInventoryRuby
     def self.openapi_types
       {
         :'description' => :'String',
-        :'quantity' => :'Float',
         :'price' => :'Float',
+        :'quantity' => :'Float',
         :'discount' => :'Float',
         :'tax' => :'Float',
         :'total' => :'Float',
         :'tax_rule' => :'String',
-        :'account' => :'String',
-        :'comment' => :'String'
+        :'comment' => :'Float'
       }
     end
 
@@ -81,13 +76,13 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoiceAdditionalCharge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleAdditionalCharge` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoiceAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -96,12 +91,12 @@ module DearInventoryRuby
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'quantity')
-        self.quantity = attributes[:'quantity']
-      end
-
       if attributes.key?(:'price')
         self.price = attributes[:'price']
+      end
+
+      if attributes.key?(:'quantity')
+        self.quantity = attributes[:'quantity']
       end
 
       if attributes.key?(:'discount')
@@ -120,10 +115,6 @@ module DearInventoryRuby
         self.tax_rule = attributes[:'tax_rule']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
       end
@@ -137,12 +128,12 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "description", description cannot be nil.')
       end
 
-      if @quantity.nil?
-        invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
-      end
-
       if @price.nil?
         invalid_properties.push('invalid value for "price", price cannot be nil.')
+      end
+
+      if @quantity.nil?
+        invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
       end
 
       if @tax.nil?
@@ -153,10 +144,6 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
       end
 
-      if @account.nil?
-        invalid_properties.push('invalid value for "account", account cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -164,11 +151,10 @@ module DearInventoryRuby
     # @return true if the model is valid
     def valid?
       return false if @description.nil?
-      return false if @quantity.nil?
       return false if @price.nil?
+      return false if @quantity.nil?
       return false if @tax.nil?
       return false if @tax_rule.nil?
-      return false if @account.nil?
       true
     end
 
@@ -178,13 +164,12 @@ module DearInventoryRuby
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
-          quantity == o.quantity &&
           price == o.price &&
+          quantity == o.quantity &&
           discount == o.discount &&
           tax == o.tax &&
           total == o.total &&
           tax_rule == o.tax_rule &&
-          account == o.account &&
           comment == o.comment
     end
 
@@ -197,7 +182,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, quantity, price, discount, tax, total, tax_rule, account, comment].hash
+      [description, price, quantity, discount, tax, total, tax_rule, comment].hash
     end
 
     # Builds the object from hash

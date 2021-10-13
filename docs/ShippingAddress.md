@@ -1,4 +1,4 @@
-# DearInventoryRuby::Address
+# DearInventoryRuby::ShippingAddress
 
 ## Properties
 
@@ -10,22 +10,28 @@ Name | Type | Description | Notes
 **line2** | **String** | Address Line 2 | [optional] 
 **city** | **String** | City | [optional] 
 **state** | **String** | State | [optional] 
-**post_code** | **String** | PostCode | [optional] 
+**post_code** | **String** | Post code | [optional] 
 **country** | **String** | Country | 
+**company** | **String** | Company Name | [optional] 
+**contact** | **String** | Contact | [optional] 
+**ship_to_other** | **Boolean** | If false and Customer&#39;s address matching Line 1 not found, than new customer shipping address will be created. | [optional] 
 
 ## Code Sample
 
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::Address.new(display_address_line1: nil,
+instance = DearInventoryRuby::ShippingAddress.new(display_address_line1: nil,
                                  display_address_line2: nil,
                                  line1: nil,
                                  line2: nil,
                                  city: nil,
                                  state: nil,
                                  post_code: nil,
-                                 country: nil)
+                                 country: nil,
+                                 company: nil,
+                                 contact: nil,
+                                 ship_to_other: nil)
 ```
 
 

@@ -68,6 +68,54 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for create_sale_invoice
+  # Allows you to create a sale invoice
+  # @param sale_invoice_post a Sale Invoice object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [SaleInvoices]
+  describe 'create_sale_invoice test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_sale_order
+  # Allows you to create a Sale Order
+  # @param sale_order a Sale Order object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [SaleOrder]
+  describe 'create_sale_order test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_sale_payment
+  # Allows you to create a Sale Payment
+  # @param sale_payment a Sale Payment object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [SalePayment]
+  describe 'create_sale_payment test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_sale_quote
+  # Allows you to create a Sale Quote
+  # @param sale_quote a Sale Quote object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [SaleQuote]
+  describe 'create_sale_quote test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_tax
   # Allows you to create a tax
   # @param tax a tax object with properties to create
@@ -75,6 +123,18 @@ describe 'InventoryApi' do
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
   # @return [Taxes]
   describe 'create_tax test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_webhooks
+  # Allows you to create a Webhook
+  # @param webhook a webhook object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [Webhooks]
+  describe 'create_webhooks test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -97,6 +157,40 @@ describe 'InventoryApi' do
   # @option opts [String] :id Default is nil
   # @return [Success]
   describe 'delete_payment_term test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_sale_invoice
+  # Allows you to delete a sale invoice
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Default is nil
+  # @option opts [Boolean] :void Default is false
+  # @return [SaleInvoices]
+  describe 'delete_sale_invoice test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_sale_payment
+  # Allows you to delete a sale payment
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Default is nil
+  # @return [Success]
+  describe 'delete_sale_payment test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_webhook
+  # Allows you to delete a webhook
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Default is nil
+  # @return [Webhooks]
+  describe 'delete_webhook test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -185,6 +279,43 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_sale_order
+  # Allows you to retrieve the Sale Order
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :sale_id Unique DEAR Sale ID
+  # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+  # @option opts [Boolean] :include_product_info Show all used products in additional array
+  # @return [SaleOrder]
+  describe 'get_sale_order test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_sale_payment
+  # Allows you to retrieve the Sale Payments
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :sale_id Unique DEAR Sale ID
+  # @return [Array<SalePayment>]
+  describe 'get_sale_payment test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_sale_quote
+  # Allows you to retrieve the Sale Quote
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :sale_id Unique DEAR Sale ID
+  # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+  # @option opts [Boolean] :include_product_info Show all used products in additional array
+  # @return [SaleQuote]
+  describe 'get_sale_quote test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_taxes
   # Allows you to retrieve the taxes
   # @param [Hash] opts the optional parameters
@@ -198,6 +329,16 @@ describe 'InventoryApi' do
   # @option opts [String] :account Default is nil
   # @return [Taxes]
   describe 'get_taxes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_webhooks
+  # Allows you to retrieve the Webhooks
+  # @param [Hash] opts the optional parameters
+  # @return [Webhooks]
+  describe 'get_webhooks test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -239,6 +380,18 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for update_sale_payment
+  # Allows you to update a sale payment
+  # @param sale_payment a sale payment object with properties to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [SalePayment]
+  describe 'update_sale_payment test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for update_tax
   # Allows you to update a tax
   # @param tax a tax object with properties to update
@@ -246,6 +399,18 @@ describe 'InventoryApi' do
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
   # @return [Taxes]
   describe 'update_tax test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_webhook
+  # Allows you to update a webhook
+  # @param webhook a webhook object with properties to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [Webhooks]
+  describe 'update_webhook test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

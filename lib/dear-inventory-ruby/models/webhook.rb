@@ -13,61 +13,66 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoiceAdditionalCharge
-    # Name of Service Product referenced by this Line
-    attr_accessor :description
+  class Webhook
+    # Unique ID. Required for PUT
+    attr_accessor :id
 
-    # Product or service quantity. Minimal value is 1.
-    attr_accessor :quantity
+    # Webhook Type. Available values are values
+    attr_accessor :type
 
-    # Price per unit in Customer currency
-    attr_accessor :price
+    # Webhook Friendly Name. Read-only.
+    attr_accessor :name
 
-    # Discount. Value between 0 and 100. For free items discount is 100. Default value is 0
-    attr_accessor :discount
+    # Is webhook active.
+    attr_accessor :is_active
 
-    # Tax
-    attr_accessor :tax
+    # Callback url.
+    attr_accessor :external_url
 
-    # Line Total.For validation
-    attr_accessor :total
+    # Authorisation type. Available values are `noauth`, `basicauth` and `bearerauth`
+    attr_accessor :external_authorization_type
 
-    # Line Tax Rule name.
-    attr_accessor :tax_rule
+    # User name. Required if `ExternalAuthorizationType` is `basicauth`
+    attr_accessor :external_user_name
 
-    # Revenue account
-    attr_accessor :account
+    # Password. Required if `ExternalAuthorizationType` is `basicauth`
+    attr_accessor :external_password
 
-    # Comment
-    attr_accessor :comment
+    # Bearer token. Required if `ExternalAuthorizationType` is `bearerauth`
+    attr_accessor :external_bearer_token
+
+    # Additional headers.
+    attr_accessor :external_headers
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'Description',
-        :'quantity' => :'Quantity',
-        :'price' => :'Price',
-        :'discount' => :'Discount',
-        :'tax' => :'Tax',
-        :'total' => :'Total',
-        :'tax_rule' => :'TaxRule',
-        :'account' => :'Account',
-        :'comment' => :'Comment'
+        :'id' => :'ID',
+        :'type' => :'Type',
+        :'name' => :'Name',
+        :'is_active' => :'IsActive',
+        :'external_url' => :'ExternalURL',
+        :'external_authorization_type' => :'ExternalAuthorizationType',
+        :'external_user_name' => :'ExternalUserName',
+        :'external_password' => :'ExternalPassword',
+        :'external_bearer_token' => :'ExternalBearerToken',
+        :'external_headers' => :'ExternalHeaders'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'quantity' => :'Float',
-        :'price' => :'Float',
-        :'discount' => :'Float',
-        :'tax' => :'Float',
-        :'total' => :'Float',
-        :'tax_rule' => :'String',
-        :'account' => :'String',
-        :'comment' => :'String'
+        :'id' => :'String',
+        :'type' => :'String',
+        :'name' => :'String',
+        :'is_active' => :'Boolean',
+        :'external_url' => :'String',
+        :'external_authorization_type' => :'String',
+        :'external_user_name' => :'String',
+        :'external_password' => :'String',
+        :'external_bearer_token' => :'String',
+        :'external_headers' => :'Array<ExternalHeader>'
       }
     end
 
@@ -81,51 +86,57 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoiceAdditionalCharge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Webhook` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoiceAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Webhook`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'quantity')
-        self.quantity = attributes[:'quantity']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'price')
-        self.price = attributes[:'price']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'discount')
-        self.discount = attributes[:'discount']
+      if attributes.key?(:'is_active')
+        self.is_active = attributes[:'is_active']
       end
 
-      if attributes.key?(:'tax')
-        self.tax = attributes[:'tax']
+      if attributes.key?(:'external_url')
+        self.external_url = attributes[:'external_url']
       end
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.key?(:'external_authorization_type')
+        self.external_authorization_type = attributes[:'external_authorization_type']
       end
 
-      if attributes.key?(:'tax_rule')
-        self.tax_rule = attributes[:'tax_rule']
+      if attributes.key?(:'external_user_name')
+        self.external_user_name = attributes[:'external_user_name']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
+      if attributes.key?(:'external_password')
+        self.external_password = attributes[:'external_password']
       end
 
-      if attributes.key?(:'comment')
-        self.comment = attributes[:'comment']
+      if attributes.key?(:'external_bearer_token')
+        self.external_bearer_token = attributes[:'external_bearer_token']
+      end
+
+      if attributes.key?(:'external_headers')
+        if (value = attributes[:'external_headers']).is_a?(Array)
+          self.external_headers = value
+        end
       end
     end
 
@@ -133,28 +144,20 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
-      if @quantity.nil?
-        invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
+      if @is_active.nil?
+        invalid_properties.push('invalid value for "is_active", is_active cannot be nil.')
       end
 
-      if @price.nil?
-        invalid_properties.push('invalid value for "price", price cannot be nil.')
+      if @external_url.nil?
+        invalid_properties.push('invalid value for "external_url", external_url cannot be nil.')
       end
 
-      if @tax.nil?
-        invalid_properties.push('invalid value for "tax", tax cannot be nil.')
-      end
-
-      if @tax_rule.nil?
-        invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
-      end
-
-      if @account.nil?
-        invalid_properties.push('invalid value for "account", account cannot be nil.')
+      if @external_authorization_type.nil?
+        invalid_properties.push('invalid value for "external_authorization_type", external_authorization_type cannot be nil.')
       end
 
       invalid_properties
@@ -163,12 +166,10 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
-      return false if @quantity.nil?
-      return false if @price.nil?
-      return false if @tax.nil?
-      return false if @tax_rule.nil?
-      return false if @account.nil?
+      return false if @type.nil?
+      return false if @is_active.nil?
+      return false if @external_url.nil?
+      return false if @external_authorization_type.nil?
       true
     end
 
@@ -177,15 +178,16 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          quantity == o.quantity &&
-          price == o.price &&
-          discount == o.discount &&
-          tax == o.tax &&
-          total == o.total &&
-          tax_rule == o.tax_rule &&
-          account == o.account &&
-          comment == o.comment
+          id == o.id &&
+          type == o.type &&
+          name == o.name &&
+          is_active == o.is_active &&
+          external_url == o.external_url &&
+          external_authorization_type == o.external_authorization_type &&
+          external_user_name == o.external_user_name &&
+          external_password == o.external_password &&
+          external_bearer_token == o.external_bearer_token &&
+          external_headers == o.external_headers
     end
 
     # @see the `==` method
@@ -197,7 +199,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, quantity, price, discount, tax, total, tax_rule, account, comment].hash
+      [id, type, name, is_active, external_url, external_authorization_type, external_user_name, external_password, external_bearer_token, external_headers].hash
     end
 
     # Builds the object from hash

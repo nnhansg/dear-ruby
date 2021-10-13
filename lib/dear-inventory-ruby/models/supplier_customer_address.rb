@@ -13,12 +13,9 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class Address
-    # Address Line 1 as displayed on Sale form. = Line1 + Line2
-    attr_accessor :display_address_line1
-
-    # Address Line 2 as displayed on Sale form. = City + State/Region + Zip/Postcode + Country
-    attr_accessor :display_address_line2
+  class SupplierCustomerAddress
+    # If passed in PUT method, entry will be searched by id, found entry will be updated, otherwise created
+    attr_accessor :id
 
     # Address Line 1
     attr_accessor :line1
@@ -26,43 +23,51 @@ module DearInventoryRuby
     # Address Line 2
     attr_accessor :line2
 
-    # City
+    # City / Suburb
     attr_accessor :city
 
-    # State
+    # State / Province
     attr_accessor :state
 
-    # PostCode
+    # Zip / PostCode
     attr_accessor :post_code
 
-    # Country
+    # Country name
     attr_accessor :country
+
+    # Address Type. Should be one of the following values: `Billing`, `Business` or `Shipping`.
+    attr_accessor :type
+
+    # Points that Address is used as default for chosen Type. `false` as default.
+    attr_accessor :default_for_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'display_address_line1' => :'DisplayAddressLine1',
-        :'display_address_line2' => :'DisplayAddressLine2',
+        :'id' => :'ID',
         :'line1' => :'Line1',
         :'line2' => :'Line2',
         :'city' => :'City',
         :'state' => :'State',
         :'post_code' => :'PostCode',
-        :'country' => :'Country'
+        :'country' => :'Country',
+        :'type' => :'Type',
+        :'default_for_type' => :'DefaultForType'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'display_address_line1' => :'String',
-        :'display_address_line2' => :'String',
+        :'id' => :'String',
         :'line1' => :'String',
         :'line2' => :'String',
         :'city' => :'String',
         :'state' => :'String',
         :'post_code' => :'String',
-        :'country' => :'String'
+        :'country' => :'String',
+        :'type' => :'String',
+        :'default_for_type' => :'Boolean'
       }
     end
 
@@ -76,23 +81,19 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::Address` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SupplierCustomerAddress` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::Address`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SupplierCustomerAddress`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'display_address_line1')
-        self.display_address_line1 = attributes[:'display_address_line1']
-      end
-
-      if attributes.key?(:'display_address_line2')
-        self.display_address_line2 = attributes[:'display_address_line2']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'line1')
@@ -118,18 +119,48 @@ module DearInventoryRuby
       if attributes.key?(:'country')
         self.country = attributes[:'country']
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'default_for_type')
+        self.default_for_type = attributes[:'default_for_type']
+      else
+        self.default_for_type = false
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @line1.nil?
-        invalid_properties.push('invalid value for "line1", line1 cannot be nil.')
+      if !@line1.nil? && @line1.to_s.length > 256
+        invalid_properties.push('invalid value for "line1", the character length must be smaller than or equal to 256.')
+      end
+
+      if !@line2.nil? && @line2.to_s.length > 256
+        invalid_properties.push('invalid value for "line2", the character length must be smaller than or equal to 256.')
+      end
+
+      if !@city.nil? && @city.to_s.length > 256
+        invalid_properties.push('invalid value for "city", the character length must be smaller than or equal to 256.')
+      end
+
+      if !@state.nil? && @state.to_s.length > 256
+        invalid_properties.push('invalid value for "state", the character length must be smaller than or equal to 256.')
+      end
+
+      if !@post_code.nil? && @post_code.to_s.length > 20
+        invalid_properties.push('invalid value for "post_code", the character length must be smaller than or equal to 20.')
       end
 
       if @country.nil?
         invalid_properties.push('invalid value for "country", country cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -138,9 +169,64 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @line1.nil?
+      return false if !@line1.nil? && @line1.to_s.length > 256
+      return false if !@line2.nil? && @line2.to_s.length > 256
+      return false if !@city.nil? && @city.to_s.length > 256
+      return false if !@state.nil? && @state.to_s.length > 256
+      return false if !@post_code.nil? && @post_code.to_s.length > 20
       return false if @country.nil?
+      return false if @type.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] line1 Value to be assigned
+    def line1=(line1)
+      if !line1.nil? && line1.to_s.length > 256
+        fail ArgumentError, 'invalid value for "line1", the character length must be smaller than or equal to 256.'
+      end
+
+      @line1 = line1
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] line2 Value to be assigned
+    def line2=(line2)
+      if !line2.nil? && line2.to_s.length > 256
+        fail ArgumentError, 'invalid value for "line2", the character length must be smaller than or equal to 256.'
+      end
+
+      @line2 = line2
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] city Value to be assigned
+    def city=(city)
+      if !city.nil? && city.to_s.length > 256
+        fail ArgumentError, 'invalid value for "city", the character length must be smaller than or equal to 256.'
+      end
+
+      @city = city
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] state Value to be assigned
+    def state=(state)
+      if !state.nil? && state.to_s.length > 256
+        fail ArgumentError, 'invalid value for "state", the character length must be smaller than or equal to 256.'
+      end
+
+      @state = state
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] post_code Value to be assigned
+    def post_code=(post_code)
+      if !post_code.nil? && post_code.to_s.length > 20
+        fail ArgumentError, 'invalid value for "post_code", the character length must be smaller than or equal to 20.'
+      end
+
+      @post_code = post_code
     end
 
     # Checks equality by comparing each attribute.
@@ -148,14 +234,15 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          display_address_line1 == o.display_address_line1 &&
-          display_address_line2 == o.display_address_line2 &&
+          id == o.id &&
           line1 == o.line1 &&
           line2 == o.line2 &&
           city == o.city &&
           state == o.state &&
           post_code == o.post_code &&
-          country == o.country
+          country == o.country &&
+          type == o.type &&
+          default_for_type == o.default_for_type
     end
 
     # @see the `==` method
@@ -167,7 +254,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [display_address_line1, display_address_line2, line1, line2, city, state, post_code, country].hash
+      [id, line1, line2, city, state, post_code, country, type, default_for_type].hash
     end
 
     # Builds the object from hash

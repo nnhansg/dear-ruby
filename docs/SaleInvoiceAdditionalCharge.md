@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **discount** | **Float** | Discount. Value between 0 and 100. For free items discount is 100. Default value is 0 | [optional] 
 **tax** | **Float** | Tax | 
 **total** | **Float** | Line Total.For validation | [optional] 
-**tax_rule** | **Float** | Line Tax Rule name. | 
-**account** | **Float** | Revenue account | 
-**comment** | **Float** | Comment | [optional] 
+**tax_rule** | **String** | Line Tax Rule name. | 
+**account** | **String** | Revenue account | 
+**comment** | **String** | Comment | [optional] 
 
 ## Code Sample
 

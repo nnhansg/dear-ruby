@@ -181,7 +181,7 @@ module DearInventoryRuby
         :'additional_attribute9' => :'String',
         :'additional_attribute10' => :'String',
         :'last_modified_on' => :'String',
-        :'addresses' => :'Array<Address>',
+        :'addresses' => :'Array<SupplierCustomerAddress>',
         :'contacts' => :'Array<Contact>'
       }
     end

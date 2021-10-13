@@ -13,9 +13,15 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoiceAdditionalCharge
-    # Name of Service Product referenced by this Line
-    attr_accessor :description
+  class SaleOrderLine
+    # Product identifier referenced by this Line. Required If CombineAdditionalCharges param exist for this endpoint and it have values = false
+    attr_accessor :product_id
+
+    # Product SKU referenced by this Line. Required If CombineAdditionalCharges param exist for this endpoint and it have values = false
+    attr_accessor :sku
+
+    # Product Name referenced by this Line
+    attr_accessor :name
 
     # Product or service quantity. Minimal value is 1.
     attr_accessor :quantity
@@ -29,45 +35,59 @@ module DearInventoryRuby
     # Tax
     attr_accessor :tax
 
-    # Line Total.For validation
-    attr_accessor :total
+    # Average product cost
+    attr_accessor :average_cost
 
     # Line Tax Rule name.
     attr_accessor :tax_rule
 
-    # Revenue account
-    attr_accessor :account
-
-    # Comment
+    # Comment for this line
     attr_accessor :comment
+
+    # Required if product is not a service with “Optional Drop Ship” mode. Otherwise it ignored.
+    attr_accessor :drop_ship
+
+    # Quantity of the ordered product on backorder. Read Only for POST
+    attr_accessor :backorder_quantity
+
+    # Line Total. For validation
+    attr_accessor :total
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'Description',
+        :'product_id' => :'ProductID',
+        :'sku' => :'SKU',
+        :'name' => :'Name',
         :'quantity' => :'Quantity',
         :'price' => :'Price',
         :'discount' => :'Discount',
         :'tax' => :'Tax',
-        :'total' => :'Total',
+        :'average_cost' => :'AverageCost',
         :'tax_rule' => :'TaxRule',
-        :'account' => :'Account',
-        :'comment' => :'Comment'
+        :'comment' => :'Comment',
+        :'drop_ship' => :'DropShip',
+        :'backorder_quantity' => :'BackorderQuantity',
+        :'total' => :'Total'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'String',
+        :'product_id' => :'String',
+        :'sku' => :'String',
+        :'name' => :'String',
         :'quantity' => :'Float',
         :'price' => :'Float',
         :'discount' => :'Float',
         :'tax' => :'Float',
-        :'total' => :'Float',
+        :'average_cost' => :'Float',
         :'tax_rule' => :'String',
-        :'account' => :'String',
-        :'comment' => :'String'
+        :'comment' => :'String',
+        :'drop_ship' => :'Boolean',
+        :'backorder_quantity' => :'Float',
+        :'total' => :'Float'
       }
     end
 
@@ -81,19 +101,27 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoiceAdditionalCharge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleOrderLine` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoiceAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleOrderLine`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'product_id')
+        self.product_id = attributes[:'product_id']
+      end
+
+      if attributes.key?(:'sku')
+        self.sku = attributes[:'sku']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'quantity')
@@ -112,20 +140,28 @@ module DearInventoryRuby
         self.tax = attributes[:'tax']
       end
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.key?(:'average_cost')
+        self.average_cost = attributes[:'average_cost']
       end
 
       if attributes.key?(:'tax_rule')
         self.tax_rule = attributes[:'tax_rule']
       end
 
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
+      end
+
+      if attributes.key?(:'drop_ship')
+        self.drop_ship = attributes[:'drop_ship']
+      end
+
+      if attributes.key?(:'backorder_quantity')
+        self.backorder_quantity = attributes[:'backorder_quantity']
+      end
+
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
       end
     end
 
@@ -133,8 +169,8 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       if @quantity.nil?
@@ -145,30 +181,15 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "price", price cannot be nil.')
       end
 
-      if @tax.nil?
-        invalid_properties.push('invalid value for "tax", tax cannot be nil.')
-      end
-
-      if @tax_rule.nil?
-        invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
-      end
-
-      if @account.nil?
-        invalid_properties.push('invalid value for "account", account cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
+      return false if @name.nil?
       return false if @quantity.nil?
       return false if @price.nil?
-      return false if @tax.nil?
-      return false if @tax_rule.nil?
-      return false if @account.nil?
       true
     end
 
@@ -177,15 +198,19 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
+          product_id == o.product_id &&
+          sku == o.sku &&
+          name == o.name &&
           quantity == o.quantity &&
           price == o.price &&
           discount == o.discount &&
           tax == o.tax &&
-          total == o.total &&
+          average_cost == o.average_cost &&
           tax_rule == o.tax_rule &&
-          account == o.account &&
-          comment == o.comment
+          comment == o.comment &&
+          drop_ship == o.drop_ship &&
+          backorder_quantity == o.backorder_quantity &&
+          total == o.total
     end
 
     # @see the `==` method
@@ -197,7 +222,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, quantity, price, discount, tax, total, tax_rule, account, comment].hash
+      [product_id, sku, name, quantity, price, discount, tax, average_cost, tax_rule, comment, drop_ship, backorder_quantity, total].hash
     end
 
     # Builds the object from hash

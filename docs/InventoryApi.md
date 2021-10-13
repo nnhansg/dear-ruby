@@ -7,20 +7,34 @@ Method | HTTP request | Description
 [**create_account**](InventoryApi.md#create_account) | **POST** /ref/account | Allows you to create an Account
 [**create_customer**](InventoryApi.md#create_customer) | **POST** /customer | Allows you to create a customer
 [**create_payment_term**](InventoryApi.md#create_payment_term) | **POST** /ref/paymentterm | Allows you to create a payment term
+[**create_sale_invoice**](InventoryApi.md#create_sale_invoice) | **POST** /sale/invoice | Allows you to create a sale invoice
+[**create_sale_order**](InventoryApi.md#create_sale_order) | **POST** /sale/order | Allows you to create a Sale Order
+[**create_sale_payment**](InventoryApi.md#create_sale_payment) | **POST** /sale/payment | Allows you to create a Sale Payment
+[**create_sale_quote**](InventoryApi.md#create_sale_quote) | **POST** /sale/quote | Allows you to create a Sale Quote
 [**create_tax**](InventoryApi.md#create_tax) | **POST** /ref/tax | Allows you to create a tax
+[**create_webhooks**](InventoryApi.md#create_webhooks) | **POST** /webhooks | Allows you to create a Webhook
 [**delete_account**](InventoryApi.md#delete_account) | **DELETE** /ref/account | Allows you to delete an Account
 [**delete_payment_term**](InventoryApi.md#delete_payment_term) | **DELETE** /ref/paymentterm | Allows you to delete a payment term
+[**delete_sale_invoice**](InventoryApi.md#delete_sale_invoice) | **DELETE** /sale/invoice | Allows you to delete a sale invoice
+[**delete_sale_payment**](InventoryApi.md#delete_sale_payment) | **DELETE** /sale/payment | Allows you to delete a sale payment
+[**delete_webhook**](InventoryApi.md#delete_webhook) | **DELETE** /webhooks | Allows you to delete a webhook
 [**get_accounts**](InventoryApi.md#get_accounts) | **GET** /ref/account | Allows you to retrieve the Chart of Accounts
 [**get_customers**](InventoryApi.md#get_customers) | **GET** /customer | Allows you to retrieve the customers
 [**get_me**](InventoryApi.md#get_me) | **GET** /me | Allows you to retrieve your information
 [**get_payment_terms**](InventoryApi.md#get_payment_terms) | **GET** /ref/paymentterm | Allows you to retrieve the payment terms
 [**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
 [**get_sale_invoices**](InventoryApi.md#get_sale_invoices) | **GET** /sale/invoice | Allows you to retrieve the sale invoices
+[**get_sale_order**](InventoryApi.md#get_sale_order) | **GET** /sale/order | Allows you to retrieve the Sale Order
+[**get_sale_payment**](InventoryApi.md#get_sale_payment) | **GET** /sale/payment | Allows you to retrieve the Sale Payments
+[**get_sale_quote**](InventoryApi.md#get_sale_quote) | **GET** /sale/quote | Allows you to retrieve the Sale Quote
 [**get_taxes**](InventoryApi.md#get_taxes) | **GET** /ref/tax | Allows you to retrieve the taxes
+[**get_webhooks**](InventoryApi.md#get_webhooks) | **GET** /webhooks | Allows you to retrieve the Webhooks
 [**update_account**](InventoryApi.md#update_account) | **PUT** /ref/account | Allows you to update an Account
 [**update_customer**](InventoryApi.md#update_customer) | **PUT** /customer | Allows you to update a customer
 [**update_payment_term**](InventoryApi.md#update_payment_term) | **PUT** /ref/paymentterm | Allows you to update a payment term
+[**update_sale_payment**](InventoryApi.md#update_sale_payment) | **PUT** /sale/payment | Allows you to update a sale payment
 [**update_tax**](InventoryApi.md#update_tax) | **PUT** /ref/tax | Allows you to update a tax
+[**update_webhook**](InventoryApi.md#update_webhook) | **PUT** /webhooks | Allows you to update a webhook
 
 
 
@@ -207,6 +221,250 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## create_sale_invoice
+
+> SaleInvoices create_sale_invoice(sale_invoice_post, opts)
+
+Allows you to create a sale invoice
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+sale_invoice_post = { "SaleID": "916ab4c0-6ccb-4c93-873d-0603859050e4", "TaskID": "b039f19e-66f8-4309-a4b1-abf928303c88", "CombineAdditionalCharges": false, "Memo": "", "Status": "DRAFT", "InvoiceDate": "2017-11-22T00:00:00Z", "InvoiceDueDate": "2017-12-22T00:00:00Z", "CurrencyConversionRate": 1, "BillingAddressLine1": "3 Park Street Industrial Village Southbank", "BillingAddressLine2": "Melbourne VIC 3331", "LinkedFulfillmentNumber": "1", "Lines": [ { "ProductID": "4aadd8f6-4d3d-46ca-acbb-1a9a662f9bc1", "SKU": "Bread", "Name": "Baked Bread", "Quantity": 1, "Price": 8, "Discount": 0, "Tax": 0, "Total": 8, "AverageCost": 5, "TaxRule": "Tax on Sales", "Account": "200", "Comment": "" } ], "AdditionalCharges": [ { "Description": "Desktop/network support via phone. Per month fixed fee for minimum 20 hours/month.", "Quantity": 1, "Price": 350, "Discount": 0, "Tax": 0, "Total": 350, "TaxRule": "Tax on Sales", "Account": "200", "Comment": "" } ] } # SaleInvoicePost | a Sale Invoice object with properties to create
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to create a sale invoice
+  result = api_instance.create_sale_invoice(sale_invoice_post, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->create_sale_invoice: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_invoice_post** | [**SaleInvoicePost**](SaleInvoicePost.md)| a Sale Invoice object with properties to create | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**SaleInvoices**](SaleInvoices.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_sale_order
+
+> SaleOrder create_sale_order(sale_order, opts)
+
+Allows you to create a Sale Order
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+sale_order = { "SaleID": "916ab4c0-6ccb-4c93-873d-0603859050e4", "Memo": "", "Status": "DRAFT", "AutoPickPackShipMode": "NOPICK", "Lines": [ { "ProductID": "4aadd8f6-4d3d-46ca-acbb-1a9a662f9bc1", "SKU": "Bread", "Name": "Baked Bread", "Quantity": 1, "Price": 8, "Discount": 0, "Tax": 0, "AverageCost": 5, "TaxRule": "Tax on Sales", "Comment": "", "DropShip": false, "BackorderQuantity": 0, "Total": 8 } ], "AdditionalCharges": [ { "Description": "Desktop/network support via phone. Per month fixed fee for minimum 20 hours/month.", "Price": 350, "Quantity": 1, "Discount": 0, "Tax": 0, "Total": 350, "TaxRule": "Tax on Sales", "Comment": "" } ], "TotalBeforeTax": 358, "Tax": 0, "Total": 358 } # SaleOrder | a Sale Order object with properties to create
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to create a Sale Order
+  result = api_instance.create_sale_order(sale_order, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->create_sale_order: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_order** | [**SaleOrder**](SaleOrder.md)| a Sale Order object with properties to create | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**SaleOrder**](SaleOrder.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_sale_payment
+
+> SalePayment create_sale_payment(sale_payment, opts)
+
+Allows you to create a Sale Payment
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+sale_payment = { "TaskID": "4733ba69-21c5-48f5-95e5-307aa9889747", "Type": "Payment", "Reference": "", "Amount": 1, "DatePaid": "2017-11-30T00:00:00Z", "Account": "718", "CurrencyRate": 1 } # SalePayment | a Sale Payment object with properties to create
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to create a Sale Payment
+  result = api_instance.create_sale_payment(sale_payment, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->create_sale_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_payment** | [**SalePayment**](SalePayment.md)| a Sale Payment object with properties to create | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**SalePayment**](SalePayment.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_sale_quote
+
+> SaleQuote create_sale_quote(sale_quote, opts)
+
+Allows you to create a Sale Quote
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+sale_quote = { "SaleID": "916ab4c0-6ccb-4c93-873d-0603859050e4", "CombineAdditionalCharges": false, "Memo": "", "Status": "AUTHORISED", "Prepayments": [], "Lines": [ { "ProductID": "4aadd8f6-4d3d-46ca-acbb-1a9a662f9bc1", "SKU": "Bread", "Name": "Baked Bread", "Quantity": 1, "Price": 8, "Discount": 0, "Tax": 0, "AverageCost": 5, "TaxRule": "Tax on Sales", "Comment": "", "Total": 8 } ], "AdditionalCharges": [ { "Description": "Desktop/network support via phone. Per month fixed fee for minimum 20 hours/month.", "Price": 350, "Quantity": 1, "Discount": 0, "Tax": 0, "Total": 350, "TaxRule": "Tax on Sales", "Comment": "" } ] } # SaleQuote | a Sale Quote object with properties to create
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to create a Sale Quote
+  result = api_instance.create_sale_quote(sale_quote, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->create_sale_quote: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_quote** | [**SaleQuote**](SaleQuote.md)| a Sale Quote object with properties to create | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**SaleQuote**](SaleQuote.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## create_tax
 
 > Taxes create_tax(tax, opts)
@@ -257,6 +515,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Taxes**](Taxes.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_webhooks
+
+> Webhooks create_webhooks(webhook, opts)
+
+Allows you to create a Webhook
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+webhook = { "Type": "Sale/OrderAuthorised", "IsActive": true, "ExternalURL": "https://hookb.in/Zn8950P7", "ExternalAuthorizationType": "basicauth", "ExternalUserName": "Hello", "ExternalPassword": "123", "ExternalBearerToken": "", "ExternalHeaders": [ { "Key": "Key", "Value": "123" }, { "Key": "6", "Value": "0" } ] } # Webhook | a webhook object with properties to create
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to create a Webhook
+  result = api_instance.create_webhooks(webhook, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->create_webhooks: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to create | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**Webhooks**](Webhooks.md)
 
 ### Authorization
 
@@ -375,6 +694,185 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Success**](Success.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_sale_invoice
+
+> SaleInvoices delete_sale_invoice(opts)
+
+Allows you to delete a sale invoice
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  id: 'id_example', # String | Default is nil
+  void: false # Boolean | Default is false
+}
+
+begin
+  #Allows you to delete a sale invoice
+  result = api_instance.delete_sale_invoice(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->delete_sale_invoice: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Default is nil | [optional] 
+ **void** | **Boolean**| Default is false | [optional] [default to false]
+
+### Return type
+
+[**SaleInvoices**](SaleInvoices.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_sale_payment
+
+> Success delete_sale_payment(opts)
+
+Allows you to delete a sale payment
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  id: 'id_example' # String | Default is nil
+}
+
+begin
+  #Allows you to delete a sale payment
+  result = api_instance.delete_sale_payment(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->delete_sale_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Default is nil | [optional] 
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_webhook
+
+> Webhooks delete_webhook(opts)
+
+Allows you to delete a webhook
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  id: 'id_example' # String | Default is nil
+}
+
+begin
+  #Allows you to delete a webhook
+  result = api_instance.delete_webhook(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->delete_webhook: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Default is nil | [optional] 
+
+### Return type
+
+[**Webhooks**](Webhooks.md)
 
 ### Authorization
 
@@ -766,6 +1264,191 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_sale_order
+
+> SaleOrder get_sale_order(opts)
+
+Allows you to retrieve the Sale Order
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  sale_id: 'sale_id_example', # String | Unique DEAR Sale ID
+  combine_additional_charges: false, # Boolean | Show additional charges in 'Lines' array
+  include_product_info: false # Boolean | Show all used products in additional array
+}
+
+begin
+  #Allows you to retrieve the Sale Order
+  result = api_instance.get_sale_order(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_sale_order: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
+ **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
+
+### Return type
+
+[**SaleOrder**](SaleOrder.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sale_payment
+
+> Array&lt;SalePayment&gt; get_sale_payment(opts)
+
+Allows you to retrieve the Sale Payments
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  sale_id: 'sale_id_example' # String | Unique DEAR Sale ID
+}
+
+begin
+  #Allows you to retrieve the Sale Payments
+  result = api_instance.get_sale_payment(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_sale_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+
+### Return type
+
+[**Array&lt;SalePayment&gt;**](SalePayment.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sale_quote
+
+> SaleQuote get_sale_quote(opts)
+
+Allows you to retrieve the Sale Quote
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  sale_id: 'sale_id_example', # String | Unique DEAR Sale ID
+  combine_additional_charges: false, # Boolean | Show additional charges in 'Lines' array
+  include_product_info: false # Boolean | Show all used products in additional array
+}
+
+begin
+  #Allows you to retrieve the Sale Quote
+  result = api_instance.get_sale_quote(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_sale_quote: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
+ **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
+
+### Return type
+
+[**SaleQuote**](SaleQuote.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_taxes
 
 > Taxes get_taxes(opts)
@@ -828,6 +1511,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Taxes**](Taxes.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_webhooks
+
+> Webhooks get_webhooks
+
+Allows you to retrieve the Webhooks
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+
+begin
+  #Allows you to retrieve the Webhooks
+  result = api_instance.get_webhooks
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_webhooks: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Webhooks**](Webhooks.md)
 
 ### Authorization
 
@@ -1022,6 +1758,67 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## update_sale_payment
+
+> SalePayment update_sale_payment(sale_payment, opts)
+
+Allows you to update a sale payment
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+sale_payment = { "ID": "ee093a0c-d177-9728-1df5-628a61a939e4", "Reference": "", "Amount": 357, "DatePaid": "2017-11-30T00:00:00Z", "Account": "718", "CurrencyRate": 1, } # SalePayment | a sale payment object with properties to update
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to update a sale payment
+  result = api_instance.update_sale_payment(sale_payment, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->update_sale_payment: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sale_payment** | [**SalePayment**](SalePayment.md)| a sale payment object with properties to update | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**SalePayment**](SalePayment.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## update_tax
 
 > Taxes update_tax(tax, opts)
@@ -1072,6 +1869,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Taxes**](Taxes.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_webhook
+
+> Webhooks update_webhook(webhook, opts)
+
+Allows you to update a webhook
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+webhook = { "ID": "1cf8cb83-bf39-494b-87f9-1252b684d6d5", "Type": "Sale/OrderAuthorised", "Name": "Sale order has been authorised", "IsActive": true, "ExternalURL": "https://hookb.in/Zn8950P7", "ExternalAuthorizationType": "basicauth", "ExternalUserName": "Hello", "ExternalPassword": "123", "ExternalBearerToken": nil, "ExternalHeaders": [ { "Key": "Key", "Value": "123" }, { "Key": "6", "Value": "0" }, { "Key": "New Key", "Value": "New Value" } ] } # Webhook | a webhook object with properties to update
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to update a webhook
+  result = api_instance.update_webhook(webhook, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->update_webhook: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to update | 
+ **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**Webhooks**](Webhooks.md)
 
 ### Authorization
 

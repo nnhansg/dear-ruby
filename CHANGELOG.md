@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2021-10-13
+
+- Add new endpoint GET, POST, PUT, DELETE `/webhooks` and some related models.
+- Add new endpoint GET, POST `/sale/quote` and some related models.
+- Add new endpoint GET, POST `/sale/order` and some related models.
+- Add new endpoint POST, DELETE `/sale/invoice` and some related models.
+- Add new endpoint GET, POST, PUT, DELETE `/sale/payment` and some related models.
+
 ## [0.1.19.1] - 2021-07-23
 
 - Update gem version.

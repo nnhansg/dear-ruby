@@ -1,12 +1,12 @@
-# DearInventoryRuby::SaleInvoice
+# DearInventoryRuby::SaleInvoicePost
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**sale_id** | **String** | Unique DEAR Sale ID | 
 **task_id** | **String** | Identifier of sale Invoice task | 
 **combine_additional_charges** | **Boolean** | If &#x60;true&#x60; then &#x60;additional charges&#x60; lines displayed in &#x60;Lines&#x60; array | [default to false]
-**invoice_number** | **String** | Invoice Number (auto-generated) | [optional] 
 **memo** | **String** | Additional information for Invoice. | [optional] 
 **status** | **String** | Invoice status. Possible Values are values. For POST available values are DRAFT, AUTHORISED | 
 **invoice_date** | **String** | Invoice Date. | 
@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::SaleInvoice.new(task_id: nil,
+instance = DearInventoryRuby::SaleInvoicePost.new(sale_id: nil,
+                                 task_id: nil,
                                  combine_additional_charges: nil,
-                                 invoice_number: nil,
                                  memo: nil,
                                  status: nil,
                                  invoice_date: nil,

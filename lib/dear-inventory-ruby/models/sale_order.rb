@@ -13,61 +13,64 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoiceAdditionalCharge
-    # Name of Service Product referenced by this Line
-    attr_accessor :description
+  class SaleOrder
+    # Unique DEAR Sale ID
+    attr_accessor :sale_id
 
-    # Product or service quantity. Minimal value is 1.
-    attr_accessor :quantity
+    # Sale Order Number (auto-generated)
+    attr_accessor :sale_order_number
 
-    # Price per unit in Customer currency
-    attr_accessor :price
+    # If `true` then `additional charges` lines displayed in `Lines` array
+    attr_accessor :combine_additional_charges
 
-    # Discount. Value between 0 and 100. For free items discount is 100. Default value is 0
-    attr_accessor :discount
+    # Additional information for Order.
+    attr_accessor :memo
 
-    # Tax
+    # Order Status. Possible Values are values. For POST only `DRAFT` and `AUTHORISED` values accepted
+    attr_accessor :status
+
+    attr_accessor :lines
+
+    attr_accessor :additional_charges
+
+    # Decimal with up to 4 decimal places. Sum of order lines and additional charges without taxes. Not required for POST.
+    attr_accessor :total_before_tax
+
+    # Decimal with up to 4 decimal places. Sum of order lines and additional charges taxes. Not required for POST.
     attr_accessor :tax
 
-    # Line Total.For validation
+    # Decimal with up to 4 decimal places. Sum of order lines and additional charges with taxes. Not required for POST.
     attr_accessor :total
-
-    # Line Tax Rule name.
-    attr_accessor :tax_rule
-
-    # Revenue account
-    attr_accessor :account
-
-    # Comment
-    attr_accessor :comment
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'Description',
-        :'quantity' => :'Quantity',
-        :'price' => :'Price',
-        :'discount' => :'Discount',
+        :'sale_id' => :'SaleID',
+        :'sale_order_number' => :'SaleOrderNumber',
+        :'combine_additional_charges' => :'CombineAdditionalCharges',
+        :'memo' => :'Memo',
+        :'status' => :'Status',
+        :'lines' => :'Lines',
+        :'additional_charges' => :'AdditionalCharges',
+        :'total_before_tax' => :'TotalBeforeTax',
         :'tax' => :'Tax',
-        :'total' => :'Total',
-        :'tax_rule' => :'TaxRule',
-        :'account' => :'Account',
-        :'comment' => :'Comment'
+        :'total' => :'Total'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'quantity' => :'Float',
-        :'price' => :'Float',
-        :'discount' => :'Float',
+        :'sale_id' => :'String',
+        :'sale_order_number' => :'String',
+        :'combine_additional_charges' => :'Boolean',
+        :'memo' => :'String',
+        :'status' => :'String',
+        :'lines' => :'Array<SaleOrderLine>',
+        :'additional_charges' => :'Array<SaleAdditionalCharge>',
+        :'total_before_tax' => :'Float',
         :'tax' => :'Float',
-        :'total' => :'Float',
-        :'tax_rule' => :'String',
-        :'account' => :'String',
-        :'comment' => :'String'
+        :'total' => :'Float'
       }
     end
 
@@ -81,31 +84,53 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoiceAdditionalCharge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleOrder` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoiceAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleOrder`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'sale_id')
+        self.sale_id = attributes[:'sale_id']
       end
 
-      if attributes.key?(:'quantity')
-        self.quantity = attributes[:'quantity']
+      if attributes.key?(:'sale_order_number')
+        self.sale_order_number = attributes[:'sale_order_number']
       end
 
-      if attributes.key?(:'price')
-        self.price = attributes[:'price']
+      if attributes.key?(:'combine_additional_charges')
+        self.combine_additional_charges = attributes[:'combine_additional_charges']
+      else
+        self.combine_additional_charges = false
       end
 
-      if attributes.key?(:'discount')
-        self.discount = attributes[:'discount']
+      if attributes.key?(:'memo')
+        self.memo = attributes[:'memo']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'lines')
+        if (value = attributes[:'lines']).is_a?(Array)
+          self.lines = value
+        end
+      end
+
+      if attributes.key?(:'additional_charges')
+        if (value = attributes[:'additional_charges']).is_a?(Array)
+          self.additional_charges = value
+        end
+      end
+
+      if attributes.key?(:'total_before_tax')
+        self.total_before_tax = attributes[:'total_before_tax']
       end
 
       if attributes.key?(:'tax')
@@ -115,46 +140,38 @@ module DearInventoryRuby
       if attributes.key?(:'total')
         self.total = attributes[:'total']
       end
-
-      if attributes.key?(:'tax_rule')
-        self.tax_rule = attributes[:'tax_rule']
-      end
-
-      if attributes.key?(:'account')
-        self.account = attributes[:'account']
-      end
-
-      if attributes.key?(:'comment')
-        self.comment = attributes[:'comment']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      if @sale_id.nil?
+        invalid_properties.push('invalid value for "sale_id", sale_id cannot be nil.')
       end
 
-      if @quantity.nil?
-        invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
+      if @combine_additional_charges.nil?
+        invalid_properties.push('invalid value for "combine_additional_charges", combine_additional_charges cannot be nil.')
       end
 
-      if @price.nil?
-        invalid_properties.push('invalid value for "price", price cannot be nil.')
+      if @memo.nil?
+        invalid_properties.push('invalid value for "memo", memo cannot be nil.')
+      end
+
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @total_before_tax.nil?
+        invalid_properties.push('invalid value for "total_before_tax", total_before_tax cannot be nil.')
       end
 
       if @tax.nil?
         invalid_properties.push('invalid value for "tax", tax cannot be nil.')
       end
 
-      if @tax_rule.nil?
-        invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
-      end
-
-      if @account.nil?
-        invalid_properties.push('invalid value for "account", account cannot be nil.')
+      if @total.nil?
+        invalid_properties.push('invalid value for "total", total cannot be nil.')
       end
 
       invalid_properties
@@ -163,12 +180,13 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
-      return false if @quantity.nil?
-      return false if @price.nil?
+      return false if @sale_id.nil?
+      return false if @combine_additional_charges.nil?
+      return false if @memo.nil?
+      return false if @status.nil?
+      return false if @total_before_tax.nil?
       return false if @tax.nil?
-      return false if @tax_rule.nil?
-      return false if @account.nil?
+      return false if @total.nil?
       true
     end
 
@@ -177,15 +195,16 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          quantity == o.quantity &&
-          price == o.price &&
-          discount == o.discount &&
+          sale_id == o.sale_id &&
+          sale_order_number == o.sale_order_number &&
+          combine_additional_charges == o.combine_additional_charges &&
+          memo == o.memo &&
+          status == o.status &&
+          lines == o.lines &&
+          additional_charges == o.additional_charges &&
+          total_before_tax == o.total_before_tax &&
           tax == o.tax &&
-          total == o.total &&
-          tax_rule == o.tax_rule &&
-          account == o.account &&
-          comment == o.comment
+          total == o.total
     end
 
     # @see the `==` method
@@ -197,7 +216,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, quantity, price, discount, tax, total, tax_rule, account, comment].hash
+      [sale_id, sale_order_number, combine_additional_charges, memo, status, lines, additional_charges, total_before_tax, tax, total].hash
     end
 
     # Builds the object from hash

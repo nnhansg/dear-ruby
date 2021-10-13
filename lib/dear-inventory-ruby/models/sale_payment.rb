@@ -13,61 +13,86 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoiceAdditionalCharge
-    # Name of Service Product referenced by this Line
-    attr_accessor :description
+  class SalePayment
+    # Unique DEAR Sale ID
+    attr_accessor :sale_id
 
-    # Product or service quantity. Minimal value is 1.
-    attr_accessor :quantity
+    # Unique DEAR Sale Task ID. Available for POST
+    attr_accessor :task_id
 
-    # Price per unit in Customer currency
-    attr_accessor :price
+    # Identifier of payment. Available for PUT
+    attr_accessor :id
 
-    # Discount. Value between 0 and 100. For free items discount is 100. Default value is 0
-    attr_accessor :discount
+    # Sale Order Number
+    attr_accessor :sale_order_number
 
-    # Tax
-    attr_accessor :tax
+    # Sale Task Invoice Number
+    attr_accessor :invoice_number
 
-    # Line Total.For validation
-    attr_accessor :total
+    # Sale Task Credit Note Number
+    attr_accessor :credit_note_number
 
-    # Line Tax Rule name.
-    attr_accessor :tax_rule
+    # Available values are PREPAYMENT,PAYMENT,REFUND. Available for POST
+    attr_accessor :type
 
-    # Revenue account
+    # Payment reference number. Available for POST/PUT
+    attr_accessor :reference
+
+    # Payment amount in customer currency. Available for POST/PUT
+    attr_accessor :amount
+
+    # Date when payment has been made. Available for POST/PUT
+    attr_accessor :date_paid
+
+    # Account Code of the bank/payment account from Chart of accounts. Available for POST/PUT
     attr_accessor :account
 
-    # Comment
-    attr_accessor :comment
+    # Currency Conversion rate expressed as number of Base currency units for one Customer currency unit. Available for POST/PUT
+    attr_accessor :currency_rate
+
+    # Date of creation payment record.
+    attr_accessor :date_created
+
+    # Id for Sale Credit entry
+    attr_accessor :credit_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'description' => :'Description',
-        :'quantity' => :'Quantity',
-        :'price' => :'Price',
-        :'discount' => :'Discount',
-        :'tax' => :'Tax',
-        :'total' => :'Total',
-        :'tax_rule' => :'TaxRule',
+        :'sale_id' => :'SaleID',
+        :'task_id' => :'TaskID',
+        :'id' => :'ID',
+        :'sale_order_number' => :'SaleOrderNumber',
+        :'invoice_number' => :'InvoiceNumber',
+        :'credit_note_number' => :'CreditNoteNumber',
+        :'type' => :'Type',
+        :'reference' => :'Reference',
+        :'amount' => :'Amount',
+        :'date_paid' => :'DatePaid',
         :'account' => :'Account',
-        :'comment' => :'Comment'
+        :'currency_rate' => :'CurrencyRate',
+        :'date_created' => :'DateCreated',
+        :'credit_id' => :'CreditID'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'description' => :'String',
-        :'quantity' => :'Float',
-        :'price' => :'Float',
-        :'discount' => :'Float',
-        :'tax' => :'Float',
-        :'total' => :'Float',
-        :'tax_rule' => :'String',
+        :'sale_id' => :'String',
+        :'task_id' => :'String',
+        :'id' => :'String',
+        :'sale_order_number' => :'String',
+        :'invoice_number' => :'String',
+        :'credit_note_number' => :'String',
+        :'type' => :'String',
+        :'reference' => :'String',
+        :'amount' => :'Float',
+        :'date_paid' => :'Date',
         :'account' => :'String',
-        :'comment' => :'String'
+        :'currency_rate' => :'Float',
+        :'date_created' => :'Date',
+        :'credit_id' => :'String'
       }
     end
 
@@ -81,51 +106,71 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoiceAdditionalCharge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SalePayment` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoiceAdditionalCharge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SalePayment`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'sale_id')
+        self.sale_id = attributes[:'sale_id']
       end
 
-      if attributes.key?(:'quantity')
-        self.quantity = attributes[:'quantity']
+      if attributes.key?(:'task_id')
+        self.task_id = attributes[:'task_id']
       end
 
-      if attributes.key?(:'price')
-        self.price = attributes[:'price']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'discount')
-        self.discount = attributes[:'discount']
+      if attributes.key?(:'sale_order_number')
+        self.sale_order_number = attributes[:'sale_order_number']
       end
 
-      if attributes.key?(:'tax')
-        self.tax = attributes[:'tax']
+      if attributes.key?(:'invoice_number')
+        self.invoice_number = attributes[:'invoice_number']
       end
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.key?(:'credit_note_number')
+        self.credit_note_number = attributes[:'credit_note_number']
       end
 
-      if attributes.key?(:'tax_rule')
-        self.tax_rule = attributes[:'tax_rule']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'reference')
+        self.reference = attributes[:'reference']
+      end
+
+      if attributes.key?(:'amount')
+        self.amount = attributes[:'amount']
+      end
+
+      if attributes.key?(:'date_paid')
+        self.date_paid = attributes[:'date_paid']
       end
 
       if attributes.key?(:'account')
         self.account = attributes[:'account']
       end
 
-      if attributes.key?(:'comment')
-        self.comment = attributes[:'comment']
+      if attributes.key?(:'currency_rate')
+        self.currency_rate = attributes[:'currency_rate']
+      end
+
+      if attributes.key?(:'date_created')
+        self.date_created = attributes[:'date_created']
+      end
+
+      if attributes.key?(:'credit_id')
+        self.credit_id = attributes[:'credit_id']
       end
     end
 
@@ -133,42 +178,12 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
-      end
-
-      if @quantity.nil?
-        invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
-      end
-
-      if @price.nil?
-        invalid_properties.push('invalid value for "price", price cannot be nil.')
-      end
-
-      if @tax.nil?
-        invalid_properties.push('invalid value for "tax", tax cannot be nil.')
-      end
-
-      if @tax_rule.nil?
-        invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
-      end
-
-      if @account.nil?
-        invalid_properties.push('invalid value for "account", account cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
-      return false if @quantity.nil?
-      return false if @price.nil?
-      return false if @tax.nil?
-      return false if @tax_rule.nil?
-      return false if @account.nil?
       true
     end
 
@@ -177,15 +192,20 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          description == o.description &&
-          quantity == o.quantity &&
-          price == o.price &&
-          discount == o.discount &&
-          tax == o.tax &&
-          total == o.total &&
-          tax_rule == o.tax_rule &&
+          sale_id == o.sale_id &&
+          task_id == o.task_id &&
+          id == o.id &&
+          sale_order_number == o.sale_order_number &&
+          invoice_number == o.invoice_number &&
+          credit_note_number == o.credit_note_number &&
+          type == o.type &&
+          reference == o.reference &&
+          amount == o.amount &&
+          date_paid == o.date_paid &&
           account == o.account &&
-          comment == o.comment
+          currency_rate == o.currency_rate &&
+          date_created == o.date_created &&
+          credit_id == o.credit_id
     end
 
     # @see the `==` method
@@ -197,7 +217,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, quantity, price, discount, tax, total, tax_rule, account, comment].hash
+      [sale_id, task_id, id, sale_order_number, invoice_number, credit_note_number, type, reference, amount, date_paid, account, currency_rate, date_created, credit_id].hash
     end
 
     # Builds the object from hash

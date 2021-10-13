@@ -13,15 +13,15 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoice
+  class SaleInvoicePost
+    # Unique DEAR Sale ID
+    attr_accessor :sale_id
+
     # Identifier of sale Invoice task
     attr_accessor :task_id
 
     # If `true` then `additional charges` lines displayed in `Lines` array
     attr_accessor :combine_additional_charges
-
-    # Invoice Number (auto-generated)
-    attr_accessor :invoice_number
 
     # Additional information for Invoice.
     attr_accessor :memo
@@ -54,9 +54,9 @@ module DearInventoryRuby
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'sale_id' => :'SaleID',
         :'task_id' => :'TaskID',
         :'combine_additional_charges' => :'CombineAdditionalCharges',
-        :'invoice_number' => :'InvoiceNumber',
         :'memo' => :'Memo',
         :'status' => :'Status',
         :'invoice_date' => :'InvoiceDate',
@@ -73,9 +73,9 @@ module DearInventoryRuby
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'sale_id' => :'String',
         :'task_id' => :'String',
         :'combine_additional_charges' => :'Boolean',
-        :'invoice_number' => :'String',
         :'memo' => :'String',
         :'status' => :'String',
         :'invoice_date' => :'String',
@@ -99,16 +99,20 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoice` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoicePost` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoice`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoicePost`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'sale_id')
+        self.sale_id = attributes[:'sale_id']
+      end
 
       if attributes.key?(:'task_id')
         self.task_id = attributes[:'task_id']
@@ -118,10 +122,6 @@ module DearInventoryRuby
         self.combine_additional_charges = attributes[:'combine_additional_charges']
       else
         self.combine_additional_charges = false
-      end
-
-      if attributes.key?(:'invoice_number')
-        self.invoice_number = attributes[:'invoice_number']
       end
 
       if attributes.key?(:'memo')
@@ -173,6 +173,10 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @sale_id.nil?
+        invalid_properties.push('invalid value for "sale_id", sale_id cannot be nil.')
+      end
+
       if @task_id.nil?
         invalid_properties.push('invalid value for "task_id", task_id cannot be nil.')
       end
@@ -199,6 +203,7 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @sale_id.nil?
       return false if @task_id.nil?
       return false if @combine_additional_charges.nil?
       return false if @status.nil?
@@ -212,9 +217,9 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          sale_id == o.sale_id &&
           task_id == o.task_id &&
           combine_additional_charges == o.combine_additional_charges &&
-          invoice_number == o.invoice_number &&
           memo == o.memo &&
           status == o.status &&
           invoice_date == o.invoice_date &&
@@ -236,7 +241,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [task_id, combine_additional_charges, invoice_number, memo, status, invoice_date, invoice_due_date, currency_conversion_rate, billing_address_line1, billing_address_line2, linked_fulfillment_number, lines, additional_charges].hash
+      [sale_id, task_id, combine_additional_charges, memo, status, invoice_date, invoice_due_date, currency_conversion_rate, billing_address_line1, billing_address_line2, linked_fulfillment_number, lines, additional_charges].hash
     end
 
     # Builds the object from hash

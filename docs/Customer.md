@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **additional_attribute9** | **String** | Additional attribute 9 value | [optional] 
 **additional_attribute10** | **String** | Additional attribute 10 value | [optional] 
 **last_modified_on** | **String** | Date of last modification | [optional] 
-**addresses** | [**Array&lt;Address&gt;**](Address.md) | List of addresses | [optional] 
+**addresses** | [**Array&lt;SupplierCustomerAddress&gt;**](SupplierCustomerAddress.md) | List of addresses | [optional] 
 **contacts** | [**Array&lt;Contact&gt;**](Contact.md) | List of contacts | [optional] 
 
 ## Code Sample
