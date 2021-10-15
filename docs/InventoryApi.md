@@ -731,7 +731,7 @@ end
 
 api_instance = DearInventoryRuby::InventoryApi.new
 opts = {
-  id: 'id_example', # String | Default is nil
+  task_id: 'task_id_example', # String | ID of Sale task to Void or Undo
   void: false # Boolean | Default is false
 }
 
@@ -749,7 +749,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional] 
+ **task_id** | **String**| ID of Sale task to Void or Undo | [optional] 
  **void** | **Boolean**| Default is false | [optional] [default to false]
 
 ### Return type

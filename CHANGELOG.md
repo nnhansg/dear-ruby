@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1] - 2021-10-15
+
+- Update param `TaskID` for `DELETE` of the endpoint `/sale/invoice`
+
 ## [0.2.0] - 2021-10-13
 
 - Add new endpoint GET, POST, PUT, DELETE `/webhooks` and some related models.

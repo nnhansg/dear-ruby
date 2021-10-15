@@ -165,7 +165,7 @@ describe 'InventoryApi' do
   # unit tests for delete_sale_invoice
   # Allows you to delete a sale invoice
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :id Default is nil
+  # @option opts [String] :task_id ID of Sale task to Void or Undo
   # @option opts [Boolean] :void Default is false
   # @return [SaleInvoices]
   describe 'delete_sale_invoice test' do

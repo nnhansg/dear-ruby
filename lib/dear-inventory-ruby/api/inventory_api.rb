@@ -720,7 +720,7 @@ module DearInventoryRuby
 
     # Allows you to delete a sale invoice
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :id Default is nil
+    # @option opts [String] :task_id ID of Sale task to Void or Undo
     # @option opts [Boolean] :void Default is false (default to false)
     # @return [SaleInvoices]
     def delete_sale_invoice(opts = {})
@@ -730,7 +730,7 @@ module DearInventoryRuby
 
     # Allows you to delete a sale invoice
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :id Default is nil
+    # @option opts [String] :task_id ID of Sale task to Void or Undo
     # @option opts [Boolean] :void Default is false
     # @return [Array<(SaleInvoices, Integer, Hash)>] SaleInvoices data, response status code and response headers
     def delete_sale_invoice_with_http_info(opts = {})
@@ -742,7 +742,7 @@ module DearInventoryRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'TaskID'] = opts[:'task_id'] if !opts[:'task_id'].nil?
       query_params[:'Void'] = opts[:'void'] if !opts[:'void'].nil?
 
       # header parameters
