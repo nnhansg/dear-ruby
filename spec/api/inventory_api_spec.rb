@@ -128,13 +128,13 @@ describe 'InventoryApi' do
     end
   end
 
-  # unit tests for create_webhooks
+  # unit tests for create_webhook
   # Allows you to create a Webhook
   # @param webhook a webhook object with properties to create
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
   # @return [Webhooks]
-  describe 'create_webhooks test' do
+  describe 'create_webhook test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

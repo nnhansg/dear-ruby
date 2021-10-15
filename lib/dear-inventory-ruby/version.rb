@@ -11,5 +11,5 @@ OpenAPI Generator version: 4.3.1
 =end
 
 module DearInventoryRuby
-  VERSION = '0.2.1'
+  VERSION = '0.2.2'
 end

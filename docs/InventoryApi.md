@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**create_sale_payment**](InventoryApi.md#create_sale_payment) | **POST** /sale/payment | Allows you to create a Sale Payment
 [**create_sale_quote**](InventoryApi.md#create_sale_quote) | **POST** /sale/quote | Allows you to create a Sale Quote
 [**create_tax**](InventoryApi.md#create_tax) | **POST** /ref/tax | Allows you to create a tax
-[**create_webhooks**](InventoryApi.md#create_webhooks) | **POST** /webhooks | Allows you to create a Webhook
+[**create_webhook**](InventoryApi.md#create_webhook) | **POST** /webhooks | Allows you to create a Webhook
 [**delete_account**](InventoryApi.md#delete_account) | **DELETE** /ref/account | Allows you to delete an Account
 [**delete_payment_term**](InventoryApi.md#delete_payment_term) | **DELETE** /ref/paymentterm | Allows you to delete a payment term
 [**delete_sale_invoice**](InventoryApi.md#delete_sale_invoice) | **DELETE** /sale/invoice | Allows you to delete a sale invoice
@@ -526,9 +526,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## create_webhooks
+## create_webhook
 
-> Webhooks create_webhooks(webhook, opts)
+> Webhooks create_webhook(webhook, opts)
 
 Allows you to create a Webhook
 
@@ -558,10 +558,10 @@ opts = {
 
 begin
   #Allows you to create a Webhook
-  result = api_instance.create_webhooks(webhook, opts)
+  result = api_instance.create_webhook(webhook, opts)
   p result
 rescue DearInventoryRuby::ApiError => e
-  puts "Exception when calling InventoryApi->create_webhooks: #{e}"
+  puts "Exception when calling InventoryApi->create_webhook: #{e}"
 end
 ```
 
@@ -1905,7 +1905,7 @@ DearInventoryRuby.configure do |config|
 end
 
 api_instance = DearInventoryRuby::InventoryApi.new
-webhook = { "ID": "1cf8cb83-bf39-494b-87f9-1252b684d6d5", "Type": "Sale/OrderAuthorised", "Name": "Sale order has been authorised", "IsActive": true, "ExternalURL": "https://hookb.in/Zn8950P7", "ExternalAuthorizationType": "basicauth", "ExternalUserName": "Hello", "ExternalPassword": "123", "ExternalBearerToken": nil, "ExternalHeaders": [ { "Key": "Key", "Value": "123" }, { "Key": "6", "Value": "0" }, { "Key": "New Key", "Value": "New Value" } ] } # Webhook | a webhook object with properties to update
+webhook = { "ID": "1cf8cb83-bf39-494b-87f9-1252b684d6d5", "Type": "Sale/OrderAuthorised", "Name": "Sale order has been authorised", "IsActive": true, "ExternalURL": "https://hookb.in/Zn8950P7", "ExternalAuthorizationType": "basicauth", "ExternalUserName": "Hello", "ExternalPassword": "123", "ExternalBearerToken": null, "ExternalHeaders": [ { "Key": "Key", "Value": "123" }, { "Key": "6", "Value": "0" }, { "Key": "New Key", "Value": "New Value" } ] } # Webhook | a webhook object with properties to update
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }

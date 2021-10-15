@@ -544,8 +544,8 @@ module DearInventoryRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
     # @return [Webhooks]
-    def create_webhooks(webhook, opts = {})
-      data, _status_code, _headers = create_webhooks_with_http_info(webhook, opts)
+    def create_webhook(webhook, opts = {})
+      data, _status_code, _headers = create_webhook_with_http_info(webhook, opts)
       data
     end
 
@@ -554,13 +554,13 @@ module DearInventoryRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
     # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
-    def create_webhooks_with_http_info(webhook, opts = {})
+    def create_webhook_with_http_info(webhook, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InventoryApi.create_webhooks ...'
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_webhook ...'
       end
       # verify the required parameter 'webhook' is set
       if @api_client.config.client_side_validation && webhook.nil?
-        fail ArgumentError, "Missing the required parameter 'webhook' when calling InventoryApi.create_webhooks"
+        fail ArgumentError, "Missing the required parameter 'webhook' when calling InventoryApi.create_webhook"
       end
       # resource path
       local_var_path = '/webhooks'
@@ -599,7 +599,7 @@ module DearInventoryRuby
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InventoryApi#create_webhooks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InventoryApi#create_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
