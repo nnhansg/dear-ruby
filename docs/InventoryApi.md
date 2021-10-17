@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 ## create_webhook
 
-> Webhooks create_webhook(webhook, opts)
+> Webhook create_webhook(webhook, opts)
 
 Allows you to create a Webhook
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Webhooks**](Webhooks.md)
+[**Webhook**](Webhook.md)
 
 ### Authorization
 
@@ -1882,7 +1882,7 @@ Name | Type | Description  | Notes
 
 ## update_webhook
 
-> Webhooks update_webhook(webhook, opts)
+> Webhook update_webhook(webhook, opts)
 
 Allows you to update a webhook
 
@@ -1905,7 +1905,7 @@ DearInventoryRuby.configure do |config|
 end
 
 api_instance = DearInventoryRuby::InventoryApi.new
-webhook = { "ID": "1cf8cb83-bf39-494b-87f9-1252b684d6d5", "Type": "Sale/OrderAuthorised", "Name": "Sale order has been authorised", "IsActive": true, "ExternalURL": "https://hookb.in/Zn8950P7", "ExternalAuthorizationType": "basicauth", "ExternalUserName": "Hello", "ExternalPassword": "123", "ExternalBearerToken": null, "ExternalHeaders": [ { "Key": "Key", "Value": "123" }, { "Key": "6", "Value": "0" }, { "Key": "New Key", "Value": "New Value" } ] } # Webhook | a webhook object with properties to update
+webhook = { "ID": "1cf8cb83-bf39-494b-87f9-1252b684d6d5", "Type": "Sale/OrderAuthorised", "Name": "Sale order has been authorised", "IsActive": true, "ExternalURL": "https://hookb.in/Zn8950P7", "ExternalAuthorizationType": "basicauth", "ExternalUserName": "Hello", "ExternalPassword": "123", "ExternalBearerToken": nil, "ExternalHeaders": [ { "Key": "Key", "Value": "123" }, { "Key": "6", "Value": "0" }, { "Key": "New Key", "Value": "New Value" } ] } # Webhook | a webhook object with properties to update
 opts = {
   summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
 }
@@ -1929,7 +1929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Webhooks**](Webhooks.md)
+[**Webhook**](Webhook.md)
 
 ### Authorization
 

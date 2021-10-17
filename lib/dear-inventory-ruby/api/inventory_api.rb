@@ -543,7 +543,7 @@ module DearInventoryRuby
     # @param webhook [Webhook] a webhook object with properties to create
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
-    # @return [Webhooks]
+    # @return [Webhook]
     def create_webhook(webhook, opts = {})
       data, _status_code, _headers = create_webhook_with_http_info(webhook, opts)
       data
@@ -553,7 +553,7 @@ module DearInventoryRuby
     # @param webhook [Webhook] a webhook object with properties to create
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
-    # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
+    # @return [Array<(Webhook, Integer, Hash)>] Webhook data, response status code and response headers
     def create_webhook_with_http_info(webhook, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InventoryApi.create_webhook ...'
@@ -583,7 +583,7 @@ module DearInventoryRuby
       post_body = opts[:body] || @api_client.object_to_http_body(webhook) 
 
       # return_type
-      return_type = opts[:return_type] || 'Webhooks' 
+      return_type = opts[:return_type] || 'Webhook' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['accountID', 'appKey']
@@ -1929,7 +1929,7 @@ module DearInventoryRuby
     # @param webhook [Webhook] a webhook object with properties to update
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
-    # @return [Webhooks]
+    # @return [Webhook]
     def update_webhook(webhook, opts = {})
       data, _status_code, _headers = update_webhook_with_http_info(webhook, opts)
       data
@@ -1939,7 +1939,7 @@ module DearInventoryRuby
     # @param webhook [Webhook] a webhook object with properties to update
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
-    # @return [Array<(Webhooks, Integer, Hash)>] Webhooks data, response status code and response headers
+    # @return [Array<(Webhook, Integer, Hash)>] Webhook data, response status code and response headers
     def update_webhook_with_http_info(webhook, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InventoryApi.update_webhook ...'
@@ -1969,7 +1969,7 @@ module DearInventoryRuby
       post_body = opts[:body] || @api_client.object_to_http_body(webhook) 
 
       # return_type
-      return_type = opts[:return_type] || 'Webhooks' 
+      return_type = opts[:return_type] || 'Webhook' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['accountID', 'appKey']
