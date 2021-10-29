@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3] - 2021-10-15
+
+- Update `POST` response of the endpoint `/webhooks`
+- Add some enums `AuthorizationType`, `WebhookType`
+
+## [0.2.2] - 2021-10-15
+
+- Update `POST` of the endpoint `/webhooks`
+
 ## [0.2.1] - 2021-10-15
 
 - Update param `TaskID` for `DELETE` of the endpoint `/sale/invoice`
