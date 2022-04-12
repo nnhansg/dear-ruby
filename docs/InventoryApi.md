@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**get_me**](InventoryApi.md#get_me) | **GET** /me | Allows you to retrieve your information
 [**get_payment_terms**](InventoryApi.md#get_payment_terms) | **GET** /ref/paymentterm | Allows you to retrieve the payment terms
 [**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
+[**get_sale**](InventoryApi.md#get_sale) | **GET** /sale | Allows you to retrieve the Sale
 [**get_sale_invoices**](InventoryApi.md#get_sale_invoices) | **GET** /sale/invoice | Allows you to retrieve the sale invoices
 [**get_sale_order**](InventoryApi.md#get_sale_order) | **GET** /sale/order | Allows you to retrieve the Sale Order
 [**get_sale_payment**](InventoryApi.md#get_sale_payment) | **GET** /sale/payment | Allows you to retrieve the Sale Payments
@@ -1190,6 +1191,71 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**PriceTiers**](PriceTiers.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sale
+
+> Sale get_sale(opts)
+
+Allows you to retrieve the Sale
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  id: 'id_example', # String | Default is nil
+  combine_additional_charges: false, # Boolean | Show additional charges in 'Lines' array
+  hide_inventory_movements: false, # Boolean | Hide inventory movements (Default = false)
+  include_transactions: false # Boolean | Show related transactions (Default = false)
+}
+
+begin
+  #Allows you to retrieve the Sale
+  result = api_instance.get_sale(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_sale: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Default is nil | [optional] 
+ **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
+ **hide_inventory_movements** | **Boolean**| Hide inventory movements (Default &#x3D; false) | [optional] [default to false]
+ **include_transactions** | **Boolean**| Show related transactions (Default &#x3D; false) | [optional] [default to false]
+
+### Return type
+
+[**Sale**](Sale.md)
 
 ### Authorization
 

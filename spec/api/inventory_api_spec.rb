@@ -266,6 +266,20 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_sale
+  # Allows you to retrieve the Sale
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Default is nil
+  # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+  # @option opts [Boolean] :hide_inventory_movements Hide inventory movements (Default &#x3D; false)
+  # @option opts [Boolean] :include_transactions Show related transactions (Default &#x3D; false)
+  # @return [Sale]
+  describe 'get_sale test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_sale_invoices
   # Allows you to retrieve the sale invoices
   # @param [Hash] opts the optional parameters

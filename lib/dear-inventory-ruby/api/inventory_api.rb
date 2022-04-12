@@ -1222,6 +1222,72 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to retrieve the Sale
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array (default to false)
+    # @option opts [Boolean] :hide_inventory_movements Hide inventory movements (Default &#x3D; false) (default to false)
+    # @option opts [Boolean] :include_transactions Show related transactions (Default &#x3D; false) (default to false)
+    # @return [Sale]
+    def get_sale(opts = {})
+      data, _status_code, _headers = get_sale_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Sale
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @option opts [Boolean] :combine_additional_charges Show additional charges in &#39;Lines&#39; array
+    # @option opts [Boolean] :hide_inventory_movements Hide inventory movements (Default &#x3D; false)
+    # @option opts [Boolean] :include_transactions Show related transactions (Default &#x3D; false)
+    # @return [Array<(Sale, Integer, Hash)>] Sale data, response status code and response headers
+    def get_sale_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_sale ...'
+      end
+      # resource path
+      local_var_path = '/sale'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'CombineAdditionalCharges'] = opts[:'combine_additional_charges'] if !opts[:'combine_additional_charges'].nil?
+      query_params[:'HideInventoryMovements'] = opts[:'hide_inventory_movements'] if !opts[:'hide_inventory_movements'].nil?
+      query_params[:'IncludeTransactions'] = opts[:'include_transactions'] if !opts[:'include_transactions'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Sale' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_sale\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to retrieve the sale invoices
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sale_id Unique DEAR Sale ID
