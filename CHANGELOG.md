@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.5] - 2022-05-26
+
+- Add the new endpoint GET `/saleList`
+
 ## [0.2.4] - 2022-04-12
 
 - Add the new endpoint GET `/sale`

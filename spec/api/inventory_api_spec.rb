@@ -293,6 +293,33 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_sale_list
+  # Allows you to retrieve the Sales based on conditions
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :search Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber
+  # @option opts [DateTime] :created_since Only return sales created after specified date. Date must follow ISO 8601 format.
+  # @option opts [DateTime] :updated_since Only return sales changed after specified date. Date must follow ISO 8601 format.
+  # @option opts [DateTime] :ship_by Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format.
+  # @option opts [String] :quote_status Only return sales with specified quote status
+  # @option opts [String] :order_status Only return sales with specified order status
+  # @option opts [String] :combined_pick_status Only return sales with specified CombinedPickingStatus
+  # @option opts [String] :combined_pack_status Only return sales with specified CombinedPackingStatus
+  # @option opts [String] :combined_shipping_status Only return sales with specified CombinedShippingStatus
+  # @option opts [String] :combined_invoice_status Only return sales with specified CombinedInvoiceStatus
+  # @option opts [String] :credit_note_status Only return sales with specified credit note status
+  # @option opts [String] :external_id Only return sales with specified External ID
+  # @option opts [String] :status Default is nil
+  # @option opts [Boolean] :ready_for_shipping Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping
+  # @option opts [String] :order_location_id Only return sales with specified Order Location ID
+  # @return [SaleList]
+  describe 'get_sale_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_sale_order
   # Allows you to retrieve the Sale Order
   # @param [Hash] opts the optional parameters

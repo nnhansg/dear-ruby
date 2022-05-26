@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
 [**get_sale**](InventoryApi.md#get_sale) | **GET** /sale | Allows you to retrieve the Sale
 [**get_sale_invoices**](InventoryApi.md#get_sale_invoices) | **GET** /sale/invoice | Allows you to retrieve the sale invoices
+[**get_sale_list**](InventoryApi.md#get_sale_list) | **GET** /saleList | Allows you to retrieve the Sales based on conditions
 [**get_sale_order**](InventoryApi.md#get_sale_order) | **GET** /sale/order | Allows you to retrieve the Sale Order
 [**get_sale_payment**](InventoryApi.md#get_sale_payment) | **GET** /sale/payment | Allows you to retrieve the Sale Payments
 [**get_sale_quote**](InventoryApi.md#get_sale_quote) | **GET** /sale/quote | Allows you to retrieve the Sale Quote
@@ -1319,6 +1320,97 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SaleInvoices**](SaleInvoices.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sale_list
+
+> SaleList get_sale_list(opts)
+
+Allows you to retrieve the Sales based on conditions
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  page: '1', # String | Default is 1
+  limit: '100', # String | Default is 100
+  search: 'search_example', # String | Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber
+  created_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only return sales created after specified date. Date must follow ISO 8601 format.
+  updated_since: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only return sales changed after specified date. Date must follow ISO 8601 format.
+  ship_by: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format.
+  quote_status: 'quote_status_example', # String | Only return sales with specified quote status
+  order_status: 'order_status_example', # String | Only return sales with specified order status
+  combined_pick_status: 'combined_pick_status_example', # String | Only return sales with specified CombinedPickingStatus
+  combined_pack_status: 'combined_pack_status_example', # String | Only return sales with specified CombinedPackingStatus
+  combined_shipping_status: 'combined_shipping_status_example', # String | Only return sales with specified CombinedShippingStatus
+  combined_invoice_status: 'combined_invoice_status_example', # String | Only return sales with specified CombinedInvoiceStatus
+  credit_note_status: 'credit_note_status_example', # String | Only return sales with specified credit note status
+  external_id: 'external_id_example', # String | Only return sales with specified External ID
+  status: 'status_example', # String | Default is nil
+  ready_for_shipping: true, # Boolean | Only return sales with 'Authorised' pack and not 'Authorised' shipping
+  order_location_id: 'order_location_id_example' # String | Only return sales with specified Order Location ID
+}
+
+begin
+  #Allows you to retrieve the Sales based on conditions
+  result = api_instance.get_sale_list(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_sale_list: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
+ **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
+ **search** | **String**| Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber | [optional] 
+ **created_since** | **DateTime**| Only return sales created after specified date. Date must follow ISO 8601 format. | [optional] 
+ **updated_since** | **DateTime**| Only return sales changed after specified date. Date must follow ISO 8601 format. | [optional] 
+ **ship_by** | **DateTime**| Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format. | [optional] 
+ **quote_status** | **String**| Only return sales with specified quote status | [optional] 
+ **order_status** | **String**| Only return sales with specified order status | [optional] 
+ **combined_pick_status** | **String**| Only return sales with specified CombinedPickingStatus | [optional] 
+ **combined_pack_status** | **String**| Only return sales with specified CombinedPackingStatus | [optional] 
+ **combined_shipping_status** | **String**| Only return sales with specified CombinedShippingStatus | [optional] 
+ **combined_invoice_status** | **String**| Only return sales with specified CombinedInvoiceStatus | [optional] 
+ **credit_note_status** | **String**| Only return sales with specified credit note status | [optional] 
+ **external_id** | **String**| Only return sales with specified External ID | [optional] 
+ **status** | **String**| Default is nil | [optional] 
+ **ready_for_shipping** | **Boolean**| Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping | [optional] 
+ **order_location_id** | **String**| Only return sales with specified Order Location ID | [optional] 
+
+### Return type
+
+[**SaleList**](SaleList.md)
 
 ### Authorization
 

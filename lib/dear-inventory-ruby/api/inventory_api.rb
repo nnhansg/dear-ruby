@@ -1351,6 +1351,111 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to retrieve the Sales based on conditions
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :search Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber
+    # @option opts [DateTime] :created_since Only return sales created after specified date. Date must follow ISO 8601 format.
+    # @option opts [DateTime] :updated_since Only return sales changed after specified date. Date must follow ISO 8601 format.
+    # @option opts [DateTime] :ship_by Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format.
+    # @option opts [String] :quote_status Only return sales with specified quote status
+    # @option opts [String] :order_status Only return sales with specified order status
+    # @option opts [String] :combined_pick_status Only return sales with specified CombinedPickingStatus
+    # @option opts [String] :combined_pack_status Only return sales with specified CombinedPackingStatus
+    # @option opts [String] :combined_shipping_status Only return sales with specified CombinedShippingStatus
+    # @option opts [String] :combined_invoice_status Only return sales with specified CombinedInvoiceStatus
+    # @option opts [String] :credit_note_status Only return sales with specified credit note status
+    # @option opts [String] :external_id Only return sales with specified External ID
+    # @option opts [String] :status Default is nil
+    # @option opts [Boolean] :ready_for_shipping Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping
+    # @option opts [String] :order_location_id Only return sales with specified Order Location ID
+    # @return [SaleList]
+    def get_sale_list(opts = {})
+      data, _status_code, _headers = get_sale_list_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the Sales based on conditions
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :search Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber
+    # @option opts [DateTime] :created_since Only return sales created after specified date. Date must follow ISO 8601 format.
+    # @option opts [DateTime] :updated_since Only return sales changed after specified date. Date must follow ISO 8601 format.
+    # @option opts [DateTime] :ship_by Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format.
+    # @option opts [String] :quote_status Only return sales with specified quote status
+    # @option opts [String] :order_status Only return sales with specified order status
+    # @option opts [String] :combined_pick_status Only return sales with specified CombinedPickingStatus
+    # @option opts [String] :combined_pack_status Only return sales with specified CombinedPackingStatus
+    # @option opts [String] :combined_shipping_status Only return sales with specified CombinedShippingStatus
+    # @option opts [String] :combined_invoice_status Only return sales with specified CombinedInvoiceStatus
+    # @option opts [String] :credit_note_status Only return sales with specified credit note status
+    # @option opts [String] :external_id Only return sales with specified External ID
+    # @option opts [String] :status Default is nil
+    # @option opts [Boolean] :ready_for_shipping Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping
+    # @option opts [String] :order_location_id Only return sales with specified Order Location ID
+    # @return [Array<(SaleList, Integer, Hash)>] SaleList data, response status code and response headers
+    def get_sale_list_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_sale_list ...'
+      end
+      # resource path
+      local_var_path = '/saleList'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'Search'] = opts[:'search'] if !opts[:'search'].nil?
+      query_params[:'CreatedSince'] = opts[:'created_since'] if !opts[:'created_since'].nil?
+      query_params[:'UpdatedSince'] = opts[:'updated_since'] if !opts[:'updated_since'].nil?
+      query_params[:'ShipBy'] = opts[:'ship_by'] if !opts[:'ship_by'].nil?
+      query_params[:'QuoteStatus'] = opts[:'quote_status'] if !opts[:'quote_status'].nil?
+      query_params[:'OrderStatus'] = opts[:'order_status'] if !opts[:'order_status'].nil?
+      query_params[:'CombinedPickStatus'] = opts[:'combined_pick_status'] if !opts[:'combined_pick_status'].nil?
+      query_params[:'CombinedPackStatus'] = opts[:'combined_pack_status'] if !opts[:'combined_pack_status'].nil?
+      query_params[:'CombinedShippingStatus'] = opts[:'combined_shipping_status'] if !opts[:'combined_shipping_status'].nil?
+      query_params[:'CombinedInvoiceStatus'] = opts[:'combined_invoice_status'] if !opts[:'combined_invoice_status'].nil?
+      query_params[:'CreditNoteStatus'] = opts[:'credit_note_status'] if !opts[:'credit_note_status'].nil?
+      query_params[:'ExternalID'] = opts[:'external_id'] if !opts[:'external_id'].nil?
+      query_params[:'Status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'ReadyForShipping'] = opts[:'ready_for_shipping'] if !opts[:'ready_for_shipping'].nil?
+      query_params[:'OrderLocationID'] = opts[:'order_location_id'] if !opts[:'order_location_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'SaleList' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_sale_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to retrieve the Sale Order
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sale_id Unique DEAR Sale ID
