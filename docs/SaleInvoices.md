@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sale_id** | **String** | Unique DEAR Sale ID | 
-**invoices** | [**Array&lt;SaleInvoice&gt;**](SaleInvoice.md) | Array of Invoices | [optional] 
+**invoices** | [**Array&lt;SaleInvoicePartial&gt;**](SaleInvoicePartial.md) | Array of Invoices | [optional] 
 
 ## Code Sample
 

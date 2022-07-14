@@ -13,26 +13,51 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoices
-    # Unique DEAR Sale ID
-    attr_accessor :sale_id
+  class SalePaymentLine
+    # Identifier of payment.
+    attr_accessor :id
 
-    # Array of Invoices
-    attr_accessor :invoices
+    # Payment reference number.
+    attr_accessor :reference
+
+    # Decimal with up to 2 decimal places. Payment amount in customer currency.
+    attr_accessor :amount
+
+    # Date when payment has been made.
+    attr_accessor :date_paid
+
+    # Account Code of the bank/payment account from Chart of accounts.
+    attr_accessor :account
+
+    # Decimal with up to 4 decimal places. Currency Conversion rate expressed as number of Base currency units for one Customer currency unit.
+    attr_accessor :currency_rate
+
+    # Date of creation payment record.
+    attr_accessor :date_created
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sale_id' => :'SaleID',
-        :'invoices' => :'Invoices'
+        :'id' => :'ID',
+        :'reference' => :'Reference',
+        :'amount' => :'Amount',
+        :'date_paid' => :'DatePaid',
+        :'account' => :'Account',
+        :'currency_rate' => :'CurrencyRate',
+        :'date_created' => :'DateCreated'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'sale_id' => :'String',
-        :'invoices' => :'Array<SaleInvoicePartial>'
+        :'id' => :'String',
+        :'reference' => :'String',
+        :'amount' => :'Float',
+        :'date_paid' => :'Date',
+        :'account' => :'String',
+        :'currency_rate' => :'Float',
+        :'date_created' => :'Date'
       }
     end
 
@@ -46,25 +71,43 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoices` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SalePaymentLine` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoices`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SalePaymentLine`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'sale_id')
-        self.sale_id = attributes[:'sale_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'invoices')
-        if (value = attributes[:'invoices']).is_a?(Array)
-          self.invoices = value
-        end
+      if attributes.key?(:'reference')
+        self.reference = attributes[:'reference']
+      end
+
+      if attributes.key?(:'amount')
+        self.amount = attributes[:'amount']
+      end
+
+      if attributes.key?(:'date_paid')
+        self.date_paid = attributes[:'date_paid']
+      end
+
+      if attributes.key?(:'account')
+        self.account = attributes[:'account']
+      end
+
+      if attributes.key?(:'currency_rate')
+        self.currency_rate = attributes[:'currency_rate']
+      end
+
+      if attributes.key?(:'date_created')
+        self.date_created = attributes[:'date_created']
       end
     end
 
@@ -72,17 +115,12 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @sale_id.nil?
-        invalid_properties.push('invalid value for "sale_id", sale_id cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @sale_id.nil?
       true
     end
 
@@ -91,8 +129,13 @@ module DearInventoryRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sale_id == o.sale_id &&
-          invoices == o.invoices
+          id == o.id &&
+          reference == o.reference &&
+          amount == o.amount &&
+          date_paid == o.date_paid &&
+          account == o.account &&
+          currency_rate == o.currency_rate &&
+          date_created == o.date_created
     end
 
     # @see the `==` method
@@ -104,7 +147,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sale_id, invoices].hash
+      [id, reference, amount, date_paid, account, currency_rate, date_created].hash
     end
 
     # Builds the object from hash

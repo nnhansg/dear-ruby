@@ -1,10 +1,11 @@
-# DearInventoryRuby::SaleInvoice
+# DearInventoryRuby::SaleInvoicePartial
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **task_id** | **String** | Identifier of sale Invoice task | 
+**combine_additional_charges** | **Boolean** | If &#x60;true&#x60; then &#x60;additional charges&#x60; lines displayed in &#x60;Lines&#x60; array | [optional] [default to false]
 **invoice_number** | **String** | Invoice Number (auto-generated) | [optional] 
 **memo** | **String** | Additional information for Invoice. | [optional] 
 **status** | **String** | Invoice status. Possible Values are values. For POST available values are DRAFT, AUTHORISED | 
@@ -16,18 +17,14 @@ Name | Type | Description | Notes
 **linked_fulfillment_number** | **Integer** | Number of Fulfilment linked to this invoice | [optional] 
 **lines** | [**Array&lt;SaleInvoiceLine&gt;**](SaleInvoiceLine.md) |  | [optional] 
 **additional_charges** | [**Array&lt;SaleInvoiceAdditionalCharge&gt;**](SaleInvoiceAdditionalCharge.md) |  | [optional] 
-**payments** | [**Array&lt;SalePaymentLine&gt;**](SalePaymentLine.md) |  | [optional] 
-**total_before_tax** | **Float** | Decimal with up to 4 decimal places. Sum of Invoice lines and additional charges without taxes. | [optional] 
-**tax** | **Float** | Decimal with up to 4 decimal places. Sum of Invoice lines and additional charges taxes. | [optional] 
-**total** | **Float** | Decimal with up to 4 decimal places. Sum of Invoice lines and additional charges with taxes. | [optional] 
-**paid** | **Float** | Decimal with up to 4 decimal places. Sum of payments. | [optional] 
 
 ## Code Sample
 
 ```ruby
 require 'DearInventoryRuby'
 
-instance = DearInventoryRuby::SaleInvoice.new(task_id: nil,
+instance = DearInventoryRuby::SaleInvoicePartial.new(task_id: nil,
+                                 combine_additional_charges: nil,
                                  invoice_number: nil,
                                  memo: nil,
                                  status: nil,
@@ -38,12 +35,7 @@ instance = DearInventoryRuby::SaleInvoice.new(task_id: nil,
                                  billing_address_line2: nil,
                                  linked_fulfillment_number: nil,
                                  lines: nil,
-                                 additional_charges: nil,
-                                 payments: nil,
-                                 total_before_tax: nil,
-                                 tax: nil,
-                                 total: nil,
-                                 paid: nil)
+                                 additional_charges: nil)
 ```
 
 

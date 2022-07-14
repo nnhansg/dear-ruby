@@ -13,9 +13,12 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module DearInventoryRuby
-  class SaleInvoice
+  class SaleInvoicePartial
     # Identifier of sale Invoice task
     attr_accessor :task_id
+
+    # If `true` then `additional charges` lines displayed in `Lines` array
+    attr_accessor :combine_additional_charges
 
     # Invoice Number (auto-generated)
     attr_accessor :invoice_number
@@ -48,24 +51,11 @@ module DearInventoryRuby
 
     attr_accessor :additional_charges
 
-    attr_accessor :payments
-
-    # Decimal with up to 4 decimal places. Sum of Invoice lines and additional charges without taxes.
-    attr_accessor :total_before_tax
-
-    # Decimal with up to 4 decimal places. Sum of Invoice lines and additional charges taxes.
-    attr_accessor :tax
-
-    # Decimal with up to 4 decimal places. Sum of Invoice lines and additional charges with taxes.
-    attr_accessor :total
-
-    # Decimal with up to 4 decimal places. Sum of payments.
-    attr_accessor :paid
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'task_id' => :'TaskID',
+        :'combine_additional_charges' => :'CombineAdditionalCharges',
         :'invoice_number' => :'InvoiceNumber',
         :'memo' => :'Memo',
         :'status' => :'Status',
@@ -76,12 +66,7 @@ module DearInventoryRuby
         :'billing_address_line2' => :'BillingAddressLine2',
         :'linked_fulfillment_number' => :'LinkedFulfillmentNumber',
         :'lines' => :'Lines',
-        :'additional_charges' => :'AdditionalCharges',
-        :'payments' => :'Payments',
-        :'total_before_tax' => :'TotalBeforeTax',
-        :'tax' => :'Tax',
-        :'total' => :'Total',
-        :'paid' => :'Paid'
+        :'additional_charges' => :'AdditionalCharges'
       }
     end
 
@@ -89,6 +74,7 @@ module DearInventoryRuby
     def self.openapi_types
       {
         :'task_id' => :'String',
+        :'combine_additional_charges' => :'Boolean',
         :'invoice_number' => :'String',
         :'memo' => :'String',
         :'status' => :'String',
@@ -99,12 +85,7 @@ module DearInventoryRuby
         :'billing_address_line2' => :'String',
         :'linked_fulfillment_number' => :'Integer',
         :'lines' => :'Array<SaleInvoiceLine>',
-        :'additional_charges' => :'Array<SaleInvoiceAdditionalCharge>',
-        :'payments' => :'Array<SalePaymentLine>',
-        :'total_before_tax' => :'Float',
-        :'tax' => :'Float',
-        :'total' => :'Float',
-        :'paid' => :'Float'
+        :'additional_charges' => :'Array<SaleInvoiceAdditionalCharge>'
       }
     end
 
@@ -118,19 +99,25 @@ module DearInventoryRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoice` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `DearInventoryRuby::SaleInvoicePartial` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoice`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `DearInventoryRuby::SaleInvoicePartial`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'task_id')
         self.task_id = attributes[:'task_id']
+      end
+
+      if attributes.key?(:'combine_additional_charges')
+        self.combine_additional_charges = attributes[:'combine_additional_charges']
+      else
+        self.combine_additional_charges = false
       end
 
       if attributes.key?(:'invoice_number')
@@ -180,28 +167,6 @@ module DearInventoryRuby
           self.additional_charges = value
         end
       end
-
-      if attributes.key?(:'payments')
-        if (value = attributes[:'payments']).is_a?(Array)
-          self.payments = value
-        end
-      end
-
-      if attributes.key?(:'total_before_tax')
-        self.total_before_tax = attributes[:'total_before_tax']
-      end
-
-      if attributes.key?(:'tax')
-        self.tax = attributes[:'tax']
-      end
-
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
-      end
-
-      if attributes.key?(:'paid')
-        self.paid = attributes[:'paid']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -243,6 +208,7 @@ module DearInventoryRuby
       return true if self.equal?(o)
       self.class == o.class &&
           task_id == o.task_id &&
+          combine_additional_charges == o.combine_additional_charges &&
           invoice_number == o.invoice_number &&
           memo == o.memo &&
           status == o.status &&
@@ -253,12 +219,7 @@ module DearInventoryRuby
           billing_address_line2 == o.billing_address_line2 &&
           linked_fulfillment_number == o.linked_fulfillment_number &&
           lines == o.lines &&
-          additional_charges == o.additional_charges &&
-          payments == o.payments &&
-          total_before_tax == o.total_before_tax &&
-          tax == o.tax &&
-          total == o.total &&
-          paid == o.paid
+          additional_charges == o.additional_charges
     end
 
     # @see the `==` method
@@ -270,7 +231,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [task_id, invoice_number, memo, status, invoice_date, invoice_due_date, currency_conversion_rate, billing_address_line1, billing_address_line2, linked_fulfillment_number, lines, additional_charges, payments, total_before_tax, tax, total, paid].hash
+      [task_id, combine_additional_charges, invoice_number, memo, status, invoice_date, invoice_due_date, currency_conversion_rate, billing_address_line1, billing_address_line2, linked_fulfillment_number, lines, additional_charges].hash
     end
 
     # Builds the object from hash
