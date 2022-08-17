@@ -987,8 +987,10 @@ opts = {
   limit: '100', # String | Default is 100
   id: 'id_example', # String | Default is nil
   name: 'name_example', # String | Default is nil
+  contact_filter: 'contact_filter_example', # String | Default is nil
   modified_since: 'modified_since_example', # String | Default is nil
-  include_deprecated: 'false' # String | Default is false
+  include_deprecated: 'false', # String | Default is false
+  include_product_prices: 'false' # String | Default is false
 }
 
 begin
@@ -1009,8 +1011,10 @@ Name | Type | Description  | Notes
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
  **id** | **String**| Default is nil | [optional] 
  **name** | **String**| Default is nil | [optional] 
+ **contact_filter** | **String**| Default is nil | [optional] 
  **modified_since** | **String**| Default is nil | [optional] 
  **include_deprecated** | **String**| Default is false | [optional] [default to &#39;false&#39;]
+ **include_product_prices** | **String**| Default is false | [optional] [default to &#39;false&#39;]
 
 ### Return type
 

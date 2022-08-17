@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.7] - 2022-08-17
+
+- Support parameter `ContactFilter` and `IncludeProductPrices` for the endpoint GET `/customer`
+
 ## [0.2.6] - 2022-07-14
 
 - Update final totals of each invoice for the endpoint GET `/sale`

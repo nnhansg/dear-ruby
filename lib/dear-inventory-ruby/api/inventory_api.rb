@@ -973,8 +973,10 @@ module DearInventoryRuby
     # @option opts [String] :limit Default is 100 (default to '100')
     # @option opts [String] :id Default is nil
     # @option opts [String] :name Default is nil
+    # @option opts [String] :contact_filter Default is nil
     # @option opts [String] :modified_since Default is nil
     # @option opts [String] :include_deprecated Default is false (default to 'false')
+    # @option opts [String] :include_product_prices Default is false (default to 'false')
     # @return [Customers]
     def get_customers(opts = {})
       data, _status_code, _headers = get_customers_with_http_info(opts)
@@ -987,8 +989,10 @@ module DearInventoryRuby
     # @option opts [String] :limit Default is 100
     # @option opts [String] :id Default is nil
     # @option opts [String] :name Default is nil
+    # @option opts [String] :contact_filter Default is nil
     # @option opts [String] :modified_since Default is nil
     # @option opts [String] :include_deprecated Default is false
+    # @option opts [String] :include_product_prices Default is false
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def get_customers_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1003,8 +1007,10 @@ module DearInventoryRuby
       query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
       query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'ContactFilter'] = opts[:'contact_filter'] if !opts[:'contact_filter'].nil?
       query_params[:'ModifiedSince'] = opts[:'modified_since'] if !opts[:'modified_since'].nil?
       query_params[:'IncludeDeprecated'] = opts[:'include_deprecated'] if !opts[:'include_deprecated'].nil?
+      query_params[:'IncludeProductPrices'] = opts[:'include_product_prices'] if !opts[:'include_product_prices'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

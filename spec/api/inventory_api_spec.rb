@@ -220,8 +220,10 @@ describe 'InventoryApi' do
   # @option opts [String] :limit Default is 100
   # @option opts [String] :id Default is nil
   # @option opts [String] :name Default is nil
+  # @option opts [String] :contact_filter Default is nil
   # @option opts [String] :modified_since Default is nil
   # @option opts [String] :include_deprecated Default is false
+  # @option opts [String] :include_product_prices Default is false
   # @return [Customers]
   describe 'get_customers test' do
     it 'should work' do
