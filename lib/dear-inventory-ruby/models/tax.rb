@@ -147,10 +147,6 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @name.to_s.length > 50
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 50.')
-      end
-
       if @account.nil?
         invalid_properties.push('invalid value for "account", account cannot be nil.')
       end
@@ -163,14 +159,6 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "tax_inclusive", tax_inclusive cannot be nil.')
       end
 
-      if !@tax_percent.nil? && @tax_percent > 100
-        invalid_properties.push('invalid value for "tax_percent", must be smaller than or equal to 100.')
-      end
-
-      if !@tax_percent.nil? && @tax_percent < 0
-        invalid_properties.push('invalid value for "tax_percent", must be greater than or equal to 0.')
-      end
-
       invalid_properties
     end
 
@@ -178,41 +166,10 @@ module DearInventoryRuby
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @name.to_s.length > 50
       return false if @account.nil?
       return false if @is_active.nil?
       return false if @tax_inclusive.nil?
-      return false if !@tax_percent.nil? && @tax_percent > 100
-      return false if !@tax_percent.nil? && @tax_percent < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 50
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 50.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tax_percent Value to be assigned
-    def tax_percent=(tax_percent)
-      if !tax_percent.nil? && tax_percent > 100
-        fail ArgumentError, 'invalid value for "tax_percent", must be smaller than or equal to 100.'
-      end
-
-      if !tax_percent.nil? && tax_percent < 0
-        fail ArgumentError, 'invalid value for "tax_percent", must be greater than or equal to 0.'
-      end
-
-      @tax_percent = tax_percent
     end
 
     # Checks equality by comparing each attribute.

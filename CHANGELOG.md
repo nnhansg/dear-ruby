@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.8] - 2022-12-15
+
+- Remove some validations of `Tax`
+
 ## [0.2.7] - 2022-08-17
 
 - Support parameter `ContactFilter` and `IncludeProductPrices` for the endpoint GET `/customer`
