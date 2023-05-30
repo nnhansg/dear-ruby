@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **quote** | [**SaleQuote**](SaleQuote.md) |  | [optional] 
 **order** | [**SaleOrder**](SaleOrder.md) |  | [optional] 
 **invoices** | [**Array&lt;SaleInvoice&gt;**](SaleInvoice.md) | Sale Invoices | [optional] 
+**attachments** | [**Array&lt;AttachmentLine&gt;**](AttachmentLine.md) | Sale Attachments | [optional] 
 
 ## Code Sample
 
@@ -93,7 +94,8 @@ instance = DearInventoryRuby::Sale.new(id: nil,
                                  service_only: nil,
                                  quote: nil,
                                  order: nil,
-                                 invoices: nil)
+                                 invoices: nil,
+                                 attachments: nil)
 ```
 
 

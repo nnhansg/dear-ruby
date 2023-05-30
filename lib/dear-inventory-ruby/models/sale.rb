@@ -136,6 +136,9 @@ module DearInventoryRuby
     # Sale Invoices
     attr_accessor :invoices
 
+    # Sale Attachments
+    attr_accessor :attachments
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -180,7 +183,8 @@ module DearInventoryRuby
         :'service_only' => :'ServiceOnly',
         :'quote' => :'Quote',
         :'order' => :'Order',
-        :'invoices' => :'Invoices'
+        :'invoices' => :'Invoices',
+        :'attachments' => :'Attachments'
       }
     end
 
@@ -228,7 +232,8 @@ module DearInventoryRuby
         :'service_only' => :'String',
         :'quote' => :'SaleQuote',
         :'order' => :'SaleOrder',
-        :'invoices' => :'Array<SaleInvoice>'
+        :'invoices' => :'Array<SaleInvoice>',
+        :'attachments' => :'Array<AttachmentLine>'
       }
     end
 
@@ -422,6 +427,12 @@ module DearInventoryRuby
           self.invoices = value
         end
       end
+
+      if attributes.key?(:'attachments')
+        if (value = attributes[:'attachments']).is_a?(Array)
+          self.attachments = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -483,7 +494,8 @@ module DearInventoryRuby
           service_only == o.service_only &&
           quote == o.quote &&
           order == o.order &&
-          invoices == o.invoices
+          invoices == o.invoices &&
+          attachments == o.attachments
     end
 
     # @see the `==` method
@@ -495,7 +507,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, customer, customer_id, contact, phone, email, default_account, skip_quote, billing_address, shipping_address, shipping_notes, base_currency, customer_currency, tax_rule, tax_calculation, terms, price_tier, ship_by, location, sale_order_date, last_modified_on, note, customer_reference, cogs_amount, status, combined_picking_status, combined_packing_status, combined_shipping_status, ful_filment_status, combined_invoice_status, combined_payment_status, combined_tracking_numbers, carrier, currency_rate, sales_representative, type, source_channel, external_id, service_only, quote, order, invoices].hash
+      [id, customer, customer_id, contact, phone, email, default_account, skip_quote, billing_address, shipping_address, shipping_notes, base_currency, customer_currency, tax_rule, tax_calculation, terms, price_tier, ship_by, location, sale_order_date, last_modified_on, note, customer_reference, cogs_amount, status, combined_picking_status, combined_packing_status, combined_shipping_status, ful_filment_status, combined_invoice_status, combined_payment_status, combined_tracking_numbers, carrier, currency_rate, sales_representative, type, source_channel, external_id, service_only, quote, order, invoices, attachments].hash
     end
 
     # Builds the object from hash

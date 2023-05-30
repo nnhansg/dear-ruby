@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.9] - 2023-05-30
+
+- Add `Attachments` property to responses of the endpoint GET `/sale`
+
 ## [0.2.8] - 2022-12-15
 
 - Remove some validations of `Tax`
