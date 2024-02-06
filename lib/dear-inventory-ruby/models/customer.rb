@@ -350,10 +350,6 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @name.to_s.length > 256
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
-      end
-
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
@@ -378,10 +374,6 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "tax_rule", tax_rule cannot be nil.')
       end
 
-      if !@comments.nil? && @comments.to_s.length > 2000
-        invalid_properties.push('invalid value for "comments", the character length must be smaller than or equal to 2000.')
-      end
-
       invalid_properties
     end
 
@@ -389,39 +381,13 @@ module DearInventoryRuby
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @name.to_s.length > 256
       return false if @status.nil?
       return false if @currency.nil?
       return false if @payment_term.nil?
       return false if @account_receivable.nil?
       return false if @revenue_account.nil?
       return false if @tax_rule.nil?
-      return false if !@comments.nil? && @comments.to_s.length > 2000
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 256
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] comments Value to be assigned
-    def comments=(comments)
-      if !comments.nil? && comments.to_s.length > 2000
-        fail ArgumentError, 'invalid value for "comments", the character length must be smaller than or equal to 2000.'
-      end
-
-      @comments = comments
     end
 
     # Checks equality by comparing each attribute.

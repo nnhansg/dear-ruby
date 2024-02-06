@@ -135,26 +135,6 @@ module DearInventoryRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@line1.nil? && @line1.to_s.length > 256
-        invalid_properties.push('invalid value for "line1", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@line2.nil? && @line2.to_s.length > 256
-        invalid_properties.push('invalid value for "line2", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@city.nil? && @city.to_s.length > 256
-        invalid_properties.push('invalid value for "city", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@state.nil? && @state.to_s.length > 256
-        invalid_properties.push('invalid value for "state", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@post_code.nil? && @post_code.to_s.length > 20
-        invalid_properties.push('invalid value for "post_code", the character length must be smaller than or equal to 20.')
-      end
-
       if @country.nil?
         invalid_properties.push('invalid value for "country", country cannot be nil.')
       end
@@ -169,64 +149,9 @@ module DearInventoryRuby
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@line1.nil? && @line1.to_s.length > 256
-      return false if !@line2.nil? && @line2.to_s.length > 256
-      return false if !@city.nil? && @city.to_s.length > 256
-      return false if !@state.nil? && @state.to_s.length > 256
-      return false if !@post_code.nil? && @post_code.to_s.length > 20
       return false if @country.nil?
       return false if @type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] line1 Value to be assigned
-    def line1=(line1)
-      if !line1.nil? && line1.to_s.length > 256
-        fail ArgumentError, 'invalid value for "line1", the character length must be smaller than or equal to 256.'
-      end
-
-      @line1 = line1
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] line2 Value to be assigned
-    def line2=(line2)
-      if !line2.nil? && line2.to_s.length > 256
-        fail ArgumentError, 'invalid value for "line2", the character length must be smaller than or equal to 256.'
-      end
-
-      @line2 = line2
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] city Value to be assigned
-    def city=(city)
-      if !city.nil? && city.to_s.length > 256
-        fail ArgumentError, 'invalid value for "city", the character length must be smaller than or equal to 256.'
-      end
-
-      @city = city
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] state Value to be assigned
-    def state=(state)
-      if !state.nil? && state.to_s.length > 256
-        fail ArgumentError, 'invalid value for "state", the character length must be smaller than or equal to 256.'
-      end
-
-      @state = state
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] post_code Value to be assigned
-    def post_code=(post_code)
-      if !post_code.nil? && post_code.to_s.length > 20
-        fail ArgumentError, 'invalid value for "post_code", the character length must be smaller than or equal to 20.'
-      end
-
-      @post_code = post_code
     end
 
     # Checks equality by comparing each attribute.

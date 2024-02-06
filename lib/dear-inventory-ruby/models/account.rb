@@ -191,32 +191,16 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
 
-      if @code.to_s.length > 50
-        invalid_properties.push('invalid value for "code", the character length must be smaller than or equal to 50.')
-      end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 256
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
       end
 
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
-      if @type.to_s.length > 50
-        invalid_properties.push('invalid value for "type", the character length must be smaller than or equal to 50.')
-      end
-
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
-      end
-
-      if @status.to_s.length > 50
-        invalid_properties.push('invalid value for "status", the character length must be smaller than or equal to 50.')
       end
 
       invalid_properties
@@ -226,70 +210,10 @@ module DearInventoryRuby
     # @return true if the model is valid
     def valid?
       return false if @code.nil?
-      return false if @code.to_s.length > 50
       return false if @name.nil?
-      return false if @name.to_s.length > 256
       return false if @type.nil?
-      return false if @type.to_s.length > 50
       return false if @status.nil?
-      return false if @status.to_s.length > 50
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] code Value to be assigned
-    def code=(code)
-      if code.nil?
-        fail ArgumentError, 'code cannot be nil'
-      end
-
-      if code.to_s.length > 50
-        fail ArgumentError, 'invalid value for "code", the character length must be smaller than or equal to 50.'
-      end
-
-      @code = code
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 256
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] type Value to be assigned
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'type cannot be nil'
-      end
-
-      if type.to_s.length > 50
-        fail ArgumentError, 'invalid value for "type", the character length must be smaller than or equal to 50.'
-      end
-
-      @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] status Value to be assigned
-    def status=(status)
-      if status.nil?
-        fail ArgumentError, 'status cannot be nil'
-      end
-
-      if status.to_s.length > 50
-        fail ArgumentError, 'invalid value for "status", the character length must be smaller than or equal to 50.'
-      end
-
-      @status = status
     end
 
     # Checks equality by comparing each attribute.

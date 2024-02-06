@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.10] - 2024-02-06
+
+- Remove the validations related to `maxlength`
+
 ## [0.2.9] - 2023-05-30
 
 - Add `Attachments` property to responses of the endpoint GET `/sale`

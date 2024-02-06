@@ -159,30 +159,6 @@ module DearInventoryRuby
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @name.to_s.length > 256
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@phone.nil? && @phone.to_s.length > 50
-        invalid_properties.push('invalid value for "phone", the character length must be smaller than or equal to 50.')
-      end
-
-      if !@fax.nil? && @fax.to_s.length > 50
-        invalid_properties.push('invalid value for "fax", the character length must be smaller than or equal to 50.')
-      end
-
-      if !@email.nil? && @email.to_s.length > 256
-        invalid_properties.push('invalid value for "email", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@website.nil? && @website.to_s.length > 256
-        invalid_properties.push('invalid value for "website", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@comment.nil? && @comment.to_s.length > 256
-        invalid_properties.push('invalid value for "comment", the character length must be smaller than or equal to 256.')
-      end
-
       invalid_properties
     end
 
@@ -190,77 +166,7 @@ module DearInventoryRuby
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @name.to_s.length > 256
-      return false if !@phone.nil? && @phone.to_s.length > 50
-      return false if !@fax.nil? && @fax.to_s.length > 50
-      return false if !@email.nil? && @email.to_s.length > 256
-      return false if !@website.nil? && @website.to_s.length > 256
-      return false if !@comment.nil? && @comment.to_s.length > 256
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 256
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] phone Value to be assigned
-    def phone=(phone)
-      if !phone.nil? && phone.to_s.length > 50
-        fail ArgumentError, 'invalid value for "phone", the character length must be smaller than or equal to 50.'
-      end
-
-      @phone = phone
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] fax Value to be assigned
-    def fax=(fax)
-      if !fax.nil? && fax.to_s.length > 50
-        fail ArgumentError, 'invalid value for "fax", the character length must be smaller than or equal to 50.'
-      end
-
-      @fax = fax
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] email Value to be assigned
-    def email=(email)
-      if !email.nil? && email.to_s.length > 256
-        fail ArgumentError, 'invalid value for "email", the character length must be smaller than or equal to 256.'
-      end
-
-      @email = email
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] website Value to be assigned
-    def website=(website)
-      if !website.nil? && website.to_s.length > 256
-        fail ArgumentError, 'invalid value for "website", the character length must be smaller than or equal to 256.'
-      end
-
-      @website = website
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] comment Value to be assigned
-    def comment=(comment)
-      if !comment.nil? && comment.to_s.length > 256
-        fail ArgumentError, 'invalid value for "comment", the character length must be smaller than or equal to 256.'
-      end
-
-      @comment = comment
     end
 
     # Checks equality by comparing each attribute.
