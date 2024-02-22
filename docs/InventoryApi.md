@@ -19,8 +19,11 @@ Method | HTTP request | Description
 [**delete_sale_payment**](InventoryApi.md#delete_sale_payment) | **DELETE** /sale/payment | Allows you to delete a sale payment
 [**delete_webhook**](InventoryApi.md#delete_webhook) | **DELETE** /webhooks | Allows you to delete a webhook
 [**get_accounts**](InventoryApi.md#get_accounts) | **GET** /ref/account | Allows you to retrieve the Chart of Accounts
+[**get_carriers**](InventoryApi.md#get_carriers) | **GET** /ref/carrier | Allows you to retrieve the carriers
 [**get_customers**](InventoryApi.md#get_customers) | **GET** /customer | Allows you to retrieve the customers
+[**get_locations**](InventoryApi.md#get_locations) | **GET** /ref/location | Allows you to retrieve the locations
 [**get_me**](InventoryApi.md#get_me) | **GET** /me | Allows you to retrieve your information
+[**get_me_contacts**](InventoryApi.md#get_me_contacts) | **GET** /me/contacts | Allows you to retrieve the me contacts (Sales Representatives)
 [**get_payment_terms**](InventoryApi.md#get_payment_terms) | **GET** /ref/paymentterm | Allows you to retrieve the payment terms
 [**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
 [**get_sale**](InventoryApi.md#get_sale) | **GET** /sale | Allows you to retrieve the Sale
@@ -957,6 +960,71 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_carriers
+
+> Carriers get_carriers(opts)
+
+Allows you to retrieve the carriers
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  page: '1', # String | Default is 1
+  limit: '100', # String | Default is 100
+  carrier_id: 'carrier_id_example', # String | Only return Carrier with the specific CarrierID
+  description: 'description_example' # String | Only return Carriers that start with the specific Description
+}
+
+begin
+  #Allows you to retrieve the carriers
+  result = api_instance.get_carriers(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_carriers: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
+ **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
+ **carrier_id** | **String**| Only return Carrier with the specific CarrierID | [optional] 
+ **description** | **String**| Only return Carriers that start with the specific Description | [optional] 
+
+### Return type
+
+[**Carriers**](Carriers.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_customers
 
 > Customers get_customers(opts)
@@ -989,8 +1057,8 @@ opts = {
   name: 'name_example', # String | Default is nil
   contact_filter: 'contact_filter_example', # String | Default is nil
   modified_since: 'modified_since_example', # String | Default is nil
-  include_deprecated: 'false', # String | Default is false
-  include_product_prices: 'false' # String | Default is false
+  include_deprecated: false, # Boolean | Default is false
+  include_product_prices: false # Boolean | Default is false
 }
 
 begin
@@ -1013,12 +1081,79 @@ Name | Type | Description  | Notes
  **name** | **String**| Default is nil | [optional] 
  **contact_filter** | **String**| Default is nil | [optional] 
  **modified_since** | **String**| Default is nil | [optional] 
- **include_deprecated** | **String**| Default is false | [optional] [default to &#39;false&#39;]
- **include_product_prices** | **String**| Default is false | [optional] [default to &#39;false&#39;]
+ **include_deprecated** | **Boolean**| Default is false | [optional] [default to false]
+ **include_product_prices** | **Boolean**| Default is false | [optional] [default to false]
 
 ### Return type
 
 [**Customers**](Customers.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_locations
+
+> Locations get_locations(opts)
+
+Allows you to retrieve the locations
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  page: '1', # String | Default is 1
+  limit: '100', # String | Default is 100
+  id: 'id_example', # String | Default is nil
+  deprecated: false, # Boolean | Default is false
+  name: 'name_example' # String | Default is nil
+}
+
+begin
+  #Allows you to retrieve the locations
+  result = api_instance.get_locations(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_locations: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
+ **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
+ **id** | **String**| Default is nil | [optional] 
+ **deprecated** | **Boolean**| Default is false | [optional] [default to false]
+ **name** | **String**| Default is nil | [optional] 
+
+### Return type
+
+[**Locations**](Locations.md)
 
 ### Authorization
 
@@ -1072,6 +1207,59 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Me**](Me.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_me_contacts
+
+> MeContacts get_me_contacts
+
+Allows you to retrieve the me contacts (Sales Representatives)
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+
+begin
+  #Allows you to retrieve the me contacts (Sales Representatives)
+  result = api_instance.get_me_contacts
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_me_contacts: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MeContacts**](MeContacts.md)
 
 ### Authorization
 

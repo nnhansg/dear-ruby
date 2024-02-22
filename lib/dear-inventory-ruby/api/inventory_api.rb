@@ -967,6 +967,72 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to retrieve the carriers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :carrier_id Only return Carrier with the specific CarrierID
+    # @option opts [String] :description Only return Carriers that start with the specific Description
+    # @return [Carriers]
+    def get_carriers(opts = {})
+      data, _status_code, _headers = get_carriers_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the carriers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :carrier_id Only return Carrier with the specific CarrierID
+    # @option opts [String] :description Only return Carriers that start with the specific Description
+    # @return [Array<(Carriers, Integer, Hash)>] Carriers data, response status code and response headers
+    def get_carriers_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_carriers ...'
+      end
+      # resource path
+      local_var_path = '/ref/carrier'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'CarrierID'] = opts[:'carrier_id'] if !opts[:'carrier_id'].nil?
+      query_params[:'Description'] = opts[:'description'] if !opts[:'description'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Carriers' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_carriers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to retrieve the customers
     # @param [Hash] opts the optional parameters
     # @option opts [String] :page Default is 1 (default to '1')
@@ -975,8 +1041,8 @@ module DearInventoryRuby
     # @option opts [String] :name Default is nil
     # @option opts [String] :contact_filter Default is nil
     # @option opts [String] :modified_since Default is nil
-    # @option opts [String] :include_deprecated Default is false (default to 'false')
-    # @option opts [String] :include_product_prices Default is false (default to 'false')
+    # @option opts [Boolean] :include_deprecated Default is false (default to false)
+    # @option opts [Boolean] :include_product_prices Default is false (default to false)
     # @return [Customers]
     def get_customers(opts = {})
       data, _status_code, _headers = get_customers_with_http_info(opts)
@@ -991,8 +1057,8 @@ module DearInventoryRuby
     # @option opts [String] :name Default is nil
     # @option opts [String] :contact_filter Default is nil
     # @option opts [String] :modified_since Default is nil
-    # @option opts [String] :include_deprecated Default is false
-    # @option opts [String] :include_product_prices Default is false
+    # @option opts [Boolean] :include_deprecated Default is false
+    # @option opts [Boolean] :include_product_prices Default is false
     # @return [Array<(Customers, Integer, Hash)>] Customers data, response status code and response headers
     def get_customers_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1041,6 +1107,75 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#get_customers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the locations
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :id Default is nil
+    # @option opts [Boolean] :deprecated Default is false (default to false)
+    # @option opts [String] :name Default is nil
+    # @return [Locations]
+    def get_locations(opts = {})
+      data, _status_code, _headers = get_locations_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the locations
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :id Default is nil
+    # @option opts [Boolean] :deprecated Default is false
+    # @option opts [String] :name Default is nil
+    # @return [Array<(Locations, Integer, Hash)>] Locations data, response status code and response headers
+    def get_locations_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_locations ...'
+      end
+      # resource path
+      local_var_path = '/ref/location'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Deprecated'] = opts[:'deprecated'] if !opts[:'deprecated'].nil?
+      query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Locations' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1095,6 +1230,60 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#get_me\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the me contacts (Sales Representatives)
+    # @param [Hash] opts the optional parameters
+    # @return [MeContacts]
+    def get_me_contacts(opts = {})
+      data, _status_code, _headers = get_me_contacts_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the me contacts (Sales Representatives)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MeContacts, Integer, Hash)>] MeContacts data, response status code and response headers
+    def get_me_contacts_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_me_contacts ...'
+      end
+      # resource path
+      local_var_path = '/me/contacts'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'MeContacts' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_me_contacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

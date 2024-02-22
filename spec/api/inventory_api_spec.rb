@@ -213,6 +213,20 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for get_carriers
+  # Allows you to retrieve the carriers
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :carrier_id Only return Carrier with the specific CarrierID
+  # @option opts [String] :description Only return Carriers that start with the specific Description
+  # @return [Carriers]
+  describe 'get_carriers test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_customers
   # Allows you to retrieve the customers
   # @param [Hash] opts the optional parameters
@@ -222,10 +236,25 @@ describe 'InventoryApi' do
   # @option opts [String] :name Default is nil
   # @option opts [String] :contact_filter Default is nil
   # @option opts [String] :modified_since Default is nil
-  # @option opts [String] :include_deprecated Default is false
-  # @option opts [String] :include_product_prices Default is false
+  # @option opts [Boolean] :include_deprecated Default is false
+  # @option opts [Boolean] :include_product_prices Default is false
   # @return [Customers]
   describe 'get_customers test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_locations
+  # Allows you to retrieve the locations
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :id Default is nil
+  # @option opts [Boolean] :deprecated Default is false
+  # @option opts [String] :name Default is nil
+  # @return [Locations]
+  describe 'get_locations test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -236,6 +265,16 @@ describe 'InventoryApi' do
   # @param [Hash] opts the optional parameters
   # @return [Me]
   describe 'get_me test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_me_contacts
+  # Allows you to retrieve the me contacts (Sales Representatives)
+  # @param [Hash] opts the optional parameters
+  # @return [MeContacts]
+  describe 'get_me_contacts test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.11] - 2024-02-21
+
+- Add the new endpoints
+  + GET `/me/contacts`
+  + GET `/ref/carrier`
+  + GET `/ref/location`
+
 ## [0.2.10.1] - 2024-02-06
 
 - Update gem version
