@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.13] - 2025-03-15
+
+- Update version
+
+## [0.2.12] - 2025-03-15
+
+- Update `Postcode` for `SupplierCustomerAddress`
+
 ## [0.2.11] - 2024-02-21
 
 - Add the new endpoints
