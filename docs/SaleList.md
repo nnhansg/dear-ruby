@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Float** | Total | [optional] 
-**page** | **Float** | Page | [optional] 
-**sale_list** | [**Array&lt;SaleItem&gt;**](SaleItem.md) | Array of SaleItem | [optional] 
+**total** | **Float** | Total | [optional]
+**page** | **Float** | Page | [optional]
+**sale_list** | [**Array&lt;SaleItem&gt;**](SaleItem.md) | Array of SaleItem | [optional]
 
 ## Code Sample
 

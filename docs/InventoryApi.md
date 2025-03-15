@@ -87,7 +87,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | [**Account**](Account.md)| an Account object with properties to create | 
+ **account** | [**Account**](Account.md)| an Account object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -148,7 +148,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | [**Customer**](Customer.md)| a customer object with properties to create | 
+ **customer** | [**Customer**](Customer.md)| a customer object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -209,7 +209,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_term** | [**PaymentTerm**](PaymentTerm.md)| a payment term object with properties to create | 
+ **payment_term** | [**PaymentTerm**](PaymentTerm.md)| a payment term object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -270,7 +270,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_invoice_post** | [**SaleInvoicePost**](SaleInvoicePost.md)| a Sale Invoice object with properties to create | 
+ **sale_invoice_post** | [**SaleInvoicePost**](SaleInvoicePost.md)| a Sale Invoice object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -331,7 +331,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_order** | [**SaleOrder**](SaleOrder.md)| a Sale Order object with properties to create | 
+ **sale_order** | [**SaleOrder**](SaleOrder.md)| a Sale Order object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -392,7 +392,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_payment** | [**SalePayment**](SalePayment.md)| a Sale Payment object with properties to create | 
+ **sale_payment** | [**SalePayment**](SalePayment.md)| a Sale Payment object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -453,7 +453,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_quote** | [**SaleQuote**](SaleQuote.md)| a Sale Quote object with properties to create | 
+ **sale_quote** | [**SaleQuote**](SaleQuote.md)| a Sale Quote object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -514,7 +514,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax** | [**Tax**](Tax.md)| a tax object with properties to create | 
+ **tax** | [**Tax**](Tax.md)| a tax object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -575,7 +575,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to create | 
+ **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to create |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -635,7 +635,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| Default is nil | [optional] 
+ **code** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -694,7 +694,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -754,7 +754,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | **String**| ID of Sale task to Void or Undo | [optional] 
+ **task_id** | **String**| ID of Sale task to Void or Undo | [optional]
  **void** | **Boolean**| Default is false | [optional] [default to false]
 
 ### Return type
@@ -814,7 +814,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -873,7 +873,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -940,11 +940,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **code** | **String**| Default is nil | [optional] 
- **name** | **String**| Default is nil | [optional] 
- **_class** | **String**| Default is nil | [optional] 
- **type** | **String**| Default is nil | [optional] 
- **status** | **String**| Default is nil | [optional] 
+ **code** | **String**| Default is nil | [optional]
+ **name** | **String**| Default is nil | [optional]
+ **_class** | **String**| Default is nil | [optional]
+ **type** | **String**| Default is nil | [optional]
+ **status** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -1008,8 +1008,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **carrier_id** | **String**| Only return Carrier with the specific CarrierID | [optional] 
- **description** | **String**| Only return Carriers that start with the specific Description | [optional] 
+ **carrier_id** | **String**| Only return Carrier with the specific CarrierID | [optional]
+ **description** | **String**| Only return Carriers that start with the specific Description | [optional]
 
 ### Return type
 
@@ -1077,10 +1077,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional] 
- **name** | **String**| Default is nil | [optional] 
- **contact_filter** | **String**| Default is nil | [optional] 
- **modified_since** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
+ **name** | **String**| Default is nil | [optional]
+ **contact_filter** | **String**| Default is nil | [optional]
+ **modified_since** | **String**| Default is nil | [optional]
  **include_deprecated** | **Boolean**| Default is false | [optional] [default to false]
  **include_product_prices** | **Boolean**| Default is false | [optional] [default to false]
 
@@ -1147,9 +1147,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
  **deprecated** | **Boolean**| Default is false | [optional] [default to false]
- **name** | **String**| Default is nil | [optional] 
+ **name** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -1322,11 +1322,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional] 
- **name** | **String**| Default is nil | [optional] 
- **method** | **String**| Default is nil | [optional] 
- **is_active** | **Boolean**| Default is nil | [optional] 
- **is_default** | **Boolean**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
+ **name** | **String**| Default is nil | [optional]
+ **method** | **String**| Default is nil | [optional]
+ **is_active** | **Boolean**| Default is nil | [optional]
+ **is_default** | **Boolean**| Default is nil | [optional]
 
 ### Return type
 
@@ -1441,7 +1441,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
  **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
  **hide_inventory_movements** | **Boolean**| Hide inventory movements (Default &#x3D; false) | [optional] [default to false]
  **include_transactions** | **Boolean**| Show related transactions (Default &#x3D; false) | [optional] [default to false]
@@ -1505,7 +1505,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional]
  **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
  **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
 
@@ -1584,21 +1584,21 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **search** | **String**| Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber | [optional] 
- **created_since** | **DateTime**| Only return sales created after specified date. Date must follow ISO 8601 format. | [optional] 
- **updated_since** | **DateTime**| Only return sales changed after specified date. Date must follow ISO 8601 format. | [optional] 
- **ship_by** | **DateTime**| Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format. | [optional] 
- **quote_status** | **String**| Only return sales with specified quote status | [optional] 
- **order_status** | **String**| Only return sales with specified order status | [optional] 
- **combined_pick_status** | **String**| Only return sales with specified CombinedPickingStatus | [optional] 
- **combined_pack_status** | **String**| Only return sales with specified CombinedPackingStatus | [optional] 
- **combined_shipping_status** | **String**| Only return sales with specified CombinedShippingStatus | [optional] 
- **combined_invoice_status** | **String**| Only return sales with specified CombinedInvoiceStatus | [optional] 
- **credit_note_status** | **String**| Only return sales with specified credit note status | [optional] 
- **external_id** | **String**| Only return sales with specified External ID | [optional] 
- **status** | **String**| Default is nil | [optional] 
- **ready_for_shipping** | **Boolean**| Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping | [optional] 
- **order_location_id** | **String**| Only return sales with specified Order Location ID | [optional] 
+ **search** | **String**| Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber | [optional]
+ **created_since** | **DateTime**| Only return sales created after specified date. Date must follow ISO 8601 format. | [optional]
+ **updated_since** | **DateTime**| Only return sales changed after specified date. Date must follow ISO 8601 format. | [optional]
+ **ship_by** | **DateTime**| Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format. | [optional]
+ **quote_status** | **String**| Only return sales with specified quote status | [optional]
+ **order_status** | **String**| Only return sales with specified order status | [optional]
+ **combined_pick_status** | **String**| Only return sales with specified CombinedPickingStatus | [optional]
+ **combined_pack_status** | **String**| Only return sales with specified CombinedPackingStatus | [optional]
+ **combined_shipping_status** | **String**| Only return sales with specified CombinedShippingStatus | [optional]
+ **combined_invoice_status** | **String**| Only return sales with specified CombinedInvoiceStatus | [optional]
+ **credit_note_status** | **String**| Only return sales with specified credit note status | [optional]
+ **external_id** | **String**| Only return sales with specified External ID | [optional]
+ **status** | **String**| Default is nil | [optional]
+ **ready_for_shipping** | **Boolean**| Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping | [optional]
+ **order_location_id** | **String**| Only return sales with specified Order Location ID | [optional]
 
 ### Return type
 
@@ -1659,7 +1659,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional]
  **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
  **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
 
@@ -1720,7 +1720,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional]
 
 ### Return type
 
@@ -1781,7 +1781,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional] 
+ **sale_id** | **String**| Unique DEAR Sale ID | [optional]
  **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
  **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
 
@@ -1851,12 +1851,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
  **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional] 
- **name** | **String**| Default is nil | [optional] 
- **is_active** | **Boolean**| Default is nil | [optional] 
- **is_tax_for_sale** | **Boolean**| Default is nil | [optional] 
- **is_tax_for_purchase** | **Boolean**| Default is nil | [optional] 
- **account** | **String**| Default is nil | [optional] 
+ **id** | **String**| Default is nil | [optional]
+ **name** | **String**| Default is nil | [optional]
+ **is_active** | **Boolean**| Default is nil | [optional]
+ **is_tax_for_sale** | **Boolean**| Default is nil | [optional]
+ **is_tax_for_purchase** | **Boolean**| Default is nil | [optional]
+ **account** | **String**| Default is nil | [optional]
 
 ### Return type
 
@@ -1969,7 +1969,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | [**Account**](Account.md)| an Account object with properties to update | 
+ **account** | [**Account**](Account.md)| an Account object with properties to update |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -2030,7 +2030,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | [**Customer**](Customer.md)| a customer object with properties to update | 
+ **customer** | [**Customer**](Customer.md)| a customer object with properties to update |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -2091,7 +2091,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_term** | [**PaymentTerm**](PaymentTerm.md)| a payment term object with properties to update | 
+ **payment_term** | [**PaymentTerm**](PaymentTerm.md)| a payment term object with properties to update |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -2152,7 +2152,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sale_payment** | [**SalePayment**](SalePayment.md)| a sale payment object with properties to update | 
+ **sale_payment** | [**SalePayment**](SalePayment.md)| a sale payment object with properties to update |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -2213,7 +2213,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax** | [**Tax**](Tax.md)| a tax object with properties to update | 
+ **tax** | [**Tax**](Tax.md)| a tax object with properties to update |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
@@ -2274,7 +2274,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to update | 
+ **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to update |
  **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type

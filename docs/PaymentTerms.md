@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **String** | Total | [optional] 
-**page** | **String** | Page | [optional] 
-**payment_term_list** | [**Array&lt;PaymentTerm&gt;**](PaymentTerm.md) | Array of PaymentTerms | [optional] 
+**total** | **String** | Total | [optional]
+**page** | **String** | Page | [optional]
+**payment_term_list** | [**Array&lt;PaymentTerm&gt;**](PaymentTerm.md) | Array of PaymentTerms | [optional]
 
 ## Code Sample
 

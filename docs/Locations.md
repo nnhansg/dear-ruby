@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Float** | Total | [optional] 
-**page** | **Float** | Page | [optional] 
-**location_list** | [**Array&lt;Location&gt;**](Location.md) | Array of Locations | [optional] 
+**total** | **Float** | Total | [optional]
+**page** | **Float** | Page | [optional]
+**location_list** | [**Array&lt;Location&gt;**](Location.md) | Array of Locations | [optional]
 
 ## Code Sample
 

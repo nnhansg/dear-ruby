@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**webhooks** | [**Array&lt;Webhook&gt;**](Webhook.md) | Array of Webhooks | [optional] 
+**webhooks** | [**Array&lt;Webhook&gt;**](Webhook.md) | Array of Webhooks | [optional]
 
 ## Code Sample
 

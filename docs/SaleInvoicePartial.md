@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**task_id** | **String** | Identifier of sale Invoice task | 
+**task_id** | **String** | Identifier of sale Invoice task |
 **combine_additional_charges** | **Boolean** | If &#x60;true&#x60; then &#x60;additional charges&#x60; lines displayed in &#x60;Lines&#x60; array | [optional] [default to false]
-**invoice_number** | **String** | Invoice Number (auto-generated) | [optional] 
-**memo** | **String** | Additional information for Invoice. | [optional] 
-**status** | **String** | Invoice status. Possible Values are values. For POST available values are DRAFT, AUTHORISED | 
-**invoice_date** | **String** | Invoice Date. | 
-**invoice_due_date** | **String** | Invoice Due Date. | 
-**currency_conversion_rate** | **Float** | Decimal with up to 4 decimal places | [optional] 
-**billing_address_line1** | **String** | Billing Address Line 1 | [optional] 
-**billing_address_line2** | **String** | Billing Address Line 2 | [optional] 
-**linked_fulfillment_number** | **Integer** | Number of Fulfilment linked to this invoice | [optional] 
-**lines** | [**Array&lt;SaleInvoiceLine&gt;**](SaleInvoiceLine.md) |  | [optional] 
-**additional_charges** | [**Array&lt;SaleInvoiceAdditionalCharge&gt;**](SaleInvoiceAdditionalCharge.md) |  | [optional] 
+**invoice_number** | **String** | Invoice Number (auto-generated) | [optional]
+**memo** | **String** | Additional information for Invoice. | [optional]
+**status** | **String** | Invoice status. Possible Values are values. For POST available values are DRAFT, AUTHORISED |
+**invoice_date** | **String** | Invoice Date. |
+**invoice_due_date** | **String** | Invoice Due Date. |
+**currency_conversion_rate** | **Float** | Decimal with up to 4 decimal places | [optional]
+**billing_address_line1** | **String** | Billing Address Line 1 | [optional]
+**billing_address_line2** | **String** | Billing Address Line 2 | [optional]
+**linked_fulfillment_number** | **Integer** | Number of Fulfilment linked to this invoice | [optional]
+**lines** | [**Array&lt;SaleInvoiceLine&gt;**](SaleInvoiceLine.md) |  | [optional]
+**additional_charges** | [**Array&lt;SaleInvoiceAdditionalCharge&gt;**](SaleInvoiceAdditionalCharge.md) |  | [optional]
 
 ## Code Sample
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **String** | Total | [optional] 
-**page** | **String** | Page | [optional] 
-**tax_rule_list** | [**Array&lt;Tax&gt;**](Tax.md) | Array of Taxes | [optional] 
+**total** | **String** | Total | [optional]
+**page** | **String** | Page | [optional]
+**tax_rule_list** | [**Array&lt;Tax&gt;**](Tax.md) | Array of Taxes | [optional]
 
 ## Code Sample
 

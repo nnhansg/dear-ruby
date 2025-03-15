@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **String** | Total | [optional] 
-**page** | **String** | Page | [optional] 
-**accounts_list** | [**Array&lt;Account&gt;**](Account.md) | Array of Accounts | [optional] 
+**total** | **String** | Total | [optional]
+**page** | **String** | Page | [optional]
+**accounts_list** | [**Array&lt;Account&gt;**](Account.md) | Array of Accounts | [optional]
 
 ## Code Sample
 

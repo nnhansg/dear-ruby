@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | Code number of Price Tier | [optional] 
-**name** | **String** | Price Tier name | [optional] 
+**code** | **Integer** | Code number of Price Tier | [optional]
+**name** | **String** | Price Tier name | [optional]
 
 ## Code Sample
 

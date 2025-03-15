@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**task_id** | **String** | ID of Sale task to Void or Undo | 
+**task_id** | **String** | ID of Sale task to Void or Undo |
 **void** | **Boolean** | Default false | [optional] [default to false]
 
 ## Code Sample

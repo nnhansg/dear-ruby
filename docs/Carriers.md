@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Float** | Total | [optional] 
-**page** | **Float** | Page | [optional] 
-**carrier_list** | [**Array&lt;Carrier&gt;**](Carrier.md) | Array of Carriers | [optional] 
+**total** | **Float** | Total | [optional]
+**page** | **Float** | Page | [optional]
+**carrier_list** | [**Array&lt;Carrier&gt;**](Carrier.md) | Array of Carriers | [optional]
 
 ## Code Sample
 

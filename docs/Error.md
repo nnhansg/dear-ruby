@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error_code** | **Integer** | Exception number | [optional] 
-**exception** | **String** | Exception message | [optional] 
+**error_code** | **Integer** | Exception number | [optional]
+**exception** | **String** | Exception message | [optional]
 
 ## Code Sample
 

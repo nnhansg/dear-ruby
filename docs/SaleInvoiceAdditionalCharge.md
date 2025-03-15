@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **String** | Name of Service Product referenced by this Line | 
-**quantity** | **Float** | Product or service quantity. Minimal value is 1. | 
-**price** | **Float** | Price per unit in Customer currency | 
-**discount** | **Float** | Discount. Value between 0 and 100. For free items discount is 100. Default value is 0 | [optional] 
-**tax** | **Float** | Tax | 
-**total** | **Float** | Line Total.For validation | [optional] 
-**tax_rule** | **String** | Line Tax Rule name. | 
-**account** | **String** | Revenue account | 
-**comment** | **String** | Comment | [optional] 
+**description** | **String** | Name of Service Product referenced by this Line |
+**quantity** | **Float** | Product or service quantity. Minimal value is 1. |
+**price** | **Float** | Price per unit in Customer currency |
+**discount** | **Float** | Discount. Value between 0 and 100. For free items discount is 100. Default value is 0 | [optional]
+**tax** | **Float** | Tax |
+**total** | **Float** | Line Total.For validation | [optional]
+**tax_rule** | **String** | Line Tax Rule name. |
+**account** | **String** | Revenue account |
+**comment** | **String** | Comment | [optional]
 
 ## Code Sample
 

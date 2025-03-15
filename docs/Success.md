@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **Boolean** | Success | [optional] 
+**success** | **Boolean** | Success | [optional]
 
 ## Code Sample
 

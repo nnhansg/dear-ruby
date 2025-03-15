@@ -30,7 +30,7 @@ module DearInventoryRuby
     attr_accessor :state
 
     # Zip / PostCode
-    attr_accessor :post_code
+    attr_accessor :postcode
 
     # Country name
     attr_accessor :country
@@ -49,7 +49,7 @@ module DearInventoryRuby
         :'line2' => :'Line2',
         :'city' => :'City',
         :'state' => :'State',
-        :'post_code' => :'PostCode',
+        :'postcode' => :'Postcode',
         :'country' => :'Country',
         :'type' => :'Type',
         :'default_for_type' => :'DefaultForType'
@@ -64,7 +64,7 @@ module DearInventoryRuby
         :'line2' => :'String',
         :'city' => :'String',
         :'state' => :'String',
-        :'post_code' => :'String',
+        :'postcode' => :'String',
         :'country' => :'String',
         :'type' => :'String',
         :'default_for_type' => :'Boolean'
@@ -112,8 +112,8 @@ module DearInventoryRuby
         self.state = attributes[:'state']
       end
 
-      if attributes.key?(:'post_code')
-        self.post_code = attributes[:'post_code']
+      if attributes.key?(:'postcode')
+        self.postcode = attributes[:'postcode']
       end
 
       if attributes.key?(:'country')
@@ -164,7 +164,7 @@ module DearInventoryRuby
           line2 == o.line2 &&
           city == o.city &&
           state == o.state &&
-          post_code == o.post_code &&
+          postcode == o.postcode &&
           country == o.country &&
           type == o.type &&
           default_for_type == o.default_for_type
@@ -179,7 +179,7 @@ module DearInventoryRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, line1, line2, city, state, post_code, country, type, default_for_type].hash
+      [id, line1, line2, city, state, postcode, country, type, default_for_type].hash
     end
 
     # Builds the object from hash

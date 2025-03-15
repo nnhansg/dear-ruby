@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Unique ID | [optional] 
-**name** | **String** | Name of &#x60;Bin&#x60; | [optional] 
+**id** | **String** | Unique ID | [optional]
+**name** | **String** | Name of &#x60;Bin&#x60; | [optional]
 
 ## Code Sample
 
