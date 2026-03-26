@@ -84,6 +84,71 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to create an attribute set
+    # @param attribute_set [AttributeSet] an attribute set object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [AttributeSet]
+    def create_attribute_set(attribute_set, opts = {})
+      data, _status_code, _headers = create_attribute_set_with_http_info(attribute_set, opts)
+      data
+    end
+
+    # Allows you to create an attribute set
+    # @param attribute_set [AttributeSet] an attribute set object with properties to create
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(AttributeSet, Integer, Hash)>] AttributeSet data, response status code and response headers
+    def create_attribute_set_with_http_info(attribute_set, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.create_attribute_set ...'
+      end
+      # verify the required parameter 'attribute_set' is set
+      if @api_client.config.client_side_validation && attribute_set.nil?
+        fail ArgumentError, "Missing the required parameter 'attribute_set' when calling InventoryApi.create_attribute_set"
+      end
+      # resource path
+      local_var_path = '/ref/attributeset'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(attribute_set) 
+
+      # return_type
+      return_type = opts[:return_type] || 'AttributeSet' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#create_attribute_set\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to create a customer
     # @param customer [Customer] a customer object with properties to create
     # @param [Hash] opts the optional parameters
@@ -661,6 +726,63 @@ module DearInventoryRuby
       return data, status_code, headers
     end
 
+    # Allows you to delete an attribute set
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Success]
+    def delete_attribute_set(opts = {})
+      data, _status_code, _headers = delete_attribute_set_with_http_info(opts)
+      data
+    end
+
+    # Allows you to delete an attribute set
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Default is nil
+    # @return [Array<(Success, Integer, Hash)>] Success data, response status code and response headers
+    def delete_attribute_set_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.delete_attribute_set ...'
+      end
+      # resource path
+      local_var_path = '/ref/attributeset'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'Success' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#delete_attribute_set\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Allows you to delete a payment term
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id Default is nil
@@ -963,6 +1085,72 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to retrieve the attribute sets
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1 (default to '1')
+    # @option opts [String] :limit Default is 100 (default to '100')
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @return [AttributeSets]
+    def get_attribute_sets(opts = {})
+      data, _status_code, _headers = get_attribute_sets_with_http_info(opts)
+      data
+    end
+
+    # Allows you to retrieve the attribute sets
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :page Default is 1
+    # @option opts [String] :limit Default is 100
+    # @option opts [String] :id Default is nil
+    # @option opts [String] :name Default is nil
+    # @return [Array<(AttributeSets, Integer, Hash)>] AttributeSets data, response status code and response headers
+    def get_attribute_sets_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.get_attribute_sets ...'
+      end
+      # resource path
+      local_var_path = '/ref/attributeset'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'Limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'ID'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'Name'] = opts[:'name'] if !opts[:'name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'AttributeSets' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#get_attribute_sets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2027,6 +2215,71 @@ module DearInventoryRuby
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InventoryApi#update_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Allows you to update an attribute set
+    # @param attribute_set [AttributeSet] an attribute set object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors (default to false)
+    # @return [AttributeSet]
+    def update_attribute_set(attribute_set, opts = {})
+      data, _status_code, _headers = update_attribute_set_with_http_info(attribute_set, opts)
+      data
+    end
+
+    # Allows you to update an attribute set
+    # @param attribute_set [AttributeSet] an attribute set object with properties to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+    # @return [Array<(AttributeSet, Integer, Hash)>] AttributeSet data, response status code and response headers
+    def update_attribute_set_with_http_info(attribute_set, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: InventoryApi.update_attribute_set ...'
+      end
+      # verify the required parameter 'attribute_set' is set
+      if @api_client.config.client_side_validation && attribute_set.nil?
+        fail ArgumentError, "Missing the required parameter 'attribute_set' when calling InventoryApi.update_attribute_set"
+      end
+      # resource path
+      local_var_path = '/ref/attributeset'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'summarizeErrors'] = opts[:'summarize_errors'] if !opts[:'summarize_errors'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(attribute_set) 
+
+      # return_type
+      return_type = opts[:return_type] || 'AttributeSet' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['accountID', 'appKey']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: InventoryApi#update_attribute_set\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

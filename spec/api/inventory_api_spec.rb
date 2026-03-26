@@ -44,6 +44,18 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for create_attribute_set
+  # Allows you to create an attribute set
+  # @param attribute_set an attribute set object with properties to create
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [AttributeSet]
+  describe 'create_attribute_set test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_customer
   # Allows you to create a customer
   # @param customer a customer object with properties to create
@@ -151,6 +163,17 @@ describe 'InventoryApi' do
     end
   end
 
+  # unit tests for delete_attribute_set
+  # Allows you to delete an attribute set
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Default is nil
+  # @return [Success]
+  describe 'delete_attribute_set test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for delete_payment_term
   # Allows you to delete a payment term
   # @param [Hash] opts the optional parameters
@@ -208,6 +231,20 @@ describe 'InventoryApi' do
   # @option opts [String] :status Default is nil
   # @return [Accounts]
   describe 'get_accounts test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_attribute_sets
+  # Allows you to retrieve the attribute sets
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :page Default is 1
+  # @option opts [String] :limit Default is 100
+  # @option opts [String] :id Default is nil
+  # @option opts [String] :name Default is nil
+  # @return [AttributeSets]
+  describe 'get_attribute_sets test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -433,6 +470,18 @@ describe 'InventoryApi' do
   # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
   # @return [Accounts]
   describe 'update_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_attribute_set
+  # Allows you to update an attribute set
+  # @param attribute_set an attribute set object with properties to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :summarize_errors If false return 200 OK and mix of successfully created objects and any with validation errors
+  # @return [AttributeSet]
+  describe 'update_attribute_set test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

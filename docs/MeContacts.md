@@ -2,11 +2,11 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**total** | **Float** | Total | [optional]
-**page** | **Float** | Page | [optional]
-**me_contacts_list** | [**Array&lt;MeContact&gt;**](MeContact.md) | Array of MeContacts | [optional]
+| Name                 | Type                                       | Description         | Notes      |
+| -------------------- | ------------------------------------------ | ------------------- | ---------- |
+| **total**            | **Float**                                  | Total               | [optional] |
+| **page**             | **Float**                                  | Page                | [optional] |
+| **me_contacts_list** | [**Array&lt;MeContact&gt;**](MeContact.md) | Array of MeContacts | [optional] |
 
 ## Code Sample
 
@@ -17,5 +17,3 @@ instance = DearInventoryRuby::MeContacts.new(total: nil,
                                  page: nil,
                                  me_contacts_list: nil)
 ```
-
-

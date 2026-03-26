@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.14] - 2026-03-26
+
+- Add new endpoint GET, POST, PUT, DELETE `/ref/attributeset` and related models (`AttributeSet`, `AttributeSetAttribute`, `AttributeSets`).
+
 ## [0.2.13] - 2025-03-15
 
 - Update version

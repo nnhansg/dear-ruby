@@ -2,46 +2,48 @@
 
 All URIs are relative to *https://inventory.dearsystems.com/ExternalApi/v2*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_account**](InventoryApi.md#create_account) | **POST** /ref/account | Allows you to create an Account
-[**create_customer**](InventoryApi.md#create_customer) | **POST** /customer | Allows you to create a customer
-[**create_payment_term**](InventoryApi.md#create_payment_term) | **POST** /ref/paymentterm | Allows you to create a payment term
-[**create_sale_invoice**](InventoryApi.md#create_sale_invoice) | **POST** /sale/invoice | Allows you to create a sale invoice
-[**create_sale_order**](InventoryApi.md#create_sale_order) | **POST** /sale/order | Allows you to create a Sale Order
-[**create_sale_payment**](InventoryApi.md#create_sale_payment) | **POST** /sale/payment | Allows you to create a Sale Payment
-[**create_sale_quote**](InventoryApi.md#create_sale_quote) | **POST** /sale/quote | Allows you to create a Sale Quote
-[**create_tax**](InventoryApi.md#create_tax) | **POST** /ref/tax | Allows you to create a tax
-[**create_webhook**](InventoryApi.md#create_webhook) | **POST** /webhooks | Allows you to create a Webhook
-[**delete_account**](InventoryApi.md#delete_account) | **DELETE** /ref/account | Allows you to delete an Account
-[**delete_payment_term**](InventoryApi.md#delete_payment_term) | **DELETE** /ref/paymentterm | Allows you to delete a payment term
-[**delete_sale_invoice**](InventoryApi.md#delete_sale_invoice) | **DELETE** /sale/invoice | Allows you to delete a sale invoice
-[**delete_sale_payment**](InventoryApi.md#delete_sale_payment) | **DELETE** /sale/payment | Allows you to delete a sale payment
-[**delete_webhook**](InventoryApi.md#delete_webhook) | **DELETE** /webhooks | Allows you to delete a webhook
-[**get_accounts**](InventoryApi.md#get_accounts) | **GET** /ref/account | Allows you to retrieve the Chart of Accounts
-[**get_carriers**](InventoryApi.md#get_carriers) | **GET** /ref/carrier | Allows you to retrieve the carriers
-[**get_customers**](InventoryApi.md#get_customers) | **GET** /customer | Allows you to retrieve the customers
-[**get_locations**](InventoryApi.md#get_locations) | **GET** /ref/location | Allows you to retrieve the locations
-[**get_me**](InventoryApi.md#get_me) | **GET** /me | Allows you to retrieve your information
-[**get_me_contacts**](InventoryApi.md#get_me_contacts) | **GET** /me/contacts | Allows you to retrieve the me contacts (Sales Representatives)
-[**get_payment_terms**](InventoryApi.md#get_payment_terms) | **GET** /ref/paymentterm | Allows you to retrieve the payment terms
-[**get_price_tiers**](InventoryApi.md#get_price_tiers) | **GET** /ref/priceTier | Allows you to retrieve the Price Tiers
-[**get_sale**](InventoryApi.md#get_sale) | **GET** /sale | Allows you to retrieve the Sale
-[**get_sale_invoices**](InventoryApi.md#get_sale_invoices) | **GET** /sale/invoice | Allows you to retrieve the sale invoices
-[**get_sale_list**](InventoryApi.md#get_sale_list) | **GET** /saleList | Allows you to retrieve the Sales based on conditions
-[**get_sale_order**](InventoryApi.md#get_sale_order) | **GET** /sale/order | Allows you to retrieve the Sale Order
-[**get_sale_payment**](InventoryApi.md#get_sale_payment) | **GET** /sale/payment | Allows you to retrieve the Sale Payments
-[**get_sale_quote**](InventoryApi.md#get_sale_quote) | **GET** /sale/quote | Allows you to retrieve the Sale Quote
-[**get_taxes**](InventoryApi.md#get_taxes) | **GET** /ref/tax | Allows you to retrieve the taxes
-[**get_webhooks**](InventoryApi.md#get_webhooks) | **GET** /webhooks | Allows you to retrieve the Webhooks
-[**update_account**](InventoryApi.md#update_account) | **PUT** /ref/account | Allows you to update an Account
-[**update_customer**](InventoryApi.md#update_customer) | **PUT** /customer | Allows you to update a customer
-[**update_payment_term**](InventoryApi.md#update_payment_term) | **PUT** /ref/paymentterm | Allows you to update a payment term
-[**update_sale_payment**](InventoryApi.md#update_sale_payment) | **PUT** /sale/payment | Allows you to update a sale payment
-[**update_tax**](InventoryApi.md#update_tax) | **PUT** /ref/tax | Allows you to update a tax
-[**update_webhook**](InventoryApi.md#update_webhook) | **PUT** /webhooks | Allows you to update a webhook
-
-
+| Method                                                           | HTTP request                 | Description                                                    |
+| ---------------------------------------------------------------- | ---------------------------- | -------------------------------------------------------------- |
+| [**create_account**](InventoryApi.md#create_account)             | **POST** /ref/account        | Allows you to create an Account                                |
+| [**create_attribute_set**](InventoryApi.md#create_attribute_set) | **POST** /ref/attributeset   | Allows you to create an attribute set                          |
+| [**create_customer**](InventoryApi.md#create_customer)           | **POST** /customer           | Allows you to create a customer                                |
+| [**create_payment_term**](InventoryApi.md#create_payment_term)   | **POST** /ref/paymentterm    | Allows you to create a payment term                            |
+| [**create_sale_invoice**](InventoryApi.md#create_sale_invoice)   | **POST** /sale/invoice       | Allows you to create a sale invoice                            |
+| [**create_sale_order**](InventoryApi.md#create_sale_order)       | **POST** /sale/order         | Allows you to create a Sale Order                              |
+| [**create_sale_payment**](InventoryApi.md#create_sale_payment)   | **POST** /sale/payment       | Allows you to create a Sale Payment                            |
+| [**create_sale_quote**](InventoryApi.md#create_sale_quote)       | **POST** /sale/quote         | Allows you to create a Sale Quote                              |
+| [**create_tax**](InventoryApi.md#create_tax)                     | **POST** /ref/tax            | Allows you to create a tax                                     |
+| [**create_webhook**](InventoryApi.md#create_webhook)             | **POST** /webhooks           | Allows you to create a Webhook                                 |
+| [**delete_account**](InventoryApi.md#delete_account)             | **DELETE** /ref/account      | Allows you to delete an Account                                |
+| [**delete_attribute_set**](InventoryApi.md#delete_attribute_set) | **DELETE** /ref/attributeset | Allows you to delete an attribute set                          |
+| [**delete_payment_term**](InventoryApi.md#delete_payment_term)   | **DELETE** /ref/paymentterm  | Allows you to delete a payment term                            |
+| [**delete_sale_invoice**](InventoryApi.md#delete_sale_invoice)   | **DELETE** /sale/invoice     | Allows you to delete a sale invoice                            |
+| [**delete_sale_payment**](InventoryApi.md#delete_sale_payment)   | **DELETE** /sale/payment     | Allows you to delete a sale payment                            |
+| [**delete_webhook**](InventoryApi.md#delete_webhook)             | **DELETE** /webhooks         | Allows you to delete a webhook                                 |
+| [**get_accounts**](InventoryApi.md#get_accounts)                 | **GET** /ref/account         | Allows you to retrieve the Chart of Accounts                   |
+| [**get_attribute_sets**](InventoryApi.md#get_attribute_sets)     | **GET** /ref/attributeset    | Allows you to retrieve the attribute sets                      |
+| [**get_carriers**](InventoryApi.md#get_carriers)                 | **GET** /ref/carrier         | Allows you to retrieve the carriers                            |
+| [**get_customers**](InventoryApi.md#get_customers)               | **GET** /customer            | Allows you to retrieve the customers                           |
+| [**get_locations**](InventoryApi.md#get_locations)               | **GET** /ref/location        | Allows you to retrieve the locations                           |
+| [**get_me**](InventoryApi.md#get_me)                             | **GET** /me                  | Allows you to retrieve your information                        |
+| [**get_me_contacts**](InventoryApi.md#get_me_contacts)           | **GET** /me/contacts         | Allows you to retrieve the me contacts (Sales Representatives) |
+| [**get_payment_terms**](InventoryApi.md#get_payment_terms)       | **GET** /ref/paymentterm     | Allows you to retrieve the payment terms                       |
+| [**get_price_tiers**](InventoryApi.md#get_price_tiers)           | **GET** /ref/priceTier       | Allows you to retrieve the Price Tiers                         |
+| [**get_sale**](InventoryApi.md#get_sale)                         | **GET** /sale                | Allows you to retrieve the Sale                                |
+| [**get_sale_invoices**](InventoryApi.md#get_sale_invoices)       | **GET** /sale/invoice        | Allows you to retrieve the sale invoices                       |
+| [**get_sale_list**](InventoryApi.md#get_sale_list)               | **GET** /saleList            | Allows you to retrieve the Sales based on conditions           |
+| [**get_sale_order**](InventoryApi.md#get_sale_order)             | **GET** /sale/order          | Allows you to retrieve the Sale Order                          |
+| [**get_sale_payment**](InventoryApi.md#get_sale_payment)         | **GET** /sale/payment        | Allows you to retrieve the Sale Payments                       |
+| [**get_sale_quote**](InventoryApi.md#get_sale_quote)             | **GET** /sale/quote          | Allows you to retrieve the Sale Quote                          |
+| [**get_taxes**](InventoryApi.md#get_taxes)                       | **GET** /ref/tax             | Allows you to retrieve the taxes                               |
+| [**get_webhooks**](InventoryApi.md#get_webhooks)                 | **GET** /webhooks            | Allows you to retrieve the Webhooks                            |
+| [**update_account**](InventoryApi.md#update_account)             | **PUT** /ref/account         | Allows you to update an Account                                |
+| [**update_attribute_set**](InventoryApi.md#update_attribute_set) | **PUT** /ref/attributeset    | Allows you to update an attribute set                          |
+| [**update_customer**](InventoryApi.md#update_customer)           | **PUT** /customer            | Allows you to update a customer                                |
+| [**update_payment_term**](InventoryApi.md#update_payment_term)   | **PUT** /ref/paymentterm     | Allows you to update a payment term                            |
+| [**update_sale_payment**](InventoryApi.md#update_sale_payment)   | **PUT** /sale/payment        | Allows you to update a sale payment                            |
+| [**update_tax**](InventoryApi.md#update_tax)                     | **PUT** /ref/tax             | Allows you to update a tax                                     |
+| [**update_webhook**](InventoryApi.md#update_webhook)             | **PUT** /webhooks            | Allows you to update a webhook                                 |
 
 ## create_account
 
@@ -84,11 +86,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account** | [**Account**](Account.md)| an Account object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                      | Description                                                                                   | Notes                         |
+| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **account**          | [**Account**](Account.md) | an Account object with properties to create                                                   |
+| **summarize_errors** | **Boolean**               | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -103,6 +104,64 @@ Name | Type | Description  | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+## create_attribute_set
+
+> AttributeSet create_attribute_set(attribute_set, opts)
+
+Allows you to create an attribute set
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+attribute_set = { "Name": "Test set", "Attribute1Name": "List attribute name", "Attribute1Type": "List", "Attribute1Values": "Red, Black, Blue, Aqua", "Attribute2Name": "Check box attribute name", "Attribute2Type": "Checkbox", "Attribute2Values": "", "Attribute3Name": "Text attribute name", "Attribute3Type": "Text", "Attribute3Values": "" } # AttributeSet | an attribute set object with properties to create
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to create an attribute set
+  result = api_instance.create_attribute_set(attribute_set, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->create_attribute_set: #{e}"
+end
+```
+
+### Parameters
+
+| Name                 | Type                                | Description                                                                                   | Notes                         |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **attribute_set**    | [**AttributeSet**](AttributeSet.md) | an attribute set object with properties to create                                             |
+| **summarize_errors** | **Boolean**                         | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
+
+### Return type
+
+[**AttributeSet**](AttributeSet.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ## create_customer
 
@@ -145,11 +204,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer** | [**Customer**](Customer.md)| a customer object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                        | Description                                                                                   | Notes                         |
+| -------------------- | --------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **customer**         | [**Customer**](Customer.md) | a customer object with properties to create                                                   |
+| **summarize_errors** | **Boolean**                 | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -163,7 +221,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_payment_term
 
@@ -206,11 +263,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payment_term** | [**PaymentTerm**](PaymentTerm.md)| a payment term object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                              | Description                                                                                   | Notes                         |
+| -------------------- | --------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **payment_term**     | [**PaymentTerm**](PaymentTerm.md) | a payment term object with properties to create                                               |
+| **summarize_errors** | **Boolean**                       | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -224,7 +280,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_sale_invoice
 
@@ -267,11 +322,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_invoice_post** | [**SaleInvoicePost**](SaleInvoicePost.md)| a Sale Invoice object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                  | Type                                      | Description                                                                                   | Notes                         |
+| --------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **sale_invoice_post** | [**SaleInvoicePost**](SaleInvoicePost.md) | a Sale Invoice object with properties to create                                               |
+| **summarize_errors**  | **Boolean**                               | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -285,7 +339,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_sale_order
 
@@ -328,11 +381,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_order** | [**SaleOrder**](SaleOrder.md)| a Sale Order object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                          | Description                                                                                   | Notes                         |
+| -------------------- | ----------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **sale_order**       | [**SaleOrder**](SaleOrder.md) | a Sale Order object with properties to create                                                 |
+| **summarize_errors** | **Boolean**                   | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -346,7 +398,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_sale_payment
 
@@ -389,11 +440,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_payment** | [**SalePayment**](SalePayment.md)| a Sale Payment object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                              | Description                                                                                   | Notes                         |
+| -------------------- | --------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **sale_payment**     | [**SalePayment**](SalePayment.md) | a Sale Payment object with properties to create                                               |
+| **summarize_errors** | **Boolean**                       | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -407,7 +457,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_sale_quote
 
@@ -450,11 +499,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_quote** | [**SaleQuote**](SaleQuote.md)| a Sale Quote object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                          | Description                                                                                   | Notes                         |
+| -------------------- | ----------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **sale_quote**       | [**SaleQuote**](SaleQuote.md) | a Sale Quote object with properties to create                                                 |
+| **summarize_errors** | **Boolean**                   | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -468,7 +516,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_tax
 
@@ -511,11 +558,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tax** | [**Tax**](Tax.md)| a tax object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type              | Description                                                                                   | Notes                         |
+| -------------------- | ----------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **tax**              | [**Tax**](Tax.md) | a tax object with properties to create                                                        |
+| **summarize_errors** | **Boolean**       | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -529,7 +575,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## create_webhook
 
@@ -572,11 +617,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to create |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                      | Description                                                                                   | Notes                         |
+| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **webhook**          | [**Webhook**](Webhook.md) | a webhook object with properties to create                                                    |
+| **summarize_errors** | **Boolean**               | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -590,7 +634,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## delete_account
 
@@ -632,10 +675,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **code** | **String**| Default is nil | [optional]
+| Name     | Type       | Description    | Notes      |
+| -------- | ---------- | -------------- | ---------- |
+| **code** | **String** | Default is nil | [optional] |
 
 ### Return type
 
@@ -650,6 +692,62 @@ Name | Type | Description  | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+## delete_attribute_set
+
+> Success delete_attribute_set(opts)
+
+Allows you to delete an attribute set
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  id: 'id_example' # String | Default is nil
+}
+
+begin
+  #Allows you to delete an attribute set
+  result = api_instance.delete_attribute_set(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->delete_attribute_set: #{e}"
+end
+```
+
+### Parameters
+
+| Name   | Type       | Description    | Notes      |
+| ------ | ---------- | -------------- | ---------- |
+| **id** | **String** | Default is nil | [optional] |
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ## delete_payment_term
 
@@ -691,10 +789,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional]
+| Name   | Type       | Description    | Notes      |
+| ------ | ---------- | -------------- | ---------- |
+| **id** | **String** | Default is nil | [optional] |
 
 ### Return type
 
@@ -708,7 +805,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_sale_invoice
 
@@ -751,11 +847,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **task_id** | **String**| ID of Sale task to Void or Undo | [optional]
- **void** | **Boolean**| Default is false | [optional] [default to false]
+| Name        | Type        | Description                     | Notes                         |
+| ----------- | ----------- | ------------------------------- | ----------------------------- |
+| **task_id** | **String**  | ID of Sale task to Void or Undo | [optional]                    |
+| **void**    | **Boolean** | Default is false                | [optional] [default to false] |
 
 ### Return type
 
@@ -769,7 +864,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_sale_payment
 
@@ -811,10 +905,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional]
+| Name   | Type       | Description    | Notes      |
+| ------ | ---------- | -------------- | ---------- |
+| **id** | **String** | Default is nil | [optional] |
 
 ### Return type
 
@@ -828,7 +921,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## delete_webhook
 
@@ -870,10 +962,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional]
+| Name   | Type       | Description    | Notes      |
+| ------ | ---------- | -------------- | ---------- |
+| **id** | **String** | Default is nil | [optional] |
 
 ### Return type
 
@@ -887,7 +978,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_accounts
 
@@ -935,16 +1025,15 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **code** | **String**| Default is nil | [optional]
- **name** | **String**| Default is nil | [optional]
- **_class** | **String**| Default is nil | [optional]
- **type** | **String**| Default is nil | [optional]
- **status** | **String**| Default is nil | [optional]
+| Name        | Type       | Description    | Notes                                 |
+| ----------- | ---------- | -------------- | ------------------------------------- |
+| **page**    | **String** | Default is 1   | [optional] [default to &#39;1&#39;]   |
+| **limit**   | **String** | Default is 100 | [optional] [default to &#39;100&#39;] |
+| **code**    | **String** | Default is nil | [optional]                            |
+| **name**    | **String** | Default is nil | [optional]                            |
+| **\_class** | **String** | Default is nil | [optional]                            |
+| **type**    | **String** | Default is nil | [optional]                            |
+| **status**  | **String** | Default is nil | [optional]                            |
 
 ### Return type
 
@@ -959,6 +1048,68 @@ Name | Type | Description  | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+## get_attribute_sets
+
+> AttributeSets get_attribute_sets(opts)
+
+Allows you to retrieve the attribute sets
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+opts = {
+  page: '1', # String | Default is 1
+  limit: '100', # String | Default is 100
+  id: 'id_example', # String | Default is nil
+  name: 'name_example' # String | Default is nil
+}
+
+begin
+  #Allows you to retrieve the attribute sets
+  result = api_instance.get_attribute_sets(opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->get_attribute_sets: #{e}"
+end
+```
+
+### Parameters
+
+| Name      | Type       | Description    | Notes                                 |
+| --------- | ---------- | -------------- | ------------------------------------- |
+| **page**  | **String** | Default is 1   | [optional] [default to &#39;1&#39;]   |
+| **limit** | **String** | Default is 100 | [optional] [default to &#39;100&#39;] |
+| **id**    | **String** | Default is nil | [optional]                            |
+| **name**  | **String** | Default is nil | [optional]                            |
+
+### Return type
+
+[**AttributeSets**](AttributeSets.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ## get_carriers
 
@@ -1003,13 +1154,12 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **carrier_id** | **String**| Only return Carrier with the specific CarrierID | [optional]
- **description** | **String**| Only return Carriers that start with the specific Description | [optional]
+| Name            | Type       | Description                                                   | Notes                                 |
+| --------------- | ---------- | ------------------------------------------------------------- | ------------------------------------- |
+| **page**        | **String** | Default is 1                                                  | [optional] [default to &#39;1&#39;]   |
+| **limit**       | **String** | Default is 100                                                | [optional] [default to &#39;100&#39;] |
+| **carrier_id**  | **String** | Only return Carrier with the specific CarrierID               | [optional]                            |
+| **description** | **String** | Only return Carriers that start with the specific Description | [optional]                            |
 
 ### Return type
 
@@ -1023,7 +1173,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_customers
 
@@ -1072,17 +1221,16 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional]
- **name** | **String**| Default is nil | [optional]
- **contact_filter** | **String**| Default is nil | [optional]
- **modified_since** | **String**| Default is nil | [optional]
- **include_deprecated** | **Boolean**| Default is false | [optional] [default to false]
- **include_product_prices** | **Boolean**| Default is false | [optional] [default to false]
+| Name                       | Type        | Description      | Notes                                 |
+| -------------------------- | ----------- | ---------------- | ------------------------------------- |
+| **page**                   | **String**  | Default is 1     | [optional] [default to &#39;1&#39;]   |
+| **limit**                  | **String**  | Default is 100   | [optional] [default to &#39;100&#39;] |
+| **id**                     | **String**  | Default is nil   | [optional]                            |
+| **name**                   | **String**  | Default is nil   | [optional]                            |
+| **contact_filter**         | **String**  | Default is nil   | [optional]                            |
+| **modified_since**         | **String**  | Default is nil   | [optional]                            |
+| **include_deprecated**     | **Boolean** | Default is false | [optional] [default to false]         |
+| **include_product_prices** | **Boolean** | Default is false | [optional] [default to false]         |
 
 ### Return type
 
@@ -1096,7 +1244,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_locations
 
@@ -1142,14 +1289,13 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional]
- **deprecated** | **Boolean**| Default is false | [optional] [default to false]
- **name** | **String**| Default is nil | [optional]
+| Name           | Type        | Description      | Notes                                 |
+| -------------- | ----------- | ---------------- | ------------------------------------- |
+| **page**       | **String**  | Default is 1     | [optional] [default to &#39;1&#39;]   |
+| **limit**      | **String**  | Default is 100   | [optional] [default to &#39;100&#39;] |
+| **id**         | **String**  | Default is nil   | [optional]                            |
+| **deprecated** | **Boolean** | Default is false | [optional] [default to false]         |
+| **name**       | **String**  | Default is nil   | [optional]                            |
 
 ### Return type
 
@@ -1163,7 +1309,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_me
 
@@ -1217,7 +1362,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## get_me_contacts
 
 > MeContacts get_me_contacts
@@ -1270,7 +1414,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## get_payment_terms
 
 > PaymentTerms get_payment_terms(opts)
@@ -1317,16 +1460,15 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional]
- **name** | **String**| Default is nil | [optional]
- **method** | **String**| Default is nil | [optional]
- **is_active** | **Boolean**| Default is nil | [optional]
- **is_default** | **Boolean**| Default is nil | [optional]
+| Name           | Type        | Description    | Notes                                 |
+| -------------- | ----------- | -------------- | ------------------------------------- |
+| **page**       | **String**  | Default is 1   | [optional] [default to &#39;1&#39;]   |
+| **limit**      | **String**  | Default is 100 | [optional] [default to &#39;100&#39;] |
+| **id**         | **String**  | Default is nil | [optional]                            |
+| **name**       | **String**  | Default is nil | [optional]                            |
+| **method**     | **String**  | Default is nil | [optional]                            |
+| **is_active**  | **Boolean** | Default is nil | [optional]                            |
+| **is_default** | **Boolean** | Default is nil | [optional]                            |
 
 ### Return type
 
@@ -1340,7 +1482,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_price_tiers
 
@@ -1394,7 +1535,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## get_sale
 
 > Sale get_sale(opts)
@@ -1438,13 +1578,12 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Default is nil | [optional]
- **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
- **hide_inventory_movements** | **Boolean**| Hide inventory movements (Default &#x3D; false) | [optional] [default to false]
- **include_transactions** | **Boolean**| Show related transactions (Default &#x3D; false) | [optional] [default to false]
+| Name                           | Type        | Description                                      | Notes                         |
+| ------------------------------ | ----------- | ------------------------------------------------ | ----------------------------- |
+| **id**                         | **String**  | Default is nil                                   | [optional]                    |
+| **combine_additional_charges** | **Boolean** | Show additional charges in &#39;Lines&#39; array | [optional] [default to false] |
+| **hide_inventory_movements**   | **Boolean** | Hide inventory movements (Default &#x3D; false)  | [optional] [default to false] |
+| **include_transactions**       | **Boolean** | Show related transactions (Default &#x3D; false) | [optional] [default to false] |
 
 ### Return type
 
@@ -1458,7 +1597,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_sale_invoices
 
@@ -1502,12 +1640,11 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional]
- **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
- **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
+| Name                           | Type        | Description                                      | Notes                         |
+| ------------------------------ | ----------- | ------------------------------------------------ | ----------------------------- |
+| **sale_id**                    | **String**  | Unique DEAR Sale ID                              | [optional]                    |
+| **combine_additional_charges** | **Boolean** | Show additional charges in &#39;Lines&#39; array | [optional] [default to false] |
+| **include_product_info**       | **Boolean** | Show all used products in additional array       | [optional] [default to false] |
 
 ### Return type
 
@@ -1521,7 +1658,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_sale_list
 
@@ -1579,26 +1715,25 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **search** | **String**| Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber | [optional]
- **created_since** | **DateTime**| Only return sales created after specified date. Date must follow ISO 8601 format. | [optional]
- **updated_since** | **DateTime**| Only return sales changed after specified date. Date must follow ISO 8601 format. | [optional]
- **ship_by** | **DateTime**| Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format. | [optional]
- **quote_status** | **String**| Only return sales with specified quote status | [optional]
- **order_status** | **String**| Only return sales with specified order status | [optional]
- **combined_pick_status** | **String**| Only return sales with specified CombinedPickingStatus | [optional]
- **combined_pack_status** | **String**| Only return sales with specified CombinedPackingStatus | [optional]
- **combined_shipping_status** | **String**| Only return sales with specified CombinedShippingStatus | [optional]
- **combined_invoice_status** | **String**| Only return sales with specified CombinedInvoiceStatus | [optional]
- **credit_note_status** | **String**| Only return sales with specified credit note status | [optional]
- **external_id** | **String**| Only return sales with specified External ID | [optional]
- **status** | **String**| Default is nil | [optional]
- **ready_for_shipping** | **Boolean**| Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping | [optional]
- **order_location_id** | **String**| Only return sales with specified Order Location ID | [optional]
+| Name                         | Type         | Description                                                                                                                                             | Notes                                 |
+| ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **page**                     | **String**   | Default is 1                                                                                                                                            | [optional] [default to &#39;1&#39;]   |
+| **limit**                    | **String**   | Default is 100                                                                                                                                          | [optional] [default to &#39;100&#39;] |
+| **search**                   | **String**   | Only return sales with search value contained in one of these fields: OrderNumber, Status, Customer, invoiceNumber, CustomerReference, CreditNoteNumber | [optional]                            |
+| **created_since**            | **DateTime** | Only return sales created after specified date. Date must follow ISO 8601 format.                                                                       | [optional]                            |
+| **updated_since**            | **DateTime** | Only return sales changed after specified date. Date must follow ISO 8601 format.                                                                       | [optional]                            |
+| **ship_by**                  | **DateTime** | Only return sales with Ship By date on or before specified date, with not authorised Shipment. Date must follow ISO 8601 format.                        | [optional]                            |
+| **quote_status**             | **String**   | Only return sales with specified quote status                                                                                                           | [optional]                            |
+| **order_status**             | **String**   | Only return sales with specified order status                                                                                                           | [optional]                            |
+| **combined_pick_status**     | **String**   | Only return sales with specified CombinedPickingStatus                                                                                                  | [optional]                            |
+| **combined_pack_status**     | **String**   | Only return sales with specified CombinedPackingStatus                                                                                                  | [optional]                            |
+| **combined_shipping_status** | **String**   | Only return sales with specified CombinedShippingStatus                                                                                                 | [optional]                            |
+| **combined_invoice_status**  | **String**   | Only return sales with specified CombinedInvoiceStatus                                                                                                  | [optional]                            |
+| **credit_note_status**       | **String**   | Only return sales with specified credit note status                                                                                                     | [optional]                            |
+| **external_id**              | **String**   | Only return sales with specified External ID                                                                                                            | [optional]                            |
+| **status**                   | **String**   | Default is nil                                                                                                                                          | [optional]                            |
+| **ready_for_shipping**       | **Boolean**  | Only return sales with &#39;Authorised&#39; pack and not &#39;Authorised&#39; shipping                                                                  | [optional]                            |
+| **order_location_id**        | **String**   | Only return sales with specified Order Location ID                                                                                                      | [optional]                            |
 
 ### Return type
 
@@ -1612,7 +1747,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_sale_order
 
@@ -1656,12 +1790,11 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional]
- **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
- **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
+| Name                           | Type        | Description                                      | Notes                         |
+| ------------------------------ | ----------- | ------------------------------------------------ | ----------------------------- |
+| **sale_id**                    | **String**  | Unique DEAR Sale ID                              | [optional]                    |
+| **combine_additional_charges** | **Boolean** | Show additional charges in &#39;Lines&#39; array | [optional] [default to false] |
+| **include_product_info**       | **Boolean** | Show all used products in additional array       | [optional] [default to false] |
 
 ### Return type
 
@@ -1675,7 +1808,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_sale_payment
 
@@ -1717,10 +1849,9 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional]
+| Name        | Type       | Description         | Notes      |
+| ----------- | ---------- | ------------------- | ---------- |
+| **sale_id** | **String** | Unique DEAR Sale ID | [optional] |
 
 ### Return type
 
@@ -1734,7 +1865,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_sale_quote
 
@@ -1778,12 +1908,11 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_id** | **String**| Unique DEAR Sale ID | [optional]
- **combine_additional_charges** | **Boolean**| Show additional charges in &#39;Lines&#39; array | [optional] [default to false]
- **include_product_info** | **Boolean**| Show all used products in additional array | [optional] [default to false]
+| Name                           | Type        | Description                                      | Notes                         |
+| ------------------------------ | ----------- | ------------------------------------------------ | ----------------------------- |
+| **sale_id**                    | **String**  | Unique DEAR Sale ID                              | [optional]                    |
+| **combine_additional_charges** | **Boolean** | Show additional charges in &#39;Lines&#39; array | [optional] [default to false] |
+| **include_product_info**       | **Boolean** | Show all used products in additional array       | [optional] [default to false] |
 
 ### Return type
 
@@ -1797,7 +1926,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_taxes
 
@@ -1846,17 +1974,16 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **String**| Default is 1 | [optional] [default to &#39;1&#39;]
- **limit** | **String**| Default is 100 | [optional] [default to &#39;100&#39;]
- **id** | **String**| Default is nil | [optional]
- **name** | **String**| Default is nil | [optional]
- **is_active** | **Boolean**| Default is nil | [optional]
- **is_tax_for_sale** | **Boolean**| Default is nil | [optional]
- **is_tax_for_purchase** | **Boolean**| Default is nil | [optional]
- **account** | **String**| Default is nil | [optional]
+| Name                    | Type        | Description    | Notes                                 |
+| ----------------------- | ----------- | -------------- | ------------------------------------- |
+| **page**                | **String**  | Default is 1   | [optional] [default to &#39;1&#39;]   |
+| **limit**               | **String**  | Default is 100 | [optional] [default to &#39;100&#39;] |
+| **id**                  | **String**  | Default is nil | [optional]                            |
+| **name**                | **String**  | Default is nil | [optional]                            |
+| **is_active**           | **Boolean** | Default is nil | [optional]                            |
+| **is_tax_for_sale**     | **Boolean** | Default is nil | [optional]                            |
+| **is_tax_for_purchase** | **Boolean** | Default is nil | [optional]                            |
+| **account**             | **String**  | Default is nil | [optional]                            |
 
 ### Return type
 
@@ -1870,7 +1997,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
 
 ## get_webhooks
 
@@ -1924,7 +2050,6 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-
 ## update_account
 
 > Accounts update_account(account, opts)
@@ -1966,11 +2091,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account** | [**Account**](Account.md)| an Account object with properties to update |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                      | Description                                                                                   | Notes                         |
+| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **account**          | [**Account**](Account.md) | an Account object with properties to update                                                   |
+| **summarize_errors** | **Boolean**               | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -1985,6 +2109,64 @@ Name | Type | Description  | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+## update_attribute_set
+
+> AttributeSet update_attribute_set(attribute_set, opts)
+
+Allows you to update an attribute set
+
+### Example
+
+```ruby
+# load the gem
+require 'dear-inventory-ruby'
+# setup authorization
+DearInventoryRuby.configure do |config|
+  # Configure API key authorization: accountID
+  config.api_key['api-auth-accountid'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-accountid'] = 'Bearer'
+
+  # Configure API key authorization: appKey
+  config.api_key['api-auth-applicationkey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['api-auth-applicationkey'] = 'Bearer'
+end
+
+api_instance = DearInventoryRuby::InventoryApi.new
+attribute_set = { "ID": "0ba27d98-42ca-4bf6-9b9e-9f71538bd53d", "Name": "Test set name", "Attribute1Name": "List attribute name", "Attribute1Type": "List", "Attribute1Values": "Red, Black, Blue, Aqua", "Attribute2Name": "Check box attribute name", "Attribute2Type": "Checkbox", "Attribute2Values": "", "Attribute3Name": "Text attribute name", "Attribute3Type": "Text", "Attribute3Values": "", "Attribute4Name": "Additional attribute", "Attribute4Type": "Text", "Attribute4Values": "", "Attribute5Name": "Hidden attribute name", "Attribute5Type": "Not used", "Attribute5Values": "", "Attribute6Name": "Additional attribute name 2", "Attribute6Type": "Checkbox", "Attribute6Values": "" } # AttributeSet | an attribute set object with properties to update
+opts = {
+  summarize_errors: false # Boolean | If false return 200 OK and mix of successfully created objects and any with validation errors
+}
+
+begin
+  #Allows you to update an attribute set
+  result = api_instance.update_attribute_set(attribute_set, opts)
+  p result
+rescue DearInventoryRuby::ApiError => e
+  puts "Exception when calling InventoryApi->update_attribute_set: #{e}"
+end
+```
+
+### Parameters
+
+| Name                 | Type                                | Description                                                                                   | Notes                         |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **attribute_set**    | [**AttributeSet**](AttributeSet.md) | an attribute set object with properties to update                                             |
+| **summarize_errors** | **Boolean**                         | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
+
+### Return type
+
+[**AttributeSet**](AttributeSet.md)
+
+### Authorization
+
+[accountID](../README.md#accountID), [appKey](../README.md#appKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ## update_customer
 
@@ -2027,11 +2209,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer** | [**Customer**](Customer.md)| a customer object with properties to update |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                        | Description                                                                                   | Notes                         |
+| -------------------- | --------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **customer**         | [**Customer**](Customer.md) | a customer object with properties to update                                                   |
+| **summarize_errors** | **Boolean**                 | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -2045,7 +2226,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_payment_term
 
@@ -2088,11 +2268,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payment_term** | [**PaymentTerm**](PaymentTerm.md)| a payment term object with properties to update |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                              | Description                                                                                   | Notes                         |
+| -------------------- | --------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **payment_term**     | [**PaymentTerm**](PaymentTerm.md) | a payment term object with properties to update                                               |
+| **summarize_errors** | **Boolean**                       | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -2106,7 +2285,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_sale_payment
 
@@ -2149,11 +2327,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sale_payment** | [**SalePayment**](SalePayment.md)| a sale payment object with properties to update |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                              | Description                                                                                   | Notes                         |
+| -------------------- | --------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **sale_payment**     | [**SalePayment**](SalePayment.md) | a sale payment object with properties to update                                               |
+| **summarize_errors** | **Boolean**                       | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -2167,7 +2344,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_tax
 
@@ -2210,11 +2386,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tax** | [**Tax**](Tax.md)| a tax object with properties to update |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type              | Description                                                                                   | Notes                         |
+| -------------------- | ----------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **tax**              | [**Tax**](Tax.md) | a tax object with properties to update                                                        |
+| **summarize_errors** | **Boolean**       | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -2228,7 +2403,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-
 
 ## update_webhook
 
@@ -2271,11 +2445,10 @@ end
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook** | [**Webhook**](Webhook.md)| a webhook object with properties to update |
- **summarize_errors** | **Boolean**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
+| Name                 | Type                      | Description                                                                                   | Notes                         |
+| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| **webhook**          | [**Webhook**](Webhook.md) | a webhook object with properties to update                                                    |
+| **summarize_errors** | **Boolean**               | If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false] |
 
 ### Return type
 
@@ -2289,4 +2462,3 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
-

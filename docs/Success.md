@@ -2,9 +2,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**success** | **Boolean** | Success | [optional]
+| Name        | Type        | Description | Notes      |
+| ----------- | ----------- | ----------- | ---------- |
+| **success** | **Boolean** | Success     | [optional] |
 
 ## Code Sample
 
@@ -13,5 +13,3 @@ require 'DearInventoryRuby'
 
 instance = DearInventoryRuby::Success.new(success: nil)
 ```
-
-

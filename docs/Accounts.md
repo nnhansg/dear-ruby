@@ -2,11 +2,11 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**total** | **String** | Total | [optional]
-**page** | **String** | Page | [optional]
-**accounts_list** | [**Array&lt;Account&gt;**](Account.md) | Array of Accounts | [optional]
+| Name              | Type                                   | Description       | Notes      |
+| ----------------- | -------------------------------------- | ----------------- | ---------- |
+| **total**         | **String**                             | Total             | [optional] |
+| **page**          | **String**                             | Page              | [optional] |
+| **accounts_list** | [**Array&lt;Account&gt;**](Account.md) | Array of Accounts | [optional] |
 
 ## Code Sample
 
@@ -17,5 +17,3 @@ instance = DearInventoryRuby::Accounts.new(total: nil,
                                  page: nil,
                                  accounts_list: nil)
 ```
-
-

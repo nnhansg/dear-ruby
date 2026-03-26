@@ -2,10 +2,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**key** | **String** | Key | [optional]
-**value** | **String** | Value | [optional]
+| Name      | Type       | Description | Notes      |
+| --------- | ---------- | ----------- | ---------- |
+| **key**   | **String** | Key         | [optional] |
+| **value** | **String** | Value       | [optional] |
 
 ## Code Sample
 
@@ -15,5 +15,3 @@ require 'DearInventoryRuby'
 instance = DearInventoryRuby::ExternalHeader.new(key: nil,
                                  value: nil)
 ```
-
-
